@@ -7,13 +7,32 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PrisonerEditPage">
-
+    <Page.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource AuthButton}"></Style>
+    </Page.Resources>
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Content="Заключённый" Style="{StaticResource PageMainLabel}"/>
-            <controls:CuteTextBox x:Name="" Title=""/>
+            <controls:CuteTextBox x:Name="tbSecondName" Title="Фамилия"/>
+            <controls:CuteTextBox x:Name="tbFirstName" Title="Имя"/>
+            <controls:CuteTextBox x:Name="tbMiddleName" Title="Отчество"/>
+            <DatePickerTextBox x:Name="dpBirthdate"/>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="cbPassport" Style="{StaticResource ComboboxStyle}" Width="150"/>
+                <Button Width="50" Content="+"/>
+            </StackPanel>
+            <DatePickerTextBox x:Name="dpIndate"/>
+            <DatePickerTextBox x:Name="dpFreedate"/>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="cbAdress" Style="{StaticResource ComboboxStyle}" Width="150"/>
+                <Button Width="50" Content="+"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+            <Image x:Name="iPrisonerPhoto" Height="80" Width="80"/>
+                <Button x:Name="bSelectImage" Height="40" Width="50" Content="..."/>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
-                <Button Content="Отмена" Width="95" Margin="0 0 5 0" Style="{StaticResource AuthButton}"/>
+                <Button Content="Отмена" Width="95" Margin="0 0 5 0"/>
                 <Button Content="Добавить" Style="{StaticResource AuthButtonAlterStyle}" Width="95"/>
             </StackPanel>
         </StackPanel>
