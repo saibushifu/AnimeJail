@@ -18,16 +18,16 @@ using System.Windows.Shapes;
 namespace AnimeJail.App.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для EmployeeViewPage.xaml
+    /// Логика взаимодействия для AddressViewPage.xaml
     /// </summary>
-    public partial class EmployeeViewPage : Page
+    public partial class AddressViewPage : Page
     {
-        public EmployeeViewPage()
+        public AddressViewPage()
         {
             InitializeComponent();
         }
 
-        private void EmployeeAddButtonClick(object sender, RoutedEventArgs e) =>
-            new PopupWindow(new EmployeeEditPage());
+        private void AddressAddButtonClick(object sender, RoutedEventArgs e) =>
+            new PopupWindow(new AddressEditPage());
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AnimeJail.App.Pages.PopupPages;
+using AnimeJail.App.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,16 +15,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AnimeJail.App.Pages.PopupPages
+namespace AnimeJail.App.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddressViewPage.xaml
+    /// Логика взаимодействия для PassportViewPage.xaml
     /// </summary>
-    public partial class AddressViewPage : Page
+    public partial class PassportViewPage : Page
     {
-        public AddressViewPage()
+        public PassportViewPage()
         {
             InitializeComponent();
         }
+
+        private void PassoprtAddButtonClick(object sender, RoutedEventArgs e) =>
+            new PopupWindow(new PassportEditPage());
     }
 }

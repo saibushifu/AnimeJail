@@ -19,9 +19,10 @@ namespace AnimeJail.App.Windows
     /// </summary>
     public partial class PopupWindow : Window
     {
-        public PopupWindow()
+        public PopupWindow(Page showPage)
         {
             InitializeComponent();
+            PopupPagesNavigation.Navigate(showPage);
         }
     }
 }

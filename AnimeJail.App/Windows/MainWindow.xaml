@@ -20,13 +20,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <Button Content="Камеры"/>
-            <Button Content="Заключённые"/>
-            <Button Content="Сотрудники"/>
-            <Button Content="Статьи"/>
-            <Button Content="Адреса"/>
-            <Button Content="Паспорта"/>
+            <Button Content="Камеры" Click="PrisonCellButtonClick"/>
+            <Button Content="Заключённые" Click="PrisonerButtonClick"/>
+            <Button Content="Сотрудники" Click="EmployeeButtonClick"/>
+            <Button Content="Статьи" Click="ArticleButtonClick"/>
+            <Button Content="Адреса" Click="AddressButtonClick"/>
+            <Button Content="Паспорта" Click="PassportButtonClick"/>
+            <Button Content="Пользователи" Click="UserButtonClick"/>
         </StackPanel>
-        <Frame Grid.Row="1" Name="mainFrame"/>
+        <Frame Grid.Row="1" x:Name="PagesNavigation" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Фунциональное окно" Height="450" Width="800">
     <Grid>
-        
+        <Frame x:Name="PopupPagesNavigation" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

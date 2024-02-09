@@ -358,6 +358,15 @@
     </Style>
     <!-- End: Small button -->
 
+    
+    <!-- Start: MainEditStackPanel -->
+    <Style x:Key="MainEditStackPanel" TargetType="{x:Type StackPanel}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Width" Value="200"/>
+    </Style>
+    <!-- End: MainEditStackPanel -->
+    
     <Style x:Key="SmallEditButton" TargetType="{x:Type Button}" BasedOn="{StaticResource AuthButton}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">

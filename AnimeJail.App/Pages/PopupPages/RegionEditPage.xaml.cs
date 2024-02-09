@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace AnimeJail.App.Pages.PopupPages
 {
     /// <summary>
-    /// Логика взаимодействия для PassportViewPage.xaml
+    /// Логика взаимодействия для RegionEditPage.xaml
     /// </summary>
-    public partial class PassportViewPage : Page
+    public partial class RegionEditPage : Page
     {
-        public PassportViewPage()
+        public RegionEditPage()
         {
             InitializeComponent();
         }

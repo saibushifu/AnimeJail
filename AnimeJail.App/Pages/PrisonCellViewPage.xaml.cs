@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AnimeJail.App.Pages.PopupPages;
+using AnimeJail.App.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +26,8 @@ namespace AnimeJail.App.Pages
         {
             InitializeComponent();
         }
+
+        private void PrisonCellAddButtonClick(object sender, RoutedEventArgs e) =>
+            new PopupWindow(new PrisonCellEditPage());
     }
 }

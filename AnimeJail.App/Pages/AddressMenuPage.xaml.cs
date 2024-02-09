@@ -1,6 +1,4 @@
-﻿using AnimeJail.App.Pages.PopupPages;
-using AnimeJail.App.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,16 +16,13 @@ using System.Windows.Shapes;
 namespace AnimeJail.App.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для EmployeeViewPage.xaml
+    /// Логика взаимодействия для AddressMenuPage.xaml
     /// </summary>
-    public partial class EmployeeViewPage : Page
+    public partial class AddressMenuPage : Page
     {
-        public EmployeeViewPage()
+        public AddressMenuPage()
         {
             InitializeComponent();
         }
-
-        private void EmployeeAddButtonClick(object sender, RoutedEventArgs e) =>
-            new PopupWindow(new EmployeeEditPage());
     }
 }
