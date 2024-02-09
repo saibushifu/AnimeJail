@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Pictures\jail.png" />
+    <None Remove="Styles\Fonts\Exo2-Medium.ttf" />
+    <None Remove="Styles\Fonts\MontserratAlternates-Bold.ttf" />
+    <None Remove="Styles\Fonts\MontserratAlternates-ExtraLight.ttf" />
+    <None Remove="Styles\Fonts\MontserratAlternates-Medium.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql" Version="8.0.1" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Pictures\jail.png" />
+    <Resource Include="Styles\Fonts\Exo2-Medium.ttf" />
+    <Resource Include="Styles\Fonts\MontserratAlternates-Bold.ttf" />
+    <Resource Include="Styles\Fonts\MontserratAlternates-ExtraLight.ttf" />
+    <Resource Include="Styles\Fonts\MontserratAlternates-Medium.ttf" />
+  </ItemGroup>
+
+</Project>
