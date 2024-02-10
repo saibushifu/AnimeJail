@@ -43,12 +43,17 @@ namespace AnimeJail.App.Windows
             PagesNavigation.Navigate(new ArticleViewPage());
 
         private void AddressButtonClick(object sender, RoutedEventArgs e) =>
-            PagesNavigation.Navigate(new AddressViewPage());
+            PagesNavigation.Navigate(new AddressMenuPage());
 
         private void PassportButtonClick(object sender, RoutedEventArgs e) =>
             PagesNavigation.Navigate(new PassportViewPage());
 
         private void UserButtonClick(object sender, RoutedEventArgs e) =>
             PagesNavigation.Navigate(new UserViewPage());
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

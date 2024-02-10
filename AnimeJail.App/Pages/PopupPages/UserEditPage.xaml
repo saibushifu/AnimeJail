@@ -11,8 +11,13 @@
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Style="{StaticResource PageMainLabel}" Content="Пользователь"/>
-            <controls:CuteTextBox x:Name="" Title=""/>
-
+            <controls:CuteTextBox x:Name="tbUsername" Title="Логин"/>
+            <controls:CuteTextBox x:Name="tbPassword" Title="Пароль"/>
+            <ComboBox Style="{StaticResource ComboboxStyle}" x:Name="cbEmployee"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
+                <Button Content="Отмена" Width="95" Margin="0 0 5 0" Style="{StaticResource AuthButton}"/>
+                <Button Content="Добавить" Style="{StaticResource AuthButtonAlterStyle}" Width="95"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

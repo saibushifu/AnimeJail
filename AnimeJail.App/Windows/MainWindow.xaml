@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimeJail.App.Windows"
         mc:Ignorable="d"
-        Title="Рабочее окно" Height="450" Width="800">
+        Title="Рабочее окно" Height="450" Width="800" Icon="/Assets/Pictures/jail.png" WindowStartupLocation="CenterOwner" Closed="Window_Closed">
     <Window.Resources>
         <ResourceDictionary>
             <Style TargetType="Button" BasedOn="{StaticResource AuthButton}">
@@ -19,7 +19,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" MaxWidth="1200">
             <Button Content="Камеры" Click="PrisonCellButtonClick"/>
             <Button Content="Заключённые" Click="PrisonerButtonClick"/>
             <Button Content="Сотрудники" Click="EmployeeButtonClick"/>
@@ -28,6 +28,6 @@
             <Button Content="Паспорта" Click="PassportButtonClick"/>
             <Button Content="Пользователи" Click="UserButtonClick"/>
         </StackPanel>
-        <Frame Grid.Row="1" x:Name="PagesNavigation" NavigationUIVisibility="Hidden"/>
+        <Frame Grid.Row="1" x:Name="PagesNavigation" MaxWidth="1200" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

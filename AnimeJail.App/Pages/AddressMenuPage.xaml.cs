@@ -24,5 +24,14 @@ namespace AnimeJail.App.Pages
         {
             InitializeComponent();
         }
+
+        private void AddressButtonClick(object sender, RoutedEventArgs e) =>
+            NavigationService.Navigate(new AddressViewPage());
+        private void CountryButtonClick(object sender, RoutedEventArgs e) =>
+            NavigationService.Navigate(new CountryViewPage());
+        private void RegionButtonClick(object sender, RoutedEventArgs e) =>
+            NavigationService.Navigate(new RegionViewPage());
+        private void CityButtonClick(object sender, RoutedEventArgs e) =>
+            NavigationService.Navigate(new CityViewPage());
     }
 }
