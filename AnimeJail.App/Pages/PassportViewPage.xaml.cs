@@ -28,6 +28,6 @@ namespace AnimeJail.App.Pages
         }
 
         private void PassoprtAddButtonClick(object sender, RoutedEventArgs e) =>
-            new PopupWindow(new PassportEditPage());
+            new PopupWindow(new PassportEditPage()).Show();
     }
 }

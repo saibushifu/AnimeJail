@@ -1,4 +1,5 @@
 ﻿using AnimeJail.App.Pages.PopupPages;
+using AnimeJail.App.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,6 @@ namespace AnimeJail.App.Pages
         }
 
         private void CountryAddButtonClick(object sender, RoutedEventArgs e)=>
-            NavigationService.Navigate(new CountryEditPage());
+             new PopupWindow(new CountryEditPage()).Show();
     }
 }

@@ -18,16 +18,17 @@ using System.Windows.Shapes;
 namespace AnimeJail.App.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для EmployeeViewPage.xaml
+    /// Логика взаимодействия для WorkPositionViewPage.xaml
     /// </summary>
-    public partial class EmployeeViewPage : Page
+    public partial class WorkPositionViewPage : Page
     {
-        public EmployeeViewPage()
+        public WorkPositionViewPage()
         {
             InitializeComponent();
+            dgWorkPositions.ItemsSource = App.Context.WorkPostions.ToList();
         }
 
-        private void EmployeeAddButtonClick(object sender, RoutedEventArgs e) =>
-            new PopupWindow(new EmployeeEditPage()).Show();
+        private void WorkPositionAddButtonClick(object sender, RoutedEventArgs e) => 
+            new PopupWindow(new WorkPositionEditPage()).ShowDialog();
     }
 }

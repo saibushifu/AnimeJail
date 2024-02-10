@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,19 @@ namespace AnimeJail.App.Pages.PopupPages
         public UserEditPage()
         {
             InitializeComponent();
+            cbEmployee.ItemsSource = App.Context.Employees.ToList();
+        }
+
+        private void AddUserButtonClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string login = tbUsername.cText, password = tbPassword.cText;
+                App.Context.Users.Add(new User { Login = login, Password = CryptoFunc.QuickHash(password), EmployeeId = Convert.ToInt32(cbEmployee.SelectedValue) });
+                App.Context.SaveChanges();
+                MessageBox.Show("Операция выполнена успешно!");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

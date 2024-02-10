@@ -28,6 +28,6 @@ namespace AnimeJail.App.Pages
         }
 
         private void PrisonerAddButtonClick(object sender, RoutedEventArgs e) =>
-            new PopupWindow(new PrisonerEditPage());
+            new PopupWindow(new PrisonerEditPage()).Show();
     }
 }

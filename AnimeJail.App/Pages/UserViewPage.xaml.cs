@@ -25,9 +25,10 @@ namespace AnimeJail.App.Pages
         public UserViewPage()
         {
             InitializeComponent();
+            dgUsers.ItemsSource = App.Context.Users.ToList();
         }
 
         private void UserAddButtonClick(object sender, RoutedEventArgs e) =>
-             new PopupWindow(new UserEditPage());
+             new PopupWindow(new UserEditPage()).Show();
     }
 }

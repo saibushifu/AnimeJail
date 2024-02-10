@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AnimeJail.App.Methods;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace AnimeJail.App.Windows
 {
@@ -27,6 +15,16 @@ namespace AnimeJail.App.Windows
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
+            //var ld = new LoginData(tbUsername.cText, tbPassword.PassBox.Password);
+            //if (ld.TryLogin())
+            //{
+            //    new MainWindow().Show();
+            //    this.Hide();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Ошибка входа!\nПроверьте правильность введённых данных.", "Внмание", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //}
             new MainWindow().Show();
             this.Hide();
         }

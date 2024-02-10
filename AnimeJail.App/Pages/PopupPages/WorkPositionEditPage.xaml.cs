@@ -17,23 +17,24 @@ using System.Windows.Shapes;
 namespace AnimeJail.App.Pages.PopupPages
 {
     /// <summary>
-    /// Логика взаимодействия для CountryEditPage.xaml
+    /// Логика взаимодействия для WorkPositionEditPage.xaml
     /// </summary>
-    public partial class CountryEditPage : Page
+    public partial class WorkPositionEditPage : Page
     {
-        public CountryEditPage()
+        public WorkPositionEditPage()
         {
             InitializeComponent();
         }
 
-        private void AddCountryButtonClick(object sender, RoutedEventArgs e)
+        private void AddWorkPositionButtonClick(object sender, RoutedEventArgs e)
         {
             try
             {
-                App.Context.Countries.Add(new Country {Id = Convert.ToInt32(tbId.cText), Name = tbName.cText });
+                App.Context.WorkPostions.Add(new WorkPostion { Id = Convert.ToInt32(tbId.cText), Name = tbName.cText });
                 App.Context.SaveChanges();
+                MessageBox.Show("Сохранение произведено успешно!");
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

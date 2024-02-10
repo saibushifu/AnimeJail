@@ -8,30 +8,43 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EmployeeEditPage">
     <Page.Resources>
-        <Style TargetType="Button" BasedOn="{StaticResource AuthButton}"></Style>
+        <Style TargetType="Button" BasedOn="{StaticResource AuthButton}">
+        </Style>
     </Page.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Content="Сотрудник" Style="{StaticResource PageMainLabel}"/>
             <controls:CuteTextBox x:Name="tbSecondName" Title="Фамилия"/>
             <controls:CuteTextBox x:Name="tbFirstName" Title="Имя"/>
             <controls:CuteTextBox x:Name="tbMiddleName" Title="Отчество"/>
             <StackPanel Orientation="Horizontal">
-                <ComboBox x:Name="cbWorkPosition" Style="{StaticResource ComboboxStyle}" Width="150"/>
-                <Button Width="50" Content="+"/>
+                <StackPanel Width="170">
+                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Должность"/>
+                    <ComboBox x:Name="cbWorkPosition" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id"/>
+                </StackPanel>
+                <Button Style="{StaticResource ComboBoxAddButton}"  Width="30" Height="55" Content="+"/>
             </StackPanel>
-            <DatePickerTextBox x:Name="dpBirthdate"/>
+            <DatePicker x:Name="dpBirthdate"/>
+        </StackPanel>
+        <StackPanel Style="{StaticResource MainEditStackPanel}" Grid.Column="1">
             <controls:CuteTextBox x:Name="tbPhoneNumber" Title="Номер телефона"/>
             <controls:CuteTextBox x:Name="tbEmail" Title="Эл. почта"/>
-            <DatePickerTextBox x:Name="dpHiredate"/>
-            <DatePickerTextBox x:Name="dpDismdate"/>
+            <DatePicker x:Name="dpHiredate"/>
+            <DatePicker x:Name="dpDismdate"/>
             <StackPanel Orientation="Horizontal">
-                <ComboBox x:Name="cbPassport" Style="{StaticResource ComboboxStyle}" Width="150"/>
-                <Button Width="50" Content="+"/>
+                <StackPanel Width="170">
+                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Паспорт"/>
+                    <ComboBox x:Name="cbPassport" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id"/>
+                </StackPanel>
+                <Button Style="{StaticResource ComboBoxAddButton}"  Width="30" Height="55" Content="+"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
                 <Button Content="Отмена" Width="95" Margin="0 0 5 0"/>
-                <Button Content="Добавить" Style="{StaticResource AuthButtonAlterStyle}" Width="95"/>
+                <Button Content="Добавить" Style="{StaticResource AuthButtonAlterStyle}" Width="95" Click="AddEmployeeButtonClick"/>
             </StackPanel>
         </StackPanel>
     </Grid>

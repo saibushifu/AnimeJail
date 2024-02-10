@@ -10,8 +10,8 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
             <Label Style="{StaticResource PageMainLabel}" Content="Аутентификация"/>
-            <controls:CuteTextBox x:Name="LoginTBox" Margin="0 0 0 5" Title="Логин"/>
-            <controls:СutePasswordBox x:Name="passwordBx" Margin="0 0 0 15" Height="35" Title="Пароль"/>
+            <controls:CuteTextBox x:Name="tbUsername" Margin="0 0 0 5" Title="Логин"/>
+            <controls:СutePasswordBox x:Name="tbPassword" Margin="0 0 0 15" Height="35" Title="Пароль"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

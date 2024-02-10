@@ -32,12 +32,11 @@ namespace AnimeJail.App.Windows
         private void PrisonCellButtonClick(object sender, RoutedEventArgs e) =>
             PagesNavigation.Navigate(new PrisonCellViewPage());
         
-
         private void PrisonerButtonClick(object sender, RoutedEventArgs e) =>
             PagesNavigation.Navigate(new PrisonerViewPage());
 
         private void EmployeeButtonClick(object sender, RoutedEventArgs e) =>
-            PagesNavigation.Navigate(new EmployeeViewPage());
+            PagesNavigation.Navigate(new EmployeeMenuPage());
 
         private void ArticleButtonClick(object sender, RoutedEventArgs e) =>
             PagesNavigation.Navigate(new ArticleViewPage());

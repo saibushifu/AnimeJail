@@ -1,8 +1,11 @@
-﻿using System;
+﻿using AnimeJail.App.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using AnimeJail.App.Methods;
 
 namespace AnimeJail.App.Methods
 {
@@ -15,15 +18,10 @@ namespace AnimeJail.App.Methods
             _password = password;
         }
 
-        public bool TryLogin() { 
-            if (true)
-            {
-               return CheckPassword();
-            }
-            return true; 
+        public bool TryLogin() {
+            var user = App.Context.Users.FirstOrDefault(x => x.Login == _username);
+            return user != null ? CheckPassword(user) : false;
         }
-        private bool CheckPassword() { 
-            return false; 
-        }
+        private bool CheckPassword(User user) => user.Password == CryptoFunc.QuickHash(_password);  
     }
 }

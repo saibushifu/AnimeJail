@@ -27,7 +27,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <Grid>
-                        <Border CornerRadius="5,0,0,5" BorderThickness="0" BorderBrush="Black">
+                        <Border CornerRadius="0,0,0,5" BorderThickness="0" BorderBrush="Black">
                             <Border.Background>
                                 <SolidColorBrush Color="LightGray" Opacity="0.5"/>
                             </Border.Background>
@@ -42,7 +42,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
-                    <Border x:Name="border" CornerRadius="0,5,5,0" BorderThickness="0" BorderBrush="Black">
+                    <Border x:Name="border" CornerRadius="0,0,0,0" BorderThickness="0" BorderBrush="Black">
                         <Border.Background>
                             <SolidColorBrush Color="LightGray" Opacity="0.5"/>
                         </Border.Background>
@@ -66,7 +66,7 @@
                             <ColumnDefinition/>
                             <ColumnDefinition MaxWidth="18"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Name="PART_EditableTextBox" Style="{StaticResource ComboboxTextBoxStyle}" Padding="5,0,0,0" Height="{TemplateBinding Height}"/>
+                        <TextBox Name="PART_EditableTextBox" Style="{StaticResource ComboboxTextBoxStyle}" Padding="9,3,0,0" Height="{TemplateBinding Height}"/>
 
                         <ToggleButton Cursor="Hand" Grid.Column="1" Margin="0" Height="{TemplateBinding Height}" Style="{StaticResource ComboboxButtonStyle}" Focusable="False" 
                                           IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press">
@@ -399,5 +399,37 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- Start: ComboBoxHeaderLabel -->
+    <Style TargetType="Label" x:Key="ComboBoxHeaderLabel">
+        <Setter Property="Foreground" Value="{StaticResource LabelForeground}"/>
+        <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Label}">
+                    <Border Name="bd" CornerRadius="5 0 0 0" BorderThickness="0 0 0 0">
+                        <Border.Background>
+                            <SolidColorBrush Color="LightGray" Opacity="0.5"/>
+                        </Border.Background>
+                        <ContentPresenter HorizontalAlignment="Left" Margin="10 5 0 0" VerticalAlignment="Center" x:Name="contentPresenter"/>
+                    </Border>
+                </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+    </Style>
+    <!-- End: ComboBoxHeaderLabel -->
+
+    <!-- Start: ComboBoxAddButton -->
+    <Style TargetType="Button" x:Key="ComboBoxAddButton" BasedOn="{StaticResource AuthButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Name="bd" Background="{DynamicResource PrimaryBlueColor}" CornerRadius="0 5 5 0" BorderThickness="0 0 0 0">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="contentPresenter"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- End: ComboBoxAddButton -->
 
 </ResourceDictionary>
