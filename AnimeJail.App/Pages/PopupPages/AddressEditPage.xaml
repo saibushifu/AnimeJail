@@ -16,17 +16,27 @@
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Content="Адрес" Style="{StaticResource PageMainLabel}"/>
-            <StackPanel Orientation="Horizontal">
-                <controls:CuteTextBox x:Name="cbCountry" Width="150" Title="Страна"/>
-                <Button Width="50" Content="+"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
+                <StackPanel Width="170">
+                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
+                    <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
+                </StackPanel>
+                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddCountryButtonClick"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <controls:CuteTextBox x:Name="cbRegion" Width="150" Title="Регион"/>
-                <Button Width="50" Content="+"/>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
+                <StackPanel Width="170">
+                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Регион"/>
+                    <ComboBox x:Name="cbRegion" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
+                </StackPanel>
+                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <controls:CuteTextBox x:Name="cbCity" Width="150" Title="Город"/>
-                <Button Width="50" Content="+"/>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
+                <StackPanel Width="170">
+                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Город"/>
+                    <ComboBox x:Name="cbCity" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
+                </StackPanel>
+                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
             </StackPanel>
             <controls:CuteTextBox x:Name="tbStreet" Title="Улица"/>
             <controls:CuteTextBox x:Name="tbBuilding" Title="Строение"/>

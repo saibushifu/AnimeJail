@@ -11,26 +11,46 @@
         <Style TargetType="Button" BasedOn="{StaticResource AuthButton}"></Style>
     </Page.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Content="Заключённый" Style="{StaticResource PageMainLabel}"/>
             <controls:CuteTextBox x:Name="tbSecondName" Title="Фамилия"/>
             <controls:CuteTextBox x:Name="tbFirstName" Title="Имя"/>
             <controls:CuteTextBox x:Name="tbMiddleName" Title="Отчество"/>
-            <DatePickerTextBox x:Name="dpBirthdate"/>
-            <StackPanel Orientation="Horizontal">
-                <ComboBox x:Name="cbPassport" Style="{StaticResource ComboboxStyle}" Width="150"/>
-                <Button Width="50" Content="+"/>
+            <DatePicker x:Name="dpBirthdate"/>
+
+
+            
+            <DatePicker x:Name="dpIndate"/>
+            <DatePicker x:Name="dpFreedate"/>
+
+        </StackPanel>
+        <StackPanel Style="{StaticResource MainEditStackPanel}" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
+                <StackPanel Width="170">
+                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Паспорт"/>
+                    <ComboBox x:Name="cbPassport" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id"/>
+                </StackPanel>
+                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
             </StackPanel>
-            <DatePickerTextBox x:Name="dpIndate"/>
-            <DatePickerTextBox x:Name="dpFreedate"/>
-            <StackPanel Orientation="Horizontal">
-                <ComboBox x:Name="cbAdress" Style="{StaticResource ComboboxStyle}" Width="150"/>
-                <Button Width="50" Content="+"/>
+            
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
+                <StackPanel Width="170">
+                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Адрес"/>
+                    <ComboBox x:Name="cbAdress" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id"/>
+                </StackPanel>
+                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
             </StackPanel>
+
+
             <StackPanel Orientation="Horizontal">
-            <Image x:Name="iPrisonerPhoto" Height="80" Width="80"/>
+            <Image x:Name="iPrisonerPhoto" Height="100" Width="100"/>
                 <Button x:Name="bSelectImage" Height="40" Width="50" Content="..."/>
             </StackPanel>
+            
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
                 <Button Content="Отмена" Width="95" Margin="0 0 5 0"/>
                 <Button Content="Добавить" Style="{StaticResource AuthButtonAlterStyle}" Width="95"/>

@@ -13,8 +13,14 @@
             <Label Style="{StaticResource PageMainLabel}" Content="Регион"/>
             <controls:CuteTextBox x:Name="tbId" Title="Идентификатор"/>
             <controls:CuteTextBox x:Name="tbName" Title="Наименование"/>
-            <ComboBox Style="{StaticResource ComboboxStyle}" x:Name="cbCountry"/>
 
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
+                <StackPanel Width="170">
+                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
+                    <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id"/>
+                </StackPanel>
+                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
+            </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
                 <Button Content="Отмена" Width="95" Margin="0 0 5 0" Style="{StaticResource AuthButton}"/>

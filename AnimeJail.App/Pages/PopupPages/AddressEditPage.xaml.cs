@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnimeJail.App.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,14 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             InitializeComponent();
         }
+
+        private void AddCountryButtonClick(object sender, RoutedEventArgs e) => 
+            new PopupWindow(new CountryEditPage()).Show();
+
+        private void AddRegionButtonClick(object sender, RoutedEventArgs e) =>
+            new PopupWindow(new RegionEditPage()).Show();
+
+        private void AddCityButtonClick(object sender, RoutedEventArgs e) =>
+            new PopupWindow(new CityEditPage()).Show();
     }
 }

@@ -17,6 +17,7 @@ public partial class SharpProjectsContext : DbContext
     public SharpProjectsContext(DbContextOptions<SharpProjectsContext> options)
         : base(options)
     {
+        Database.Migrate();
     }
 
     public virtual DbSet<Address> Addresses { get; set; }
