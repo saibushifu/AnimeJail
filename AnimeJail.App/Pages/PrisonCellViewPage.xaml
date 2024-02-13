@@ -18,10 +18,21 @@
             <controls:SearchBox Width="170" Margin="0 8 0 8"/>
             <Button Style="{StaticResource AuthButton}" Content="Добавить" Width="100" Margin="5 0 5 0" Click="PrisonCellAddButtonClick"/>
         </StackPanel>
-        <DataGrid x:Name="" Grid.Row="1" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgPrisonCell" Grid.Row="1" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="" Binding="{Binding }"/>
-                <DataGridTextColumn Header="" Binding="{Binding }"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Тип" Binding="{Binding JailType.Name}"/>
+                <DataGridTextColumn Header="Вместительность" Binding="{Binding Capacity}"/>
+                <DataGridTemplateColumn Header="Функции">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Удалить"/>
+                                <Button Content="Редактировать"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

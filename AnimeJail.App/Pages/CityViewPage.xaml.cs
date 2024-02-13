@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Pages.PopupPages;
+﻿using AnimeJail.App.Models;
+using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace AnimeJail.App.Pages
         public CityViewPage()
         {
             InitializeComponent();
+            dgCities.ItemsSource = App.Context.Cities.ToList();
         }
 
         private void CityAddButtonClick(object sender, RoutedEventArgs e) =>

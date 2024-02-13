@@ -25,6 +25,7 @@ namespace AnimeJail.App.Pages
         public AddressViewPage()
         {
             InitializeComponent();
+            dgAdress.ItemsSource = App.Context.Addresses.ToList();
         }
 
         private void AddressAddButtonClick(object sender, RoutedEventArgs e) =>

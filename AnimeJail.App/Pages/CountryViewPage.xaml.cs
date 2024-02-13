@@ -25,6 +25,7 @@ namespace AnimeJail.App.Pages
         public CountryViewPage()
         {
             InitializeComponent();
+            dgCountry.ItemsSource = App.Context.Countries.ToList();
         }
 
         private void CountryAddButtonClick(object sender, RoutedEventArgs e)=>

@@ -25,6 +25,8 @@ namespace AnimeJail.App.Pages
         public PrisonerViewPage()
         {
             InitializeComponent();
+            dgPrisoner.ItemsSource = App.Context.Prisoners.ToList();
+
         }
 
         private void PrisonerAddButtonClick(object sender, RoutedEventArgs e) =>

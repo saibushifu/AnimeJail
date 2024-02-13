@@ -25,6 +25,8 @@ namespace AnimeJail.App.Pages
         public RegionViewPage()
         {
             InitializeComponent();
+            dgRegion.ItemsSource = App.Context.Regions.ToList();
+
         }
 
         private void RegionAddButtonClick(object sender, RoutedEventArgs e) =>

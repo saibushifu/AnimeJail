@@ -18,10 +18,29 @@
             <controls:SearchBox Width="170" Margin="0 8 0 8"/>
             <Button Style="{StaticResource AuthButton}" Content="Добавить" Width="100" Margin="5 0 5 0" Click="EmployeeAddButtonClick"/>
         </StackPanel>
-        <DataGrid x:Name="" Grid.Row="1" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgEmployee" Grid.Row="1" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="" Binding="{Binding }"/>
-                <DataGridTextColumn Header="" Binding="{Binding }"/>
+                <DataGridTextColumn Header="Индентификатор" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthdate}"/>
+                <DataGridTextColumn Header="Дата найма" Binding="{Binding Hiredate}"/>
+                <DataGridTextColumn Header="Дата увольнения" Binding="{Binding Dismdate}"/>
+                <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhoneNumber}"/>
+                <DataGridTextColumn Header="Электронная почта" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Серия и номер паспорта" Binding="{Binding Passport.Serial}"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding WorkPosition.Name}"/>
+                <DataGridTemplateColumn Header="Функции">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Удалить"/>
+                                <Button Content="Редактировать"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
