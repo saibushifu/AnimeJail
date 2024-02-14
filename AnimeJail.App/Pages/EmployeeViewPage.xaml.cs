@@ -27,14 +27,15 @@ namespace AnimeJail.App.Pages
         {
             InitializeComponent();
             dgEmployee.ItemsSource = App.Context.Employees.ToList();
-        }
-
-        public EmployeeViewPage(Employee editEmployee) : this()
-        {
-           
+            cbWorkPosition.ItemsSource = App.Context.WorkPostions.ToList();
         }
 
         private void EmployeeAddButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new EmployeeEditPage()).Show();
+
+        private void ListUpdate()
+        {
+
+        }
     }
 }

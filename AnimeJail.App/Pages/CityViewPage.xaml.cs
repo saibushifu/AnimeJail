@@ -27,9 +27,14 @@ namespace AnimeJail.App.Pages
         {
             InitializeComponent();
             dgCities.ItemsSource = App.Context.Cities.ToList();
+            cbCountry.ItemsSource = App.Context.Countries.ToList();
         }
 
         private void CityAddButtonClick(object sender, RoutedEventArgs e) =>
              new PopupWindow(new CityEditPage(new City { })).Show();
+        private void ListUpdate()
+        {
+
+        }
     }
 }

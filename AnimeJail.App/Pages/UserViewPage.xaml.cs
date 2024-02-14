@@ -27,10 +27,7 @@ namespace AnimeJail.App.Pages
         {
             InitializeComponent();
             dgUsers.ItemsSource = App.Context.Users.ToList();
-        }
-
-        public UserViewPage(User editUser) : this()
-        {
+            cbUserType.ItemsSource = App.Context.WorkPostions.ToList();
         }
 
         private void UserAddButtonClick(object sender, RoutedEventArgs e) =>

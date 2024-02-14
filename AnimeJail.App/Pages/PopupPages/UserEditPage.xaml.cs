@@ -28,6 +28,9 @@ namespace AnimeJail.App.Pages.PopupPages
             cbEmployee.ItemsSource = App.Context.Employees.ToList();
         }
 
+        public UserEditPage(User editUser) : this()
+        {
+        }
         private void AddUserButtonClick(object sender, RoutedEventArgs e)
         {
             try

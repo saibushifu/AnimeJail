@@ -26,9 +26,9 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             InitializeComponent();
         }
-        public AddressEditPage(Address editAddress)
+        public AddressEditPage(Address editAddress) : this()
         {
-            InitializeComponent();
+            
         }
 
         private void AddCountryButtonClick(object sender, RoutedEventArgs e) => 

@@ -28,6 +28,10 @@ namespace AnimeJail.App.Pages.PopupPages
             cbPassport.ItemsSource = App.Context.PassportData.ToList();
         }
 
+        public EmployeeEditPage(Employee editEmployee) : this()
+        {
+        }
+
         private void AddEmployeeButtonClick(object sender, RoutedEventArgs e)
         {
             try

@@ -26,6 +26,10 @@ namespace AnimeJail.App.Pages.PopupPages
             InitializeComponent();
         }
 
+
+        public WorkPositionEditPage(WorkPostion editWorkPosition) : this()
+        { 
+        }
         private void AddWorkPositionButtonClick(object sender, RoutedEventArgs e)
         {
             try
@@ -34,7 +38,7 @@ namespace AnimeJail.App.Pages.PopupPages
                 App.Context.SaveChanges();
                 MessageBox.Show("Сохранение произведено успешно!");
             }
-            catch(Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

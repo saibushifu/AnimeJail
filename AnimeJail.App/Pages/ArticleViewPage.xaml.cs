@@ -31,5 +31,9 @@ namespace AnimeJail.App.Pages
 
         private void ArticleAddButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new ArticleEditPage()).Show();
+        private void ListUpdate()
+        {
+
+        }
     }
 }

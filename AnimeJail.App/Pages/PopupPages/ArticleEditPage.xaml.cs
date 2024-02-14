@@ -25,9 +25,8 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             InitializeComponent();
         }
-        public ArticleEditPage(Article editArticle)
+        public ArticleEditPage(Article editArticle) : this()
         {
-            InitializeComponent();
         }
 
         private void AddArticleButtonClick(object sender, RoutedEventArgs e)

@@ -30,5 +30,10 @@ namespace AnimeJail.App.Pages
 
         private void AddressAddButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new AddressEditPage()).Show();
+
+        private void ListUpdate()
+        {
+
+        }
     }
 }

@@ -26,6 +26,10 @@ namespace AnimeJail.App.Pages.PopupPages
             InitializeComponent();
         }
 
+        public CountryEditPage(Country editCountry) : this()
+        {
+        }
+
         private void AddCountryButtonClick(object sender, RoutedEventArgs e)
         {
             try

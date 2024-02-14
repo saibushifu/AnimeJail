@@ -29,11 +29,11 @@ namespace AnimeJail.App.Pages
             dgCountry.ItemsSource = App.Context.Countries.ToList();
         }
 
-        public CountryViewPage(Country editCountry) : this()
+        private void CountryAddButtonClick(object sender, RoutedEventArgs e) =>
+         new PopupWindow(new CountryEditPage()).Show();
+        private void ListUpdate()
         {
-        }
 
-            private void CountryAddButtonClick(object sender, RoutedEventArgs e)=>
-             new PopupWindow(new CountryEditPage()).Show();
+        }
     }
 }

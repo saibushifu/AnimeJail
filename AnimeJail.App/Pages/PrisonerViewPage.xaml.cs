@@ -29,11 +29,6 @@ namespace AnimeJail.App.Pages
             dgPrisoner.ItemsSource = App.Context.Prisoners.ToList();
         }
 
-        public PrisonerViewPage(Prisoner editPrisoner) : this()
-        {
-
-        }
-
         private void PrisonerAddButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new PrisonerEditPage()).Show();
     }

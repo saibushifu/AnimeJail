@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnimeJail.App.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,10 @@ namespace AnimeJail.App.Pages.PopupPages
         public PassportEditPage()
         {
             InitializeComponent();
+        }
+
+        public PassportEditPage(PassportDatum editPassport) : this()
+        {
         }
 
         private void AddPassportButtonClick(object sender, RoutedEventArgs e)
