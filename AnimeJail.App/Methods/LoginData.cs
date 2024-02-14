@@ -18,9 +18,9 @@ namespace AnimeJail.App.Methods
             _password = password;
         }
 
-        public bool TryLogin() {
+        public User? TryLogin() {
             var user = App.Context.Users.FirstOrDefault(x => x.Login == _username);
-            return user != null ? CheckPassword(user) : false;
+            return (user != null && CheckPassword(user)) ? user : null;
         }
         private bool CheckPassword(User user) => user.Password == CryptoFunc.QuickHash(_password);  
     }

@@ -1,4 +1,5 @@
 ﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using System.Windows;
 
 namespace AnimeJail.App.Windows
@@ -15,17 +16,19 @@ namespace AnimeJail.App.Windows
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            //var ld = new LoginData(tbUsername.cText, tbPassword.PassBox.Password);
-            //if (ld.TryLogin())
+
+            //var user = new LoginData(tbUsername.cText, tbPassword.PassBox.Password).TryLogin();
+            //if (user != null)
             //{
-            //    new MainWindow().Show();
+            //    new MainWindow(user).Show();
             //    this.Hide();
             //}
             //else
             //{
             //    MessageBox.Show("Ошибка входа!\nПроверьте правильность введённых данных.", "Внмание", MessageBoxButton.OK, MessageBoxImage.Warning);
             //}
-            new MainWindow().Show();
+            //new MainWindow().Show();
+            new MainWindow(new User{}).Show();
             this.Hide();
         }
     }

@@ -24,5 +24,10 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             InitializeComponent();
         }
+
+        private void AddPrisonerButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

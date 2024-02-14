@@ -16,7 +16,7 @@
                 <ColumnDefinition Width="90*"/>
             </Grid.ColumnDefinitions>
 
-            <!--<Path Data="{StaticResource loupe}" Fill="{StaticResource LabelForeground}" Stretch="Uniform" Width="16" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>-->
+            <Path Data="{StaticResource loupe}" Fill="{StaticResource LabelForeground}" Stretch="Uniform" Width="16" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
             <Label x:Name="LblSearchTxt" FontFamily="{StaticResource CustomTextFont}" Background="{x:Null}" Content="Поиск..." Grid.Column="1" Margin="10,0" VerticalContentAlignment="Center" VerticalAlignment="Stretch" FontSize="13" Foreground="{StaticResource LabelForeground}"/>
             <TextBox x:Name="SearchItemTxt"  Style="{StaticResource MainTextBox}"  Grid.Column="1" Margin="10,0" VerticalContentAlignment="Center" VerticalAlignment="Stretch"/>
         </Grid>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnimeJail.App.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,15 @@ namespace AnimeJail.App.Pages.PopupPages
         public ArticleEditPage()
         {
             InitializeComponent();
+        }
+        public ArticleEditPage(Article editArticle)
+        {
+            InitializeComponent();
+        }
+
+        private void AddArticleButtonClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

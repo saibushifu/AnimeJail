@@ -35,5 +35,6 @@ namespace AnimeJail.App.Pages.PopupPages
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+        
     }
 }

@@ -29,6 +29,10 @@ namespace AnimeJail.App.Pages
             dgPrisonCell.ItemsSource = App.Context.Jails.ToList();
         }
 
+        public PrisonCellViewPage(Jail editJail) :this()
+        {
+        }
+
         private void PrisonCellAddButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new PrisonCellEditPage()).Show();
     }

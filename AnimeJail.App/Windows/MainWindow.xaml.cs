@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Pages;
+﻿using AnimeJail.App.Models;
+using AnimeJail.App.Pages;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,23 @@ namespace AnimeJail.App.Windows
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(User currentUser)
         {
             InitializeComponent();
             PagesNavigation.Navigate(new EmptyPage());
+            App.CurrentUser = currentUser;
+            //if (currentUser.Employee.WorkPositionId == 0)
+            //{
+
+            //}
+            //else if (currentUser.Employee.WorkPositionId == 1)
+            //{ 
+            
+            //}
+            //else if (currentUser.Employee.WorkPositionId == 2)
+            //{
+
+            //}
         }
 
         private void PrisonCellButtonClick(object sender, RoutedEventArgs e) =>
@@ -50,9 +64,7 @@ namespace AnimeJail.App.Windows
         private void UserButtonClick(object sender, RoutedEventArgs e) =>
             PagesNavigation.Navigate(new UserViewPage());
 
-        private void Window_Closed(object sender, EventArgs e)
-        {
+        private void Window_Closed(object sender, EventArgs e) => 
             Application.Current.Shutdown();
-        }
     }
 }

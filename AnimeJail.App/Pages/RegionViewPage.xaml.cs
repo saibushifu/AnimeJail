@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Pages.PopupPages;
+﻿using AnimeJail.App.Models;
+using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,11 @@ namespace AnimeJail.App.Pages
         {
             InitializeComponent();
             dgRegion.ItemsSource = App.Context.Regions.ToList();
+
+        }
+
+        public RegionViewPage(Region editRegion) : this()
+        {
 
         }
 

@@ -30,6 +30,6 @@ namespace AnimeJail.App.Pages
         }
 
         private void CityAddButtonClick(object sender, RoutedEventArgs e) =>
-             new PopupWindow(new CityEditPage()).Show();
+             new PopupWindow(new CityEditPage(new City { })).Show();
     }
 }

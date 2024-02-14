@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnimeJail.App.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,18 @@ namespace AnimeJail.App.Pages.PopupPages
         public CityEditPage()
         {
             InitializeComponent();
+            cbCountry.ItemsSource = App.Context.Countries.ToList();
+            cbRegion.ItemsSource = App.Context.Regions.ToList();
+        }
+
+        public CityEditPage(City editCity) : this()
+        {
+
+        }
+
+        private void AddCityButtonClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

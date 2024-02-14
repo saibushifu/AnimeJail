@@ -14,8 +14,8 @@
             <controls:CuteTextBox x:Name="tbId" Title="Идентификатор"/>
             <controls:CuteTextBox x:Name="tbName" Title="Наименование"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
-                <Button Content="Отмена" Width="95" Margin="0 0 5 0" Style="{StaticResource AuthButton}"/>
-                <Button Content="Добавить" Style="{StaticResource AuthButtonAlterStyle}" Width="95"/>
+                <Button Content="Очистить" Width="95" Margin="0 0 5 0" Style="{StaticResource AuthButton}"/>
+                <Button Content="Добавить" Style="{StaticResource AuthButtonAlterStyle}" Width="95" Click="AddJailButtonClick"/>
             </StackPanel>
         </StackPanel>
     </Grid>

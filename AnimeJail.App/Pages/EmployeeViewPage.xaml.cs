@@ -29,6 +29,11 @@ namespace AnimeJail.App.Pages
             dgEmployee.ItemsSource = App.Context.Employees.ToList();
         }
 
+        public EmployeeViewPage(Employee editEmployee) : this()
+        {
+           
+        }
+
         private void EmployeeAddButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new EmployeeEditPage()).Show();
     }

@@ -11,13 +11,13 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
             <Label Style="{StaticResource PageMainLabel}" Content="Аутентификация"/>
             <controls:CuteTextBox x:Name="tbUsername" Margin="0 0 0 5" Title="Логин"/>
-            <controls:СutePasswordBox x:Name="tbPassword" Margin="0 0 0 15" Height="35" Title="Пароль"/>
+            <controls:СutePasswordBox x:Name="tbPassword" Margin="0 0 0 5" Height="35" Title="Пароль"/>
             <Grid>
-                <Grid.ColumnDefinitions>
+                <!--<Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button Style="{DynamicResource AuthButtonAlterStyle}" Height="35" Content="Отмена" Margin="0 0 2.5 0"/>
+                </Grid.ColumnDefinitions>-->
+                <!--<Button Style="{DynamicResource AuthButtonAlterStyle}" Height="35" Content="Отмена" Margin="0 0 2.5 0"/>-->
                 <Button Style="{DynamicResource AuthButton}" Height="35" Content="Войти" Grid.Column="1" Margin="2.5 0 0 0" Click="LoginBtn_Click"/>
             </Grid>
         </StackPanel>

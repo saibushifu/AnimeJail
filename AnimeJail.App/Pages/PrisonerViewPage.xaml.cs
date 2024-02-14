@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Pages.PopupPages;
+﻿using AnimeJail.App.Models;
+using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,10 @@ namespace AnimeJail.App.Pages
         {
             InitializeComponent();
             dgPrisoner.ItemsSource = App.Context.Prisoners.ToList();
+        }
+
+        public PrisonerViewPage(Prisoner editPrisoner) : this()
+        {
 
         }
 

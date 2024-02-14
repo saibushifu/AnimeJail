@@ -29,6 +29,10 @@ namespace AnimeJail.App.Pages
             dgPassport.ItemsSource = App.Context.PassportData.ToList();
         }
 
+        public PassportViewPage(PassportDatum editPassport) : this()
+        {
+        }
+
         private void PassoprtAddButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new PassportEditPage()).Show();
     }

@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Pages.PopupPages;
+﻿using AnimeJail.App.Models;
+using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,11 @@ namespace AnimeJail.App.Pages
             dgCountry.ItemsSource = App.Context.Countries.ToList();
         }
 
-        private void CountryAddButtonClick(object sender, RoutedEventArgs e)=>
+        public CountryViewPage(Country editCountry) : this()
+        {
+        }
+
+            private void CountryAddButtonClick(object sender, RoutedEventArgs e)=>
              new PopupWindow(new CountryEditPage()).Show();
     }
 }
