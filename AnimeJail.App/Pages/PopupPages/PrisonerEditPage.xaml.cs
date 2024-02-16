@@ -33,7 +33,25 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddPrisonerButtonClick(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                App.Context.Add(new Prisoner
+                {
+                    FirstName = tbFirstName.cText,
+                    MiddleName = tbMiddleName.cText,
+                    SecondName = tbSecondName.cText,
+                    Address = cbAdress.SelectedValue as Address,
+                    BirthDate = DateOnly.FromDateTime(dpBirthdate.SelectedDate.Value),
+                    FreedomDate = DateOnly.FromDateTime(dpFreedate.SelectedDate.Value),
+                    ImprisonmentDate = DateOnly.FromDateTime(dpIndate.SelectedDate.Value),
+                    Passport = cbPassport.SelectedValue as PassportDatum,
+                    //Photo 
+ });
 
+                App.Context.SaveChanges();
+                MessageBox.Show("Операция выполнена успешно");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

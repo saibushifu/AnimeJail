@@ -35,7 +35,19 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddCityButtonClick(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                App.Context.Add(new City
+                {
+                    Id = Convert.ToInt32(tbId.cText),
+                    Name = tbName.cText,
+                    Country = cbCountry.SelectedValue as Country,
+                    Region = cbRegion.SelectedValue as Region
+                });
+                App.Context.SaveChanges();
+                MessageBox.Show("Операция выполнена успешно");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

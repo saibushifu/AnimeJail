@@ -32,7 +32,18 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddRegionButtonClick(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                App.Context.Add(new Region
+                {
+                    Id = Convert.ToInt32(tbId.cText),
+                    Country = cbCountry.SelectedValue as Country,
+                    Name = tbName.cText
+                });
+                App.Context.SaveChanges();
+                MessageBox.Show("Операция выполнена успешно");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

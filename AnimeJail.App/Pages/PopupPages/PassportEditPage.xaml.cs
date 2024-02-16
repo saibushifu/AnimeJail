@@ -35,7 +35,20 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddPassportButtonClick(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                App.Context.Add(new PassportDatum
+                {
+                    Number = Convert.ToInt32(tbNumber.cText),
+                    Serial = Convert.ToInt32(tbSerial.cText),
+                    IssueDate = DateOnly.FromDateTime(dpIssueDate.SelectedDate.Value),
+                    DomiclleRegistrationAdress = cbAdress.SelectedValue as Address,
+                    IssuingCountry = cbIssuingCountry.SelectedValue as Country
+                });
+                App.Context.SaveChanges();
+                MessageBox.Show("Операция выполнена успешно");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

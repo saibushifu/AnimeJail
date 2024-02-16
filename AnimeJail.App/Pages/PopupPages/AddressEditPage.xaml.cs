@@ -26,7 +26,7 @@ namespace AnimeJail.App.Pages.PopupPages
         public AddressEditPage()
         {
             InitializeComponent();
-            
+
             cbCountry.ItemsSource = App.Context.Countries.ToList();
             cbRegion.ItemsSource = App.Context.Regions.ToList();
             cbCity.ItemsSource = App.Context.Cities.ToList();
@@ -34,10 +34,10 @@ namespace AnimeJail.App.Pages.PopupPages
 
         public AddressEditPage(Address editAddress) : this()
         {
-            
+
         }
 
-        private void AddCountryButtonClick(object sender, RoutedEventArgs e) => 
+        private void AddCountryButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new CountryEditPage()).Show();
 
         private void AddRegionButtonClick(object sender, RoutedEventArgs e) =>
@@ -48,7 +48,19 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddAddressButtonClick(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                App.Context.Addresses.Add(new Address
+                {
+                    City = cbCity.SelectedValue as City,
+                    StreetName = tbStreet.cText,
+                    ApartmentNumber = tbApartment.cText,
+                    BuildingNumber = tbBuilding.cText
+                });
+                App.Context.SaveChanges();
+                MessageBox.Show("Операция выполнена успешно");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

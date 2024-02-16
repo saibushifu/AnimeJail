@@ -32,7 +32,13 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddJailTypeButtonClick(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                App.Context.Add(new JailType { Id = Convert.ToInt32(tbId.cText), Name = tbName.cText });
+                App.Context.SaveChanges();
+                MessageBox.Show("Операция выполнена успешно");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

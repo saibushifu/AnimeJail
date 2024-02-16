@@ -36,6 +36,7 @@ namespace AnimeJail.App.Pages.PopupPages
             {
                 App.Context.Countries.Add(new Country {Id = Convert.ToInt32(tbId.cText), Name = tbName.cText });
                 App.Context.SaveChanges();
+                MessageBox.Show("Операция выполнена успешно");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
