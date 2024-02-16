@@ -10,12 +10,15 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <ComboBox x:Name="cbJailType" Style="{StaticResource ComboboxStyle}" Width="170" Margin="5 0 5 0" DisplayMemberPath="Name"/>
-            <controls:SearchBox Width="170" Margin="0 8 0 8"/>
+            <StackPanel Width="150" Margin="5 0 0 0" Style="{StaticResource MainEditStackPanel}">
+                <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Тип камеры"/>
+                <ComboBox x:Name="cbJailType" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
+            </StackPanel>
+            <controls:SearchBox Width="170" Margin="5 8 0 8"/>
             <Button Style="{StaticResource AuthButton}" Content="Добавить" Width="100" Margin="5 0 5 0" Click="PrisonCellAddButtonClick"/>
         </StackPanel>
         <DataGrid x:Name="dgPrisonCell" Grid.Row="1" AutoGenerateColumns="False">

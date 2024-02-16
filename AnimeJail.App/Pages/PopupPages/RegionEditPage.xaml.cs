@@ -24,6 +24,7 @@ namespace AnimeJail.App.Pages.PopupPages
         public RegionEditPage()
         {
             InitializeComponent();
+            cbCountry.ItemsSource = App.Context.Countries.ToList();
         }
         public RegionEditPage(Region editRegion) : this()
         {

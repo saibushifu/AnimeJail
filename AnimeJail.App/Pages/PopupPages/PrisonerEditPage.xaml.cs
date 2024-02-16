@@ -24,6 +24,8 @@ namespace AnimeJail.App.Pages.PopupPages
         public PrisonerEditPage()
         {
             InitializeComponent();
+            cbAdress.ItemsSource = App.Context.Addresses.ToList();
+            cbPassport.ItemsSource = App.Context.PassportData.ToList();
         }
         public PrisonerEditPage(Prisoner editPrisoner) : this()
         {

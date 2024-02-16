@@ -24,6 +24,7 @@ namespace AnimeJail.App.Pages.PopupPages
         public PrisonCellEditPage()
         {
             InitializeComponent();
+            cbJailType.ItemsSource = App.Context.JailTypes.ToList();
         }
         public PrisonCellEditPage(Jail editJail) : this()
         {

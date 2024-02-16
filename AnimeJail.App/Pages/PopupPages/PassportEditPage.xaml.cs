@@ -24,7 +24,10 @@ namespace AnimeJail.App.Pages.PopupPages
         public PassportEditPage()
         {
             InitializeComponent();
+            cbAdress.ItemsSource = App.Context.Addresses.ToList();
+            cbIssuingCountry.ItemsSource = App.Context.Countries.ToList();
         }
+
 
         public PassportEditPage(PassportDatum editPassport) : this()
         {

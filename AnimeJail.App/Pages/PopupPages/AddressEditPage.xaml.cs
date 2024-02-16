@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Windows;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,12 @@ namespace AnimeJail.App.Pages.PopupPages
         public AddressEditPage()
         {
             InitializeComponent();
+            
+            cbCountry.ItemsSource = App.Context.Countries.ToList();
+            cbRegion.ItemsSource = App.Context.Regions.ToList();
+            cbCity.ItemsSource = App.Context.Cities.ToList();
         }
+
         public AddressEditPage(Address editAddress) : this()
         {
             
