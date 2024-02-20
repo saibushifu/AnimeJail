@@ -12,7 +12,6 @@
             <Setter Property="Width" Value="50"/>
         </Style>
     </Page.Resources>
-    
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Content="Адрес" Style="{StaticResource PageMainLabel}"/>
@@ -20,14 +19,15 @@
             <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
                 <StackPanel Width="170">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
-                    <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
+                    <!--<ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" SelectedIndex="0" SelectedValuePath="Id" DisplayMemberPath="Name" SelectionChanged="CbSelectionChanged"/>-->
+                    <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" ItemsSource="{Binding }" SelectedIndex="0" SelectedValuePath="Id" DisplayMemberPath="Name" SelectionChanged="CbSelectionChanged"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddCountryButtonClick"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
                 <StackPanel Width="170">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Регион"/>
-                    <ComboBox x:Name="cbRegion" IsEnabled="False" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
+                    <ComboBox x:Name="cbRegion" IsEnabled="False" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectionChanged="CbSelectionChanged"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
             </StackPanel>

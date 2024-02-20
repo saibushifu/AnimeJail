@@ -2,7 +2,11 @@
 using AnimeJail.App.Models;
 using AnimeJail.App.Windows;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,13 +27,13 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class AddressEditPage : Page
     {
+
+        
+
         public AddressEditPage()
         {
             InitializeComponent();
-
-            cbCountry.ItemsSource = App.Context.Countries.ToList();
-            cbRegion.ItemsSource = App.Context.Regions.ToList();
-            cbCity.ItemsSource = App.Context.Cities.ToList();
+            UpdateContext();
         }
 
         public AddressEditPage(Address editAddress) : this()
@@ -37,14 +41,25 @@ namespace AnimeJail.App.Pages.PopupPages
 
         }
 
-        private void AddCountryButtonClick(object sender, RoutedEventArgs e) =>
-            new PopupWindow(new CountryEditPage()).Show();
+        private void OpenPage(Page page)
+        {
+            new PopupWindow(page).ShowDialog();
+            UpdateContext();
+        }
 
-        private void AddRegionButtonClick(object sender, RoutedEventArgs e) =>
-            new PopupWindow(new RegionEditPage()).Show();
+        private void UpdateContext()
+        {
+            ObservableCollection<Country> countryCollection = new ObservableCollection<Country>(App.Context.Countries);
 
-        private void AddCityButtonClick(object sender, RoutedEventArgs e) =>
-            new PopupWindow(new CityEditPage()).Show();
+
+            cbCountry.ItemsSource = countryCollection;
+            cbRegion.ItemsSource = App.Context.Regions.Where(x => x.CountryId == Convert.ToInt32(cbCountry.SelectedValue)).ToList();
+            cbCity.ItemsSource = cbRegion.SelectedValue != null ? App.Context.Cities.Where(x => x.RegionId == Convert.ToInt32(cbRegion.SelectedValue)).ToList() : null;
+        }
+
+        private void AddCountryButtonClick(object sender, RoutedEventArgs e) => OpenPage(new CountryEditPage());
+        private void AddRegionButtonClick(object sender, RoutedEventArgs e) => OpenPage(new RegionEditPage());
+        private void AddCityButtonClick(object sender, RoutedEventArgs e) => OpenPage(new CityEditPage());
 
         private void AddAddressButtonClick(object sender, RoutedEventArgs e)
         {
@@ -52,7 +67,7 @@ namespace AnimeJail.App.Pages.PopupPages
             {
                 App.Context.Addresses.Add(new Address
                 {
-                    City = cbCity.SelectedValue as City,
+                    CityId = Convert.ToInt32(cbCity.SelectedValue),
                     StreetName = tbStreet.cText,
                     ApartmentNumber = tbApartment.cText,
                     BuildingNumber = tbBuilding.cText
@@ -62,5 +77,8 @@ namespace AnimeJail.App.Pages.PopupPages
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+
+        private void CbSelectionChanged(object sender, SelectionChangedEventArgs e) => UpdateContext();
     }
+    
 }

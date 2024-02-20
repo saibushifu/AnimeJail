@@ -19,7 +19,7 @@
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
                     <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id"/>
                 </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
+                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddCountryButtonClick"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">

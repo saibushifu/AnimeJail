@@ -1,4 +1,5 @@
 ﻿using AnimeJail.App.Data;
+using AnimeJail.App.Enums;
 using AnimeJail.App.Models;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,6 @@ namespace AnimeJail.App
     {
         public static SharpProjectsContext Context = new SharpProjectsContext();
         public static User CurrentUser = null;
+        public static EmployeeUserRole CurrentRole;
     }   
 }

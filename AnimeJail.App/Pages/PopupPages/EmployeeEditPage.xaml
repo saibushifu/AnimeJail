@@ -26,7 +26,7 @@
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Должность"/>
                     <ComboBox x:Name="cbWorkPosition" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id"/>
                 </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}"  Width="30" Height="55" Content="+"/>
+                <Button Style="{StaticResource ComboBoxAddButton}"  Width="30" Height="55" Content="+" Click="AddWorkPositionButtonClick"/>
             </StackPanel>
             <DatePicker x:Name="dpBirthdate"/>
         </StackPanel>
@@ -40,7 +40,7 @@
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Паспорт"/>
                     <ComboBox x:Name="cbPassport" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id"/>
                 </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}"  Width="30" Height="55" Content="+"/>
+                <Button Style="{StaticResource ComboBoxAddButton}"  Width="30" Height="55" Content="+" Click="AddPassportButtonClick"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
                 <Button Content="Очистить" Width="95" Margin="0 0 5 0"/>

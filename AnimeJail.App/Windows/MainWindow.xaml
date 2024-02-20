@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimeJail.App.Windows"
+        xmlns:vm="clr-namespace:AnimeJail.App.ViewModels"
         mc:Ignorable="d"
-        Title="Рабочее окно" Height="450" Width="800" Icon="/Assets/Pictures/jail.png" WindowStartupLocation="CenterOwner" Closed="Window_Closed">
+        Title="{Binding Path=Title}" Height="450" Width="800" Icon="/Assets/Pictures/jail.png" WindowStartupLocation="CenterOwner" Closed="Window_Closed">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
     <Window.Resources>
         <ResourceDictionary>
             <Style TargetType="Button" BasedOn="{StaticResource AuthButton}">
@@ -14,6 +18,8 @@
             </Style>
         </ResourceDictionary>
     </Window.Resources>
+    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -28,6 +34,6 @@
             <Button Content="Паспорта" Click="PassportButtonClick"/>
             <Button Content="Пользователи" Click="UserButtonClick"/>
         </StackPanel>
-        <Frame Grid.Row="1" x:Name="PagesNavigation" MaxWidth="1200" NavigationUIVisibility="Hidden"/>
+        <Frame Grid.Row="1"  x:Name="PagesNavigation" MaxWidth="1200" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

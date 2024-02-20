@@ -1,4 +1,5 @@
 ﻿using AnimeJail.App.Models;
+using AnimeJail.App.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,12 +39,15 @@ namespace AnimeJail.App.Pages.PopupPages
                 {
                     Id = Convert.ToInt32(tbJailNumber.cText),
                     Capacity = Convert.ToInt32(tbCapacity.cText),
-                    Type = cbJailType.SelectedValue as JailType
+                    TypeId = Convert.ToInt32(cbJailType.SelectedValue)
                 });
                 App.Context.SaveChanges();
                 MessageBox.Show("Операция выполнена успешно");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+
+        private void AddJailTypeButtonClick(object sender, RoutedEventArgs e) =>
+            new PopupWindow(new JailTypeEditPage()).Show();
     }
 }

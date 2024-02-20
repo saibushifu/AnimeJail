@@ -20,7 +20,7 @@
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Адрес"/>
                     <ComboBox x:Name="cbAdress" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id"/>
                 </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
+                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddAddressButtonClick"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 0 0 1">

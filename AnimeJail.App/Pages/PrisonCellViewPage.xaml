@@ -24,7 +24,7 @@
         <DataGrid x:Name="dgPrisonCell" Grid.Row="1" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Тип" Binding="{Binding JailType.Name}"/>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Type.Name}"/>
                 <DataGridTextColumn Header="Вместительность" Binding="{Binding Capacity}"/>
                 <DataGridTemplateColumn Header="Функции">
                     <DataGridTemplateColumn.CellTemplate>

@@ -1,4 +1,5 @@
 ﻿using AnimeJail.App.Models;
+using AnimeJail.App.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,5 +47,11 @@ namespace AnimeJail.App.Pages.PopupPages
             }
             catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
+
+        private void AddWorkPositionButtonClick(object sender, RoutedEventArgs e) =>
+            new PopupWindow(new WorkPositionEditPage()).Show();
+
+        private void AddPassportButtonClick(object sender, RoutedEventArgs e) =>
+            new PopupWindow(new PassportEditPage()).Show();
     }
 }
