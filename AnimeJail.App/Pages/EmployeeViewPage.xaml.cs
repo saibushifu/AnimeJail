@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
@@ -26,8 +27,9 @@ namespace AnimeJail.App.Pages
         public EmployeeViewPage()
         {
             InitializeComponent();
-            dgEmployee.ItemsSource = App.Context.Employees.ToList();
-            cbWorkPosition.ItemsSource = App.Context.WorkPostions.ToList();
+            dgEmployee.ItemsSource = DataFromDb.EmployeeCollection;
+            cbWorkPosition.ItemsSource = DataFromDb.WorkPositionCollection;
+            cbIsWorker.ItemsSource = new List<string> { "Работает", "Уволен" };
         }
 
         private void EmployeeAddButtonClick(object sender, RoutedEventArgs e) =>

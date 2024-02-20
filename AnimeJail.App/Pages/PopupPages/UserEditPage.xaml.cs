@@ -26,7 +26,7 @@ namespace AnimeJail.App.Pages.PopupPages
         public UserEditPage()
         {
             InitializeComponent();
-            cbEmployee.ItemsSource = App.Context.Employees.ToList();
+            cbEmployee.ItemsSource = DataFromDb.EmployeeCollection;
         }
 
         public UserEditPage(User editUser) : this()

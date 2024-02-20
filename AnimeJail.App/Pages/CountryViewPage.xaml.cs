@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
@@ -26,7 +27,7 @@ namespace AnimeJail.App.Pages
         public CountryViewPage()
         {
             InitializeComponent();
-            dgCountry.ItemsSource = App.Context.Countries.ToList();
+            dgCountry.ItemsSource = DataFromDb.CountryCollection;
         }
 
         private void CountryAddButtonClick(object sender, RoutedEventArgs e) =>

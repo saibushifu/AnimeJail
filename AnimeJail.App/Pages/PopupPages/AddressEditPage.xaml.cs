@@ -27,13 +27,11 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class AddressEditPage : Page
     {
-
-        
-
         public AddressEditPage()
         {
             InitializeComponent();
             UpdateContext();
+            cbCountry.ItemsSource = DataFromDb.CountryCollection;
         }
 
         public AddressEditPage(Address editAddress) : this()
@@ -49,12 +47,8 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void UpdateContext()
         {
-            ObservableCollection<Country> countryCollection = new ObservableCollection<Country>(App.Context.Countries);
-
-
-            cbCountry.ItemsSource = countryCollection;
-            cbRegion.ItemsSource = App.Context.Regions.Where(x => x.CountryId == Convert.ToInt32(cbCountry.SelectedValue)).ToList();
-            cbCity.ItemsSource = cbRegion.SelectedValue != null ? App.Context.Cities.Where(x => x.RegionId == Convert.ToInt32(cbRegion.SelectedValue)).ToList() : null;
+            cbRegion.ItemsSource = DataFromDb.RegionsCollection.Where(x => x.CountryId == Convert.ToInt32(cbCountry.SelectedValue)).ToList();
+            cbCity.ItemsSource = cbRegion.SelectedValue != null ? DataFromDb.CitiesColliction.Where(x => x.RegionId == Convert.ToInt32(cbRegion.SelectedValue)).ToList() : null;
         }
 
         private void AddCountryButtonClick(object sender, RoutedEventArgs e) => OpenPage(new CountryEditPage());

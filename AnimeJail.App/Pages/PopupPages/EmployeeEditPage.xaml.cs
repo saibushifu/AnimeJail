@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Windows;
 using System;
 using System.Collections.Generic;
@@ -25,8 +26,8 @@ namespace AnimeJail.App.Pages.PopupPages
         public EmployeeEditPage()
         {
             InitializeComponent();
-            cbWorkPosition.ItemsSource = App.Context.WorkPostions.ToList();
-            cbPassport.ItemsSource = App.Context.PassportData.ToList();
+            cbWorkPosition.ItemsSource = DataFromDb.WorkPositionCollection;
+            cbPassport.ItemsSource = DataFromDb.PassportCollection;
         }
 
         public EmployeeEditPage(Employee editEmployee) : this()

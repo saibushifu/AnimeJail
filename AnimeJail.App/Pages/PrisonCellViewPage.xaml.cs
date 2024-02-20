@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
@@ -26,8 +27,8 @@ namespace AnimeJail.App.Pages
         public PrisonCellViewPage()
         {
             InitializeComponent();
-            dgPrisonCell.ItemsSource = App.Context.Jails.ToList();
-            cbJailType.ItemsSource = App.Context.JailTypes.ToList();    
+            dgPrisonCell.ItemsSource = DataFromDb.JailTypeCollection;
+            cbJailType.ItemsSource = DataFromDb.JailTypeCollection;    
         }
 
         private void PrisonCellAddButtonClick(object sender, RoutedEventArgs e) =>

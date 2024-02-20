@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
@@ -26,7 +27,7 @@ namespace AnimeJail.App.Pages
         public PrisonerViewPage()
         {
             InitializeComponent();
-            dgPrisoner.ItemsSource = App.Context.Prisoners.ToList();
+            dgPrisoner.ItemsSource = DataFromDb.PrisonerCollection;
         }
 
         private void PrisonerAddButtonClick(object sender, RoutedEventArgs e) =>

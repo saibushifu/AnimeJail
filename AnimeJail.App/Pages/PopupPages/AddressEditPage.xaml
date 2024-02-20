@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:data="clr-namespace:AnimeJail.App.Methods"
       xmlns:local="clr-namespace:AnimeJail.App.Pages.PopupPages" xmlns:controls="clr-namespace:AnimeJail.App.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -15,12 +16,10 @@
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Content="Адрес" Style="{StaticResource PageMainLabel}"/>
-
             <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
                 <StackPanel Width="170">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
-                    <!--<ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" SelectedIndex="0" SelectedValuePath="Id" DisplayMemberPath="Name" SelectionChanged="CbSelectionChanged"/>-->
-                    <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" ItemsSource="{Binding }" SelectedIndex="0" SelectedValuePath="Id" DisplayMemberPath="Name" SelectionChanged="CbSelectionChanged"/>
+                    <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}"  SelectedIndex="0" SelectedValuePath="Id" DisplayMemberPath="Name" SelectionChanged="CbSelectionChanged"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddCountryButtonClick"/>
             </StackPanel>

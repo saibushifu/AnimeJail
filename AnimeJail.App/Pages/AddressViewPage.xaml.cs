@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Pages.PopupPages;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,14 @@ namespace AnimeJail.App.Pages
         public AddressViewPage()
         {
             InitializeComponent();
-            dgAdress.ItemsSource = App.Context.Addresses.ToList();
+            dgAdress.ItemsSource = DataFromDb.AddressCollection;
+            cbCountry.ItemsSource = DataFromDb.CountryCollection;
+            UpdateContext();
+        }
+        private void UpdateContext()
+        {
+            cbRegion.ItemsSource = DataFromDb.RegionsCollection.Where(x => x.CountryId == Convert.ToInt32(cbCountry.SelectedValue)).ToList();
+            cbCity.ItemsSource = cbRegion.SelectedValue != null ? DataFromDb.CitiesColliction.Where(x => x.RegionId == Convert.ToInt32(cbRegion.SelectedValue)).ToList() : null;
         }
 
         private void AddressAddButtonClick(object sender, RoutedEventArgs e) =>

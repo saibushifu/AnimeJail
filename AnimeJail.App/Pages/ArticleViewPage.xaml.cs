@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
@@ -26,7 +27,7 @@ namespace AnimeJail.App.Pages
         public ArticleViewPage()
         {
             InitializeComponent();
-            dgArticle.ItemsSource = App.Context.Articles.ToList();
+            dgArticle.ItemsSource = DataFromDb.ArticleCollection;
         }
 
         private void ArticleAddButtonClick(object sender, RoutedEventArgs e) =>

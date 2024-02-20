@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Windows;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace AnimeJail.App.Pages.PopupPages
         public RegionEditPage()
         {
             InitializeComponent();
-            cbCountry.ItemsSource = App.Context.Countries.ToList();
+            cbCountry.ItemsSource = DataFromDb.CountryCollection;
         }
         public RegionEditPage(Region editRegion) : this()
         {

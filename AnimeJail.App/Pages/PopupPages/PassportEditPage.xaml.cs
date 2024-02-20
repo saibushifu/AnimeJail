@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Windows;
 using System;
 using System.Collections.Generic;
@@ -25,8 +26,8 @@ namespace AnimeJail.App.Pages.PopupPages
         public PassportEditPage()
         {
             InitializeComponent();
-            cbAdress.ItemsSource = App.Context.Addresses.ToList();
-            cbIssuingCountry.ItemsSource = App.Context.Countries.ToList();
+            cbAdress.ItemsSource = DataFromDb.AddressCollection;
+            cbIssuingCountry.ItemsSource = DataFromDb.CountryCollection;
         }
 
 

@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
@@ -26,8 +27,14 @@ namespace AnimeJail.App.Pages
         public CityViewPage()
         {
             InitializeComponent();
-            dgCities.ItemsSource = App.Context.Cities.ToList();
-            cbCountry.ItemsSource = App.Context.Countries.ToList();
+            dgCities.ItemsSource = DataFromDb.CitiesColliction;
+            cbCountry.ItemsSource = DataFromDb.CountryCollection;
+            UpdateContext();
+        }
+
+        private void UpdateContext()
+        {
+            cbRegion.ItemsSource = DataFromDb.RegionsCollection.Where(x => x.CountryId == Convert.ToInt32(cbCountry.SelectedValue)).ToList();
         }
 
         private void CityAddButtonClick(object sender, RoutedEventArgs e) =>

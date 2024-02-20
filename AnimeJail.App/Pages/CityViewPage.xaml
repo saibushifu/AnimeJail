@@ -16,7 +16,7 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <StackPanel Width="150" Margin="5 0 0 0" Style="{StaticResource MainEditStackPanel}">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
-                <ComboBox x:Name="cbCountry" IsEnabled="False" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
+                <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
             </StackPanel>
             <StackPanel Width="150" Margin="5 0 0 0" Style="{StaticResource MainEditStackPanel}">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Регион"/>

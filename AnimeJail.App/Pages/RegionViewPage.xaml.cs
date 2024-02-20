@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
@@ -26,8 +27,8 @@ namespace AnimeJail.App.Pages
         public RegionViewPage()
         {
             InitializeComponent();
-            dgRegion.ItemsSource = App.Context.Regions.ToList();
-            cbCountry.ItemsSource = App.Context.Countries.ToList();
+            dgRegion.ItemsSource = DataFromDb.RegionsCollection;
+            cbCountry.ItemsSource = DataFromDb.CountryCollection;
         }
 
         private void RegionAddButtonClick(object sender, RoutedEventArgs e) =>

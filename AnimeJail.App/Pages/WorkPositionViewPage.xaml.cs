@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
@@ -26,7 +27,7 @@ namespace AnimeJail.App.Pages
         public WorkPositionViewPage()
         {
             InitializeComponent();
-            dgWorkPositions.ItemsSource = App.Context.WorkPostions.ToList();
+            dgWorkPositions.ItemsSource = DataFromDb.WorkPositionCollection;
         }
 
         public WorkPositionViewPage(WorkPostion editWorkPositon) : this()

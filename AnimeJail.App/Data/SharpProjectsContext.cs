@@ -52,7 +52,7 @@ public partial class SharpProjectsContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        var connectionString = ConfigurationManager.ConnectionStrings["LocalConnectionString"].ConnectionString;
+        var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LocalConnectionString"].ConnectionString;
         optionsBuilder.UseNpgsql(connectionString);
         //optionsBuilder.UseNpgsql("Host=localhost;Database=SharpProjects;Username=postgres;Password=#");
     }

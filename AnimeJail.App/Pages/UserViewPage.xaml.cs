@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
@@ -26,8 +27,8 @@ namespace AnimeJail.App.Pages
         public UserViewPage()
         {
             InitializeComponent();
-            dgUsers.ItemsSource = App.Context.Users.ToList();
-            cbUserType.ItemsSource = App.Context.WorkPostions.ToList();
+            dgUsers.ItemsSource = DataFromDb.UserCollection;
+            cbUserType.ItemsSource = DataFromDb.WorkPositionCollection;
         }
 
         private void UserAddButtonClick(object sender, RoutedEventArgs e) =>
