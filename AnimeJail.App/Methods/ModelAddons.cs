@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Query;
+﻿using AnimeJail.App.Methods;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -26,4 +27,13 @@ public partial class Employee
 {
     [NotMapped]
     public string DisplayName => this.SecondName + " " + this.FirstName + " " + this.MiddleName;
+}
+
+public partial class Prisoner
+{
+    [NotMapped]
+    public JailPrisoner? DisplayBerth => DataFromDb.JailPrisonerCollection.FirstOrDefault(x => x.PrisonerId == this.Id);
+
+    [NotMapped]
+    public JailPrisoner? DisplayJail => DataFromDb.JailPrisonerCollection.FirstOrDefault(x => x.PrisonerId == this.Id);
 }

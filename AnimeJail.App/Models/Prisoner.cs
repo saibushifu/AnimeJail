@@ -24,7 +24,7 @@ public partial class Prisoner
 
     public int PassportId { get; set; }
 
-    public BitArray? Photo { get; set; }
+    public byte[] Image { get; set; } = null!;
 
     public virtual Address Address { get; set; } = null!;
 

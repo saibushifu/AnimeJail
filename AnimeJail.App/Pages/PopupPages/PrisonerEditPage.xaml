@@ -27,8 +27,25 @@
             <DatePicker x:Name="dpIndate"/>
             <DatePicker x:Name="dpFreedate"/>
 
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
+                <StackPanel Width="170">
+                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Камера"/>
+                    <ComboBox x:Name="cbJail" Style="{StaticResource ComboboxStyle}"  DisplayMemberPath="Id" SelectedIndex="0" SelectionChanged="cbJail_SelectionChanged"/>
+                </StackPanel>
+                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddJailButtonClick"/>
+            </StackPanel>
+
         </StackPanel>
         <StackPanel Style="{StaticResource MainEditStackPanel}" Grid.Column="1">
+
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
+                <StackPanel Width="170">
+                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Койка"/>
+                    <ComboBox x:Name="cbBerth" Style="{StaticResource ComboboxStyle}"/>
+                </StackPanel>
+                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
+            </StackPanel>
+
             <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
                 <StackPanel Width="170">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Паспорт"/>

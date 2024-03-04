@@ -20,19 +20,25 @@
         <DataGrid x:Name="dgPrisoner" Style="{StaticResource DataGridAllView}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Идентификатор" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding SecondName}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
                 <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"/>
                 <DataGridTextColumn Header="Дата рождения" Binding="{Binding BirthDate}"/>
                 <DataGridTextColumn Header="Дата прибытия" Binding="{Binding ImprisonmentDate}"/>
                 <DataGridTextColumn Header="Дата осовобождения" Binding="{Binding FreedomDate}"/>
-                <DataGridTextColumn Header="Камера"/>
-                <DataGridTextColumn Header="Койка"/>
-                <DataGridTextColumn Header="Статьи"/>
-                <DataGridTextColumn Header="Адрес" Binding="{Binding Adress.Street}"/>
-                <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport.Number}"/>
-                
-                <DataGridTextColumn Header="Фото"/>
+                <DataGridTextColumn Header="Камера" Binding="{Binding DisplayJail.JailId}"/>
+                <DataGridTextColumn Header="Койка" Binding="{Binding DisplayBerth.BerthId}"/>
+                <DataGridTextColumn Header="Статьи" />
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Address.DisplayName}"/>
+                <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport.DisplayName}"/>
+
+                <DataGridTemplateColumn Header="Фото">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Image}" Width="100" Height="100"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
 
                 <DataGridTemplateColumn Header="Функции">
                     <DataGridTemplateColumn.CellTemplate>

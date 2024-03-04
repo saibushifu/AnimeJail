@@ -28,14 +28,23 @@ namespace AnimeJail.App.Pages.PopupPages
     {
         private byte[] _imageBytes = null;
         Prisoner prisoner = null;
+        Jail? selectedJail = null;
         public PrisonerEditPage()
         {
             InitializeComponent();
             cbAdress.ItemsSource = DataFromDb.AddressCollection;
             cbPassport.ItemsSource = DataFromDb.PassportCollection;
+            cbJail.ItemsSource = DataFromDb.JailCollection.Where(x => x.Capacity > DataFromDb.JailPrisonerCollection.Count(y => y.JailId == x.Id));
+            UpdateContext();
         }
         public PrisonerEditPage(Prisoner editPrisoner) : this()
         {
+        }
+        private void UpdateContext()
+        {
+            selectedJail = cbJail.SelectedValue as Jail;
+            var berths = Enumerable.Range(1, (int)selectedJail.Capacity);
+            cbBerth.ItemsSource = berths.Except(DataFromDb.JailPrisonerCollection.Where(x => x.JailId == selectedJail.Id).Select(x => x.BerthId));
         }
         private void ConvertImage()
         {
@@ -91,11 +100,14 @@ namespace AnimeJail.App.Pages.PopupPages
                     FreedomDate = DateOnly.FromDateTime(dpFreedate.SelectedDate.Value),
                     ImprisonmentDate = DateOnly.FromDateTime(dpIndate.SelectedDate.Value),
                     PassportId = Convert.ToInt32(cbPassport.SelectedValue),
-                    Photo = _imageBytes == null ? null : new BitArray(_imageBytes)
+                    Image = _imageBytes == null ? null : _imageBytes
                 };
                 App.Context.Add(newPrisoner);
+                var newJailPrisoner = new JailPrisoner { JailId = (cbJail.SelectedValue as Jail).Id, PrisonerId = newPrisoner.Id, BerthId = Convert.ToInt32(cbBerth.SelectedValue) };
+                App.Context.Add(newJailPrisoner);
                 App.Context.SaveChanges();
                 DataFromDb.PrisonerCollection.Add(newPrisoner);
+                DataFromDb.JailPrisonerCollection.Add(newJailPrisoner);
                 MessageBox.Show("Операция выполнена успешно");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -110,6 +122,14 @@ namespace AnimeJail.App.Pages.PopupPages
         private void bSelectImage_Click(object sender, RoutedEventArgs e)
         {
             OpenDialog();
+        }
+
+        private void AddJailButtonClick(object sender, RoutedEventArgs e) =>
+            new PopupWindow(new PrisonCellEditPage()).Show();
+
+        private void cbJail_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateContext();
         }
     }
 }

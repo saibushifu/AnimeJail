@@ -220,9 +220,9 @@ public partial class SharpProjectsContext : DbContext
 
         modelBuilder.Entity<JailPrisoner>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Jail_Prisoner", "AnimeJailDb");
+            entity.HasKey(e => e.JailId).HasName("Jail_Prisoner_pkey");
+
+            entity.ToTable("Jail_Prisoner", "AnimeJailDb");
 
             entity.Property(e => e.BerthId).HasColumnName("berthId");
             entity.Property(e => e.JailId).HasColumnName("jailId");
@@ -297,9 +297,9 @@ public partial class SharpProjectsContext : DbContext
             entity.Property(e => e.ImprisonmentDate).HasColumnName("imprisonmentDate");
             entity.Property(e => e.MiddleName).HasColumnName("middleName");
             entity.Property(e => e.PassportId).HasColumnName("passportId");
-            entity.Property(e => e.Photo)
-                .HasColumnType("bit(1)")
-                .HasColumnName("photo");
+            entity.Property(e => e.Image)
+                .HasColumnType("bytea")
+                .HasColumnName("image");
             entity.Property(e => e.SecondName).HasColumnName("secondName");
 
             entity.HasOne(d => d.Address).WithMany(p => p.Prisoners)
