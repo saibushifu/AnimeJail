@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AnimeJail.App.Windows"
         xmlns:vm="clr-namespace:AnimeJail.App.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding Path=Title}" Height="450" Width="800" Icon="/Assets/Pictures/jail.png" WindowStartupLocation="CenterOwner" Closed="Window_Closed">
+        Title="{Binding Path=Title}" Height="450" Width="800"  Icon="/Assets/Pictures/jail.png" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>

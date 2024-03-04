@@ -26,7 +26,7 @@ namespace AnimeJail.App.Pages.PopupPages
         public CityEditPage()
         {
             InitializeComponent();
-            cbCountry.ItemsSource = DataFromDb.RegionsCollection;
+            cbCountry.ItemsSource = DataFromDb.CountryCollection;
             UpdateContext();
         }
 
@@ -44,14 +44,16 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             try
             {
-                App.Context.Add(new City
+                var newCity = new City
                 {
                     Id = Convert.ToInt32(tbId.cText),
                     Name = tbName.cText,
-                    Country = cbCountry.SelectedValue as Country,
+                    CountryId = Convert.ToInt32(cbCountry.SelectedValue),
                     Region = cbRegion.SelectedValue as Region
-                });
+                };
+                App.Context.Add(newCity);
                 App.Context.SaveChanges();
+                DataFromDb.CitiesCollection.Add(newCity);
                 MessageBox.Show("Операция выполнена успешно");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

@@ -37,8 +37,15 @@ namespace AnimeJail.App.Pages.PopupPages
             try
             {
                 string login = tbUsername.cText, password = tbPassword.cText;
-                App.Context.Users.Add(new User { Login = login, Password = CryptoFunc.QuickHash(password), EmployeeId = Convert.ToInt32(cbEmployee.SelectedValue) });
+                var newUser = new User
+                {
+                    Login = login,
+                    Password = CryptoFunc.QuickHash(password),
+                    EmployeeId = Convert.ToInt32(cbEmployee.SelectedValue)
+                };
+                App.Context.Users.Add(newUser);
                 App.Context.SaveChanges();
+                DataFromDb.UserCollection.Add(newUser);
                 MessageBox.Show("Операция выполнена успешно!");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

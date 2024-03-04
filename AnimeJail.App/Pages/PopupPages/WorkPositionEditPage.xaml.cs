@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,10 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             try
             {
-                App.Context.WorkPostions.Add(new WorkPostion { Id = Convert.ToInt32(tbId.cText), Name = tbName.cText });
+                var newWorkPosition = new WorkPostion { Id = Convert.ToInt32(tbId.cText), Name = tbName.cText };
+                App.Context.WorkPostions.Add(newWorkPosition);
                 App.Context.SaveChanges();
+                DataFromDb.WorkPositionCollection.Add(newWorkPosition);
                 MessageBox.Show("Сохранение произведено успешно!");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

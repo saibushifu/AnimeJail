@@ -1,4 +1,5 @@
-﻿using AnimeJail.App.Models;
+﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace AnimeJail.App.Pages.PopupPages
         public CountryEditPage()
         {
             InitializeComponent();
-        }
+        }   
 
         public CountryEditPage(Country editCountry) : this()
         {
@@ -34,8 +35,10 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             try
             {
-                App.Context.Countries.Add(new Country {Id = Convert.ToInt32(tbId.cText), Name = tbName.cText });
+                var newCountry = new Country { Id = Convert.ToInt32(tbId.cText), Name = tbName.cText };
+                App.Context.Countries.Add(newCountry);
                 App.Context.SaveChanges();
+                DataFromDb.CountryCollection.Add(newCountry);
                 MessageBox.Show("Операция выполнена успешно");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

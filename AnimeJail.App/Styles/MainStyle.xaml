@@ -432,4 +432,24 @@
     </Style>
     <!-- End: ComboBoxAddButton -->
 
+    
+    <!-- Start: DataGridForView -->
+    <Style TargetType="DataGrid" x:Key="DataGridAllView">
+        <Setter Property="Grid.Row" Value="1"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserDeleteRows" Value="False"/>
+        <Setter Property="CanUserReorderColumns" Value="False"/>
+    </Style>
+    <!-- End: DataGridForView -->
+
+    <!-- Start: DataGridForView -->
+    <Style TargetType="StackPanel" x:Key="StackPanelForTools">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="5 0 0 0"/>
+    </Style>
+    
+    <!-- End: DataGridForView -->
+    
 </ResourceDictionary>

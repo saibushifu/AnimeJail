@@ -13,7 +13,7 @@
             <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Style="{StaticResource StackPanelForTools}">
             <StackPanel Width="150" Margin="5 0 0 0" Style="{StaticResource MainEditStackPanel}">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Должность"/>
                 <ComboBox x:Name="cbWorkPosition" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
@@ -25,18 +25,18 @@
             <controls:SearchBox Width="170" Margin="5 8 0 8"/>
             <Button Style="{StaticResource AuthButton}" Content="Добавить" Width="100" Margin="5 0 5 0" Click="EmployeeAddButtonClick"/>
         </StackPanel>
-        <DataGrid x:Name="dgEmployee" Grid.Row="1" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgEmployee" Style="{StaticResource DataGridAllView}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Индентификатор" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding SecondName}"/>
                 <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"/>
                 <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthdate}"/>
                 <DataGridTextColumn Header="Дата найма" Binding="{Binding Hiredate}"/>
                 <DataGridTextColumn Header="Дата увольнения" Binding="{Binding Dismdate}"/>
                 <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhoneNumber}"/>
                 <DataGridTextColumn Header="Электронная почта" Binding="{Binding Email}"/>
-                <DataGridTextColumn Header="Серия и номер паспорта" Binding="{Binding Passport.Serial}"/>
+                <DataGridTextColumn Header="Серия и номер паспорта" Binding="{Binding Passport.DisplayName}"/>
                 <DataGridTextColumn Header="Должность" Binding="{Binding WorkPosition.Name}"/>
                 <DataGridTemplateColumn Header="Функции">
                     <DataGridTemplateColumn.CellTemplate>

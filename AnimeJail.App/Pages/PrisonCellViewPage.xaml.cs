@@ -27,7 +27,7 @@ namespace AnimeJail.App.Pages
         public PrisonCellViewPage()
         {
             InitializeComponent();
-            dgPrisonCell.ItemsSource = DataFromDb.JailTypeCollection;
+            dgPrisonCell.ItemsSource = DataFromDb.JailCollection;
             cbJailType.ItemsSource = DataFromDb.JailTypeCollection;    
         }
 

@@ -27,7 +27,7 @@ namespace AnimeJail.App.Pages
         public CityViewPage()
         {
             InitializeComponent();
-            dgCities.ItemsSource = DataFromDb.CitiesColliction;
+            dgCities.ItemsSource = DataFromDb.CitiesCollection;
             cbCountry.ItemsSource = DataFromDb.CountryCollection;
             UpdateContext();
         }

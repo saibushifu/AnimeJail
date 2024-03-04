@@ -13,7 +13,7 @@
             <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Style="{StaticResource StackPanelForTools}">
             <StackPanel Width="150" Margin="5 0 0 0" Style="{StaticResource MainEditStackPanel}">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
                 <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
@@ -25,7 +25,7 @@
             <controls:SearchBox Width="170" Margin="5 8 0 8"/>
             <Button Style="{StaticResource AuthButton}" Content="Добавить" Width="100" Margin="5 0 5 0" Click="CityAddButtonClick"/>
         </StackPanel>
-        <DataGrid x:Name="dgCities" Grid.Row="1" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgCities" Style="{StaticResource DataGridAllView}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Идентификатор" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>

@@ -38,12 +38,22 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             try
             {
-                App.Context.Employees.Add(new Employee {FirstName = tbFirstName.cText, SecondName = tbSecondName.cText, Email = tbEmail.cText, 
-                    Birthdate = DateOnly.FromDateTime(dpBirthdate.SelectedDate.Value), Dismdate = dpDismdate != null ? DateOnly.FromDateTime(dpDismdate.SelectedDate.Value) : null, 
-                    Hiredate = DateOnly.FromDateTime(dpHiredate.SelectedDate.Value), MiddleName = tbMiddleName.cText, PhoneNumber = tbPhoneNumber.cText,
-                    WorkPositionId  = Convert.ToInt32(cbWorkPosition.SelectedValue), PassportId = Convert.ToInt32(cbPassport.SelectedValue)
-                });
+                var newEmployee = new Employee
+                {
+                    FirstName = tbFirstName.cText,
+                    SecondName = tbSecondName.cText,
+                    Email = tbEmail.cText,
+                    Birthdate = DateOnly.FromDateTime(dpBirthdate.SelectedDate.Value),
+                    Dismdate = dpDismdate != null ? DateOnly.FromDateTime(dpDismdate.SelectedDate.Value) : null,
+                    Hiredate = DateOnly.FromDateTime(dpHiredate.SelectedDate.Value),
+                    MiddleName = tbMiddleName.cText,
+                    PhoneNumber = tbPhoneNumber.cText,
+                    WorkPositionId = Convert.ToInt32(cbWorkPosition.SelectedValue),
+                    PassportId = Convert.ToInt32(cbPassport.SelectedValue)
+                };
+                App.Context.Employees.Add(newEmployee);
                 App.Context.SaveChanges();
+                DataFromDb.EmployeeCollection.Add(newEmployee);
                 MessageBox.Show("Операция успешно выполнена!");
             }
             catch(Exception ex) { MessageBox.Show(ex.Message); }

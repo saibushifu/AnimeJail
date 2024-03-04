@@ -13,11 +13,11 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Style="{StaticResource StackPanelForTools}">
             <controls:SearchBox Width="170" Margin="0 8 0 8"/>
             <Button Style="{StaticResource AuthButton}" Content="Добавить" Width="100" Margin="5 0 5 0" Click="WorkPositionAddButtonClick"/>
         </StackPanel>
-        <DataGrid x:Name="dgWorkPositions" Grid.Row="1" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgWorkPositions" Style="{StaticResource DataGridAllView}">
             <DataGrid.Columns>
             <DataGridTextColumn Header="Идентификтор" Binding="{Binding Id}"/>
             <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>

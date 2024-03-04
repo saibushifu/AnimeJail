@@ -36,13 +36,15 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             try
             {
-                App.Context.Add(new Region
+                var newRegion = new Region
                 {
                     Id = Convert.ToInt32(tbId.cText),
-                    Country = cbCountry.SelectedValue as Country,
+                    CountryId = Convert.ToInt32(cbCountry.SelectedValue),
                     Name = tbName.cText
-                });
+                };
+                App.Context.Add(newRegion);
                 App.Context.SaveChanges();
+                DataFromDb.RegionsCollection.Add(newRegion);
                 MessageBox.Show("Операция выполнена успешно");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

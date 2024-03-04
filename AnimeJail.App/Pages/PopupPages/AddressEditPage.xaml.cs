@@ -48,7 +48,7 @@ namespace AnimeJail.App.Pages.PopupPages
         private void UpdateContext()
         {
             cbRegion.ItemsSource = DataFromDb.RegionsCollection.Where(x => x.CountryId == Convert.ToInt32(cbCountry.SelectedValue)).ToList();
-            cbCity.ItemsSource = cbRegion.SelectedValue != null ? DataFromDb.CitiesColliction.Where(x => x.RegionId == Convert.ToInt32(cbRegion.SelectedValue)).ToList() : null;
+            cbCity.ItemsSource = cbRegion.SelectedValue != null ? DataFromDb.CitiesCollection.Where(x => x.RegionId == Convert.ToInt32(cbRegion.SelectedValue)).ToList() : null;
         }
 
         private void AddCountryButtonClick(object sender, RoutedEventArgs e) => OpenPage(new CountryEditPage());
@@ -59,14 +59,16 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             try
             {
-                App.Context.Addresses.Add(new Address
+                var newCountry = new Address
                 {
                     CityId = Convert.ToInt32(cbCity.SelectedValue),
                     StreetName = tbStreet.cText,
                     ApartmentNumber = tbApartment.cText,
                     BuildingNumber = tbBuilding.cText
-                });
+                };
+                App.Context.Addresses.Add(newCountry);
                 App.Context.SaveChanges();
+                DataFromDb.AddressCollection.Add(newCountry);
                 MessageBox.Show("Операция выполнена успешно");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

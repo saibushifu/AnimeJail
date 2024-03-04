@@ -33,7 +33,7 @@ namespace AnimeJail.App.Pages
         private void UpdateContext()
         {
             cbRegion.ItemsSource = DataFromDb.RegionsCollection.Where(x => x.CountryId == Convert.ToInt32(cbCountry.SelectedValue)).ToList();
-            cbCity.ItemsSource = cbRegion.SelectedValue != null ? DataFromDb.CitiesColliction.Where(x => x.RegionId == Convert.ToInt32(cbRegion.SelectedValue)).ToList() : null;
+            cbCity.ItemsSource = cbRegion.SelectedValue != null ? DataFromDb.CitiesCollection.Where(x => x.RegionId == Convert.ToInt32(cbRegion.SelectedValue)).ToList() : null;
         }
 
         private void AddressAddButtonClick(object sender, RoutedEventArgs e) =>

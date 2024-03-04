@@ -32,7 +32,7 @@
             <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
                 <StackPanel Width="170">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Паспорт"/>
-                    <ComboBox x:Name="cbPassport" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id"/>
+                    <ComboBox x:Name="cbPassport" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="DisplayName"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddPassportButtonClick"/>
             </StackPanel>
@@ -40,7 +40,7 @@
             <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
                 <StackPanel Width="170">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Адрес"/>
-                    <ComboBox x:Name="cbAdress" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id"/>
+                    <ComboBox x:Name="cbAdress" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="DisplayName"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddAddressButtonClick"/>
             </StackPanel>
@@ -48,7 +48,7 @@
 
             <StackPanel Orientation="Horizontal">
             <Image x:Name="iPrisonerPhoto" Height="100" Width="100"/>
-                <Button x:Name="bSelectImage" Height="40" Width="50" Content="..."/>
+                <Button x:Name="bSelectImage" Height="40" Width="50" Content="..." Click="bSelectImage_Click"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">

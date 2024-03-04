@@ -20,7 +20,8 @@
             <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
                 <StackPanel Width="170">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
-                    <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectionChanged="CountrySelectionChanged" />
+                    <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" 
+                              DisplayMemberPath="Name" SelectionChanged="CountrySelectionChanged" SelectedIndex="0"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddCountryButtonClick"/>
             </StackPanel>
@@ -28,7 +29,7 @@
             <StackPanel Orientation="Horizontal">
                 <StackPanel Width="170">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Регион"/>
-                    <ComboBox x:Name="cbRegion" IsEnabled="False" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
+                    <ComboBox x:Name="cbRegion" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddRegionButtonClick"/>
             </StackPanel>

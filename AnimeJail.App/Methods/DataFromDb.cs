@@ -1,4 +1,5 @@
 ﻿using AnimeJail.App.Models;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,7 +12,7 @@ namespace AnimeJail.App.Methods
     public class DataFromDb
     {
         public static ObservableCollection<Country> CountryCollection = new ObservableCollection<Country>(App.Context.Countries);
-        public static ObservableCollection<City> CitiesColliction = new ObservableCollection<City>(App.Context.Cities);
+        public static ObservableCollection<City> CitiesCollection = new ObservableCollection<City>(App.Context.Cities);
         public static ObservableCollection<Region> RegionsCollection = new ObservableCollection<Region>(App.Context.Regions);
         public static ObservableCollection<PassportDatum> PassportCollection = new ObservableCollection<PassportDatum>(App.Context.PassportData);
         public static ObservableCollection<WorkPostion> WorkPositionCollection = new ObservableCollection<WorkPostion>(App.Context.WorkPostions);

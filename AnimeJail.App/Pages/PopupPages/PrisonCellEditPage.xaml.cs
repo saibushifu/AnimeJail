@@ -36,13 +36,15 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             try
             {
-                App.Context.Add(new Jail
+                var newJail = new Jail
                 {
                     Id = Convert.ToInt32(tbJailNumber.cText),
                     Capacity = Convert.ToInt32(tbCapacity.cText),
                     TypeId = Convert.ToInt32(cbJailType.SelectedValue)
-                });
+                };
+                App.Context.Add(newJail);
                 App.Context.SaveChanges();
+                DataFromDb.JailCollection.Add(newJail);
                 MessageBox.Show("Операция выполнена успешно");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

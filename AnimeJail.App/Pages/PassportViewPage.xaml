@@ -13,18 +13,18 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Style="{StaticResource StackPanelForTools}">
             <controls:SearchBox Width="170" Margin="0 8 0 8"/>
             <Button Style="{StaticResource AuthButton}" Content="Добавить" Width="100" Margin="5 0 5 0" Click="PassoprtAddButtonClick"/>
         </StackPanel>
-        <DataGrid x:Name="dgPassport" Grid.Row="1" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgPassport" Style="{StaticResource DataGridAllView}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Идентификатор" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Серия" Binding="{Binding Serial}"/>
                 <DataGridTextColumn Header="Номер" Binding="{Binding Number}"/>
                 <DataGridTextColumn Header="Дата выдачи" Binding="{Binding IssueDate}"/>
                 <DataGridTextColumn Header="Страна выдачи" Binding="{Binding IssuingCountry.Name}"/>
-                <DataGridTextColumn Header="Адрес регистрации" Binding="{Binding DomiclleRegistrationAdress.Street}"/>
+                <DataGridTextColumn Header="Адрес регистрации" Binding="{Binding DomiclleRegistrationAdress.DisplayName}"/>
                 <DataGridTemplateColumn Header="Функции">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

@@ -26,14 +26,14 @@
             <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
                 <StackPanel Width="170">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Регион"/>
-                    <ComboBox x:Name="cbRegion" IsEnabled="False" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectionChanged="CbSelectionChanged"/>
+                    <ComboBox x:Name="cbRegion" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectionChanged="CbSelectionChanged"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
                 <StackPanel Width="170">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Город"/>
-                    <ComboBox x:Name="cbCity" IsEnabled="False" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
+                    <ComboBox x:Name="cbCity" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
             </StackPanel>
