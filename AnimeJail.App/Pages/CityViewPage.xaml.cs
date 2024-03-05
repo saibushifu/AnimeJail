@@ -43,5 +43,20 @@ namespace AnimeJail.App.Pages
         {
 
         }
+
+        private void DeleteCityButtonClick(object sender, RoutedEventArgs e)
+        {
+            CommonDataFunc<City>.DeleteObjFromDb(sender, DataFromDb.CitiesCollection);
+        }
+
+        private void EditCityButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void IconButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CommonDataFunc<City>.DeleteObjFromDb(sender, DataFromDb.CitiesCollection);
+        }
     }
 }

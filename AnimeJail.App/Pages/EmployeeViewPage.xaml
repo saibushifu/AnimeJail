@@ -42,8 +42,8 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="Удалить"/>
-                                <Button Content="Редактировать"/>
+                                <Button Style="{DynamicResource TrueIconButtonDelete}" Click="DeleteEmployeeButtonClick"/>
+                                <Button Style="{DynamicResource TrueIconButtonEdit}" Click="EditEmployeeButtonClick"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

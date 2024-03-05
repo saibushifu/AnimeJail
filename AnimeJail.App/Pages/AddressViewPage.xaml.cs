@@ -1,4 +1,5 @@
 ﻿using AnimeJail.App.Methods;
+using AnimeJail.App.Models;
 using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
@@ -40,6 +41,16 @@ namespace AnimeJail.App.Pages
             new PopupWindow(new AddressEditPage()).Show();
 
         private void ListUpdate()
+        {
+
+        }
+
+        private void DeleteAddressButtonClick(object sender, RoutedEventArgs e)
+        {
+            CommonDataFunc<Address>.DeleteObjFromDb(sender, DataFromDb.AddressCollection);
+        }
+
+        private void EditAddressButtonClick(object sender, RoutedEventArgs e)
         {
 
         }

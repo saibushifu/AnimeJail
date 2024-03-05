@@ -36,5 +36,15 @@ namespace AnimeJail.App.Pages
         {
 
         }
+
+        private void DeleteCountryButtonClick(object sender, RoutedEventArgs e)
+        {
+            CommonDataFunc<Country>.DeleteObjFromDb(sender, DataFromDb.CountryCollection);
+        }
+
+        private void EditCountryButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

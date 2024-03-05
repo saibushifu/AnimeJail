@@ -32,5 +32,15 @@ namespace AnimeJail.App.Pages
 
         private void PassoprtAddButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new PassportEditPage()).Show();
+
+        private void DeletePassportButtonClick(object sender, RoutedEventArgs e)
+        {
+            CommonDataFunc<PassportDatum>.DeleteObjFromDb(sender, DataFromDb.PassportCollection);
+        }
+
+        private void EditPassportButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

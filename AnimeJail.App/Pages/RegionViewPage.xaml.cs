@@ -33,5 +33,15 @@ namespace AnimeJail.App.Pages
 
         private void RegionAddButtonClick(object sender, RoutedEventArgs e) =>
              new PopupWindow(new RegionEditPage()).Show();
+
+        private void RegionDeleteButtonClick(object sender, RoutedEventArgs e)
+        {
+            CommonDataFunc<Region>.DeleteObjFromDb(sender, DataFromDb.RegionsCollection);
+        }
+
+        private void EditRegionButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

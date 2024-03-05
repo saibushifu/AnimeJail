@@ -32,5 +32,15 @@ namespace AnimeJail.App.Pages
 
         private void PrisonerAddButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new PrisonerEditPage()).Show();
+
+        private void DeletePrisonerButtonClick(object sender, RoutedEventArgs e)
+        {
+            CommonDataFunc<Prisoner>.DeleteObjFromDb(sender, DataFromDb.PrisonerCollection);
+        }
+
+        private void EditPrisonerButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

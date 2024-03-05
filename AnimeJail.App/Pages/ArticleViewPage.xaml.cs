@@ -36,5 +36,15 @@ namespace AnimeJail.App.Pages
         {
 
         }
+
+        private void DeleteArticleButtonClick(object sender, RoutedEventArgs e)
+        {
+            CommonDataFunc<Article>.DeleteObjFromDb(sender, DataFromDb.ArticleCollection);
+        }
+
+        private void EditArticleButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

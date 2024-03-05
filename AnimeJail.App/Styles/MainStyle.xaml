@@ -451,5 +451,56 @@
     </Style>
     
     <!-- End: DataGridForView -->
-    
+
+    <!-- Start: FuncButtons -->
+    <Style TargetType="Button" x:Key="TrueIconButtonDelete">
+        <Setter Property="ToolTip" Value="Удалить"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border  Background="Transparent" Cursor="Hand" x:Name="AddUpBorder" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" CornerRadius="10">
+                        <Path Stretch="Uniform" Margin="8" Data="{DynamicResource delete}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Path.Style>
+                                <Style TargetType="Path">
+                                    <Setter Property="Fill" Value="{DynamicResource PrimaryGrayColor}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=AddUpBorder, Path=IsMouseOver}" Value="True">
+                                            <Setter Property="Fill" Value="{DynamicResource PrimaryBlueColor}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Path.Style>
+                        </Path>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Button" x:Key="TrueIconButtonEdit">
+        <Setter Property="ToolTip" Value="Редактировать"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border  Background="Transparent" Cursor="Hand" x:Name="AddUpBorder" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" CornerRadius="10">
+                        <Path Stretch="Uniform" Margin="8" Data="{DynamicResource edit}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Path.Style>
+                                <Style TargetType="Path">
+                                    <Setter Property="Fill" Value="{DynamicResource PrimaryGrayColor}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=AddUpBorder, Path=IsMouseOver}" Value="True">
+                                            <Setter Property="Fill" Value="{DynamicResource AltSecondBtnColor}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Path.Style>
+                        </Path>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- End: FuncButtons -->
 </ResourceDictionary>

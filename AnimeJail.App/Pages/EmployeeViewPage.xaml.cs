@@ -39,5 +39,15 @@ namespace AnimeJail.App.Pages
         {
 
         }
+
+        private void DeleteEmployeeButtonClick(object sender, RoutedEventArgs e)
+        {
+            CommonDataFunc<Employee>.DeleteObjFromDb(sender, DataFromDb.EmployeeCollection);
+        }
+
+        private void EditEmployeeButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

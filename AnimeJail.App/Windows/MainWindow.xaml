@@ -25,7 +25,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" MaxWidth="1200">
+        <StackPanel Margin="5 0 0 0" Orientation="Horizontal" MaxWidth="1200">
             <Button Content="Камеры" Click="PrisonCellButtonClick"/>
             <Button Content="Заключённые" Click="PrisonerButtonClick"/>
             <Button Content="Сотрудники" Click="EmployeeButtonClick"/>

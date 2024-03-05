@@ -19,18 +19,18 @@
         </StackPanel>
         <DataGrid x:Name="dgWorkPositions" Style="{StaticResource DataGridAllView}">
             <DataGrid.Columns>
-            <DataGridTextColumn Header="Идентификтор" Binding="{Binding Id}"/>
-            <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
-            <DataGridTemplateColumn Header="Функции">
-                <DataGridTemplateColumn.CellTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Button Content="Удалить"/>
-                            <Button Content="Редактировать"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </DataGridTemplateColumn.CellTemplate>
-            </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Идентификтор" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                <DataGridTemplateColumn Header="Функции">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{DynamicResource TrueIconButtonDelete}" Click="DeleteWorkPositionButtonClick"/>
+                                <Button Style="{DynamicResource TrueIconButtonEdit}" Click="EditWorkPositionButtonClick"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

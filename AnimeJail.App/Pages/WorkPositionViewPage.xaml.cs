@@ -36,5 +36,15 @@ namespace AnimeJail.App.Pages
 
         private void WorkPositionAddButtonClick(object sender, RoutedEventArgs e) => 
             new PopupWindow(new WorkPositionEditPage()).ShowDialog();
+
+        private void DeleteWorkPositionButtonClick(object sender, RoutedEventArgs e)
+        {
+            CommonDataFunc<WorkPostion>.DeleteObjFromDb(sender, DataFromDb.WorkPositionCollection);
+        }
+
+        private void EditWorkPositionButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
