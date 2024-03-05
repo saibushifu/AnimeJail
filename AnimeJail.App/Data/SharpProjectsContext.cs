@@ -220,7 +220,9 @@ public partial class SharpProjectsContext : DbContext
 
         modelBuilder.Entity<JailPrisoner>(entity =>
         {
-            entity.HasKey(e => e.JailId).HasName("Jail_Prisoner_pkey");
+            entity
+                .HasNoKey()
+                .ToTable("Jail_Prisoner", "AnimeJailDb");
 
             entity.ToTable("Jail_Prisoner", "AnimeJailDb");
 

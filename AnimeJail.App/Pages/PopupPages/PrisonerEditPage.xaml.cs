@@ -34,6 +34,7 @@ namespace AnimeJail.App.Pages.PopupPages
             InitializeComponent();
             cbAdress.ItemsSource = DataFromDb.AddressCollection;
             cbPassport.ItemsSource = DataFromDb.PassportCollection;
+            lst.ItemsSource = DataFromDb.ArticleCollection;
             cbJail.ItemsSource = DataFromDb.JailCollection.Where(x => x.Capacity > DataFromDb.JailPrisonerCollection.Count(y => y.JailId == x.Id));
             UpdateContext();
         }
@@ -105,9 +106,14 @@ namespace AnimeJail.App.Pages.PopupPages
                 App.Context.Add(newPrisoner);
                 var newJailPrisoner = new JailPrisoner { JailId = (cbJail.SelectedValue as Jail).Id, PrisonerId = newPrisoner.Id, BerthId = Convert.ToInt32(cbBerth.SelectedValue) };
                 App.Context.Add(newJailPrisoner);
+                var articles = (lst.ItemsSource as List<Article>).Where(x => x.IsChecked);
+                var articlesPrisoner = new List<ArticlePrisoner>();
+                foreach (var item in articles) articlesPrisoner.Add(new ArticlePrisoner { Article = item, Prisoner = newPrisoner });
+                App.Context.AddRange(articlesPrisoner);
                 App.Context.SaveChanges();
                 DataFromDb.PrisonerCollection.Add(newPrisoner);
                 DataFromDb.JailPrisonerCollection.Add(newJailPrisoner);
+                foreach (var item in articlesPrisoner) DataFromDb.ArticlePrisonerCollection.Add(item);
                 MessageBox.Show("Операция выполнена успешно");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

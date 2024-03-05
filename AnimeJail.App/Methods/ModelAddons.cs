@@ -1,4 +1,6 @@
-﻿using AnimeJail.App.Methods;
+﻿using AnimeJail.App.Data;
+using AnimeJail.App.Methods;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
@@ -36,4 +38,22 @@ public partial class Prisoner
 
     [NotMapped]
     public JailPrisoner? DisplayJail => DataFromDb.JailPrisonerCollection.FirstOrDefault(x => x.PrisonerId == this.Id);
+}
+
+public partial class Article
+{
+    [NotMapped]
+    public string DisplayName => this.Id + " " + this.Name;
+
+    [NotMapped]
+    public bool IsChecked { get; set; } =  false;
+}
+
+public class TrueContext : SharpProjectsContext
+{
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LocalConnectionString"].ConnectionString;
+        optionsBuilder.UseNpgsql(connectionString);
+    }
 }

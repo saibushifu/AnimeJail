@@ -27,24 +27,7 @@
             <DatePicker x:Name="dpIndate"/>
             <DatePicker x:Name="dpFreedate"/>
 
-            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
-                <StackPanel Width="170">
-                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Камера"/>
-                    <ComboBox x:Name="cbJail" Style="{StaticResource ComboboxStyle}"  DisplayMemberPath="Id" SelectedIndex="0" SelectionChanged="cbJail_SelectionChanged"/>
-                </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddJailButtonClick"/>
-            </StackPanel>
-
-        </StackPanel>
-        <StackPanel Style="{StaticResource MainEditStackPanel}" Grid.Column="1">
-
-            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
-                <StackPanel Width="170">
-                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Койка"/>
-                    <ComboBox x:Name="cbBerth" Style="{StaticResource ComboboxStyle}"/>
-                </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
-            </StackPanel>
+           
 
             <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
                 <StackPanel Width="170">
@@ -53,7 +36,7 @@
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddPassportButtonClick"/>
             </StackPanel>
-            
+
             <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
                 <StackPanel Width="170">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Адрес"/>
@@ -61,6 +44,32 @@
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddAddressButtonClick"/>
             </StackPanel>
+        </StackPanel>
+        <StackPanel Style="{StaticResource MainEditStackPanel}" Grid.Column="1">
+
+
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
+                <StackPanel Width="170">
+                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Камера"/>
+                    <ComboBox x:Name="cbJail" Style="{StaticResource ComboboxStyle}"  DisplayMemberPath="Id" SelectedIndex="0" SelectionChanged="cbJail_SelectionChanged"/>
+                </StackPanel>
+                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddJailButtonClick"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
+                <StackPanel Width="170">
+                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Койка"/>
+                    <ComboBox x:Name="cbBerth" Style="{StaticResource ComboboxStyle}"/>
+                </StackPanel>
+                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
+            </StackPanel>
+
+            <ListBox x:Name="lst" Height="40">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding DisplayName}" IsChecked="{Binding IsChecked}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
 
             <StackPanel Orientation="Horizontal">
