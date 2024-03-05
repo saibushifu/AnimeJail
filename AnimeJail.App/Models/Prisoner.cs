@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace AnimeJail.App.Models;
@@ -24,9 +23,13 @@ public partial class Prisoner
 
     public int PassportId { get; set; }
 
-    public byte[] Image { get; set; } = null!;
+    public byte[]? Image { get; set; }
 
     public virtual Address Address { get; set; } = null!;
+
+    public virtual ICollection<ArticlePrisoner> ArticlePrisoners { get; set; } = new List<ArticlePrisoner>();
+
+    public virtual ICollection<JailPrisoner> JailPrisoners { get; set; } = new List<JailPrisoner>();
 
     public virtual PassportDatum Passport { get; set; } = null!;
 }

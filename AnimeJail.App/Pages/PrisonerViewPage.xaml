@@ -28,7 +28,7 @@
                 <DataGridTextColumn Header="Дата осовобождения" Binding="{Binding FreedomDate}"/>
                 <DataGridTextColumn Header="Камера" Binding="{Binding DisplayJail.JailId}"/>
                 <DataGridTextColumn Header="Койка" Binding="{Binding DisplayBerth.BerthId}"/>
-                <DataGridTextColumn Header="Статьи" />
+                <DataGridTextColumn Header="Статьи" Binding="{Binding AllArticles}"/>
                 <DataGridTextColumn Header="Адрес" Binding="{Binding Address.DisplayName}"/>
                 <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport.DisplayName}"/>
 

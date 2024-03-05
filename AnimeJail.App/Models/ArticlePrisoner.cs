@@ -9,11 +9,9 @@ public partial class ArticlePrisoner
 
     public int ArticleId { get; set; }
 
-    public int StatusId { get; set; }
+    public bool? IsActual { get; set; }
 
     public virtual Article Article { get; set; } = null!;
 
     public virtual Prisoner Prisoner { get; set; } = null!;
-
-    public virtual ArticleStatus Status { get; set; } = null!;
 }

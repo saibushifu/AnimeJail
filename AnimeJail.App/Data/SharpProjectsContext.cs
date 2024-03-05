@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
 using AnimeJail.App.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace AnimeJail.App.Data;
 
@@ -17,7 +14,6 @@ public partial class SharpProjectsContext : DbContext
     public SharpProjectsContext(DbContextOptions<SharpProjectsContext> options)
         : base(options)
     {
-        Database.Migrate();
     }
 
     public virtual DbSet<Address> Addresses { get; set; }
@@ -51,11 +47,8 @@ public partial class SharpProjectsContext : DbContext
     public virtual DbSet<WorkPostion> WorkPostions { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LocalConnectionString"].ConnectionString;
-        optionsBuilder.UseNpgsql(connectionString);
-        //optionsBuilder.UseNpgsql("Host=localhost;Database=SharpProjects;Username=postgres;Password=#");
-    }
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseNpgsql("Host=localhost;Database=SharpProjects;Username=postgres;Password=#");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -94,28 +87,25 @@ public partial class SharpProjectsContext : DbContext
 
         modelBuilder.Entity<ArticlePrisoner>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("ArticlePrisoner", "AnimeJailDb");
+            entity.HasKey(e => new { e.PrisonerId, e.ArticleId }).HasName("ArticlePrisoner_pkey");
 
-            entity.Property(e => e.ArticleId).HasColumnName("articleId");
+            entity.ToTable("ArticlePrisoner", "AnimeJailDb");
+
             entity.Property(e => e.PrisonerId).HasColumnName("prisonerId");
-            entity.Property(e => e.StatusId).HasColumnName("statusId");
+            entity.Property(e => e.ArticleId).HasColumnName("articleId");
+            entity.Property(e => e.IsActual)
+                .HasDefaultValue(false)
+                .HasColumnName("isActual");
 
-            entity.HasOne(d => d.Article).WithMany()
+            entity.HasOne(d => d.Article).WithMany(p => p.ArticlePrisoners)
                 .HasForeignKey(d => d.ArticleId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ArticlePrisoner_articleId_fkey");
 
-            entity.HasOne(d => d.Prisoner).WithMany()
+            entity.HasOne(d => d.Prisoner).WithMany(p => p.ArticlePrisoners)
                 .HasForeignKey(d => d.PrisonerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ArticlePrisoner_prisonerId_fkey");
-
-            entity.HasOne(d => d.Status).WithMany()
-                .HasForeignKey(d => d.StatusId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("ArticlePrisoner_statusId_fkey");
         });
 
         modelBuilder.Entity<ArticleStatus>(entity =>
@@ -220,25 +210,15 @@ public partial class SharpProjectsContext : DbContext
 
         modelBuilder.Entity<JailPrisoner>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Jail_Prisoner", "AnimeJailDb");
+            entity.HasKey(e => new { e.PrisonerId, e.JailId }).HasName("Jail_Prisoner_pkey");
 
             entity.ToTable("Jail_Prisoner", "AnimeJailDb");
 
-            entity.Property(e => e.BerthId).HasColumnName("berthId");
+            entity.Property(e => e.PrisonerId).HasColumnName("prisonerId");
             entity.Property(e => e.JailId).HasColumnName("jailId");
-            entity.Property(e => e.PrisonerId)
-                .ValueGeneratedOnAdd()
-                .UseIdentityAlwaysColumn()
-                .HasColumnName("prisonerId");
+            entity.Property(e => e.BerthId).HasColumnName("berthId");
 
-            entity.HasOne(d => d.Jail).WithMany()
-                .HasForeignKey(d => d.JailId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Jail_Prisoner_jailId_fkey");
-
-            entity.HasOne(d => d.Prisoner).WithMany()
+            entity.HasOne(d => d.Prisoner).WithMany(p => p.JailPrisoners)
                 .HasForeignKey(d => d.PrisonerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Jail_Prisoner_prisonerId_fkey");
@@ -296,12 +276,10 @@ public partial class SharpProjectsContext : DbContext
             entity.Property(e => e.BirthDate).HasColumnName("birthDate");
             entity.Property(e => e.FirstName).HasColumnName("firstName");
             entity.Property(e => e.FreedomDate).HasColumnName("freedomDate");
+            entity.Property(e => e.Image).HasColumnName("image");
             entity.Property(e => e.ImprisonmentDate).HasColumnName("imprisonmentDate");
             entity.Property(e => e.MiddleName).HasColumnName("middleName");
             entity.Property(e => e.PassportId).HasColumnName("passportId");
-            entity.Property(e => e.Image)
-                .HasColumnType("bytea")
-                .HasColumnName("image");
             entity.Property(e => e.SecondName).HasColumnName("secondName");
 
             entity.HasOne(d => d.Address).WithMany(p => p.Prisoners)
@@ -365,7 +343,7 @@ public partial class SharpProjectsContext : DbContext
             entity.HasIndex(e => e.Name, "WorkPostion_name_key").IsUnique();
 
             entity.Property(e => e.Id)
-                .UseIdentityAlwaysColumn()
+                .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.Name).HasColumnName("name");
         });

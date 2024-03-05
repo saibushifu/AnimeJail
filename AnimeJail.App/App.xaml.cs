@@ -47,7 +47,7 @@ namespace AnimeJail.App
         //    base.OnExit(e);
         //}
 
-        public static SharpProjectsContext Context = new SharpProjectsContext();
+        public static TrueContext Context = new TrueContext();
         public static User CurrentUser = null;
         public static EmployeeUserRole CurrentRole;
     }   

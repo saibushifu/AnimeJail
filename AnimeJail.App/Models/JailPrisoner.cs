@@ -7,11 +7,9 @@ public partial class JailPrisoner
 {
     public int JailId { get; set; }
 
-    public int PrisonerId { get; set; }
-
     public int BerthId { get; set; }
 
-    public virtual Jail Jail { get; set; } = null!;
+    public int PrisonerId { get; set; }
 
     public virtual Prisoner Prisoner { get; set; } = null!;
 }

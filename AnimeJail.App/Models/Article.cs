@@ -10,4 +10,6 @@ public partial class Article
     public string Name { get; set; } = null!;
 
     public string? Description { get; set; }
+
+    public virtual ICollection<ArticlePrisoner> ArticlePrisoners { get; set; } = new List<ArticlePrisoner>();
 }
