@@ -29,13 +29,7 @@ namespace AnimeJail.App.Pages
             InitializeComponent();
             dgWorkPositions.ItemsSource = DataFromDb.WorkPositionCollection;
         }
-
-        public WorkPositionViewPage(WorkPostion editWorkPositon) : this()
-        {
-        }
-
-        private void WorkPositionAddButtonClick(object sender, RoutedEventArgs e) => 
-            new PopupWindow(new WorkPositionEditPage()).ShowDialog();
+        private void WorkPositionAddButtonClick(object sender, RoutedEventArgs e) => CommonPageFunc.OpenPage(new WorkPositionEditPage());
 
         private void DeleteWorkPositionButtonClick(object sender, RoutedEventArgs e)
         {
@@ -44,7 +38,7 @@ namespace AnimeJail.App.Pages
 
         private void EditWorkPositionButtonClick(object sender, RoutedEventArgs e)
         {
-
+            CommonPageFunc.OpenPage(new WorkPositionEditPage(CommonDataFunc<WorkPostion>.TypeFromSender(sender)));
         }
     }
 }

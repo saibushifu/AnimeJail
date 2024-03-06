@@ -44,7 +44,7 @@ namespace AnimeJail.App.Pages
 
         private void EditCountryButtonClick(object sender, RoutedEventArgs e)
         {
-
+            CommonPageFunc.OpenPage(new CountryEditPage(CommonDataFunc<Country>.TypeFromSender(sender)));
         }
     }
 }

@@ -40,7 +40,7 @@ namespace AnimeJail.App.Pages
 
         private void EditPrisonerButtonClick(object sender, RoutedEventArgs e)
         {
-
+            CommonPageFunc.OpenPage(new PrisonerEditPage(CommonDataFunc<Prisoner>.TypeFromSender(sender)));
         }
     }
 }

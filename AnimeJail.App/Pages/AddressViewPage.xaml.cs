@@ -52,7 +52,7 @@ namespace AnimeJail.App.Pages
 
         private void EditAddressButtonClick(object sender, RoutedEventArgs e)
         {
-
+            CommonPageFunc.OpenPage(new AddressEditPage(CommonDataFunc<Address>.TypeFromSender(sender)));
         }
     }
 }

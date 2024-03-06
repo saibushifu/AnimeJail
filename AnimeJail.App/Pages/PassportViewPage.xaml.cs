@@ -40,7 +40,7 @@ namespace AnimeJail.App.Pages
 
         private void EditPassportButtonClick(object sender, RoutedEventArgs e)
         {
-
+            CommonPageFunc.OpenPage(new PassportEditPage(CommonDataFunc<PassportDatum>.TypeFromSender(sender)));
         }
     }
 }

@@ -44,7 +44,7 @@ namespace AnimeJail.App.Pages
 
         private void EditArticleButtonClick(object sender, RoutedEventArgs e)
         {
-
+            CommonPageFunc.OpenPage(new ArticleEditPage(CommonDataFunc<Article>.TypeFromSender(sender)));
         }
     }
 }

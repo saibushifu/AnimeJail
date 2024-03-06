@@ -41,7 +41,7 @@ namespace AnimeJail.App.Pages
 
         private void EditRegionButtonClick(object sender, RoutedEventArgs e)
         {
-
+            CommonPageFunc.OpenPage(new RegionEditPage(CommonDataFunc<Region>.TypeFromSender(sender)));
         }
     }
 }
