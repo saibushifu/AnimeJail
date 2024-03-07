@@ -23,6 +23,7 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class EmployeeEditPage : Page
     {
+        private Employee? EditEmployee = null;
         public EmployeeEditPage()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace AnimeJail.App.Pages.PopupPages
 
         public EmployeeEditPage(Employee editEmployee) : this()
         {
+            EditEmployee = editEmployee;
         }
 
         private void AddEmployeeButtonClick(object sender, RoutedEventArgs e)
@@ -64,5 +66,8 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddPassportButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new PassportEditPage()).Show();
+
+        private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>
+            NavigationService.Navigate(EditEmployee == null ? new EmployeeEditPage() : new EmployeeEditPage(EditEmployee));
     }
 }

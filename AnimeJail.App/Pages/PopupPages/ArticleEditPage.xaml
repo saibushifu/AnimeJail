@@ -15,7 +15,7 @@
             <controls:CuteTextBox x:Name="tbName" Title="Название"/>
             <controls:CuteTextBox x:Name="tbDescription" Title="Описание"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
-                <Button Content="Очистить" Width="95" Margin="0 0 5 0" Style="{StaticResource AuthButton}"/>
+                <Button Content="Очистить" Width="95" Margin="0 0 5 0" Style="{StaticResource AuthButton}" Click="ClearPageButtonClick"/>
                 <Button Content="Добавить" Style="{StaticResource AuthButtonAlterStyle}" Width="95" Click="AddArticleButtonClick"/>
             </StackPanel>
         </StackPanel>

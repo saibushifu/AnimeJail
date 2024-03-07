@@ -22,6 +22,7 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class CountryEditPage : Page
     {
+        private Country? EditCountry = null;
         public CountryEditPage()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace AnimeJail.App.Pages.PopupPages
 
         public CountryEditPage(Country editCountry) : this()
         {
+            EditCountry = editCountry;
         }
 
         private void AddCountryButtonClick(object sender, RoutedEventArgs e)
@@ -43,6 +45,7 @@ namespace AnimeJail.App.Pages.PopupPages
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
-        
+        private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>
+         NavigationService.Navigate(EditCountry == null ? new CountryEditPage() : new CountryEditPage(EditCountry));
     }
 }

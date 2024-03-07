@@ -23,16 +23,16 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class PassportEditPage : Page
     {
+        private PassportDatum? EditPassport = null;
         public PassportEditPage()
         {
             InitializeComponent();
             cbAdress.ItemsSource = DataFromDb.AddressCollection;
             cbIssuingCountry.ItemsSource = DataFromDb.CountryCollection;
         }
-
-
         public PassportEditPage(PassportDatum editPassport) : this()
         {
+            EditPassport = editPassport;
         }
 
         private void AddPassportButtonClick(object sender, RoutedEventArgs e)
@@ -60,5 +60,7 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddCountryButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new CountryEditPage()).Show();
+        private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>
+            NavigationService.Navigate(EditPassport == null ? new PassportEditPage() : new PassportEditPage(EditPassport));
     }
 }

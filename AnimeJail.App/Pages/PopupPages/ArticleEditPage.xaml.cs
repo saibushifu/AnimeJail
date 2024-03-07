@@ -22,12 +22,14 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class ArticleEditPage : Page
     {
+        private Article? EditArticle = null;
         public ArticleEditPage()
         {
             InitializeComponent();
         }
         public ArticleEditPage(Article editArticle) : this()
         {
+            EditArticle = editArticle;
         }
 
         private void AddArticleButtonClick(object sender, RoutedEventArgs e)
@@ -47,5 +49,8 @@ namespace AnimeJail.App.Pages.PopupPages
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+
+        private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>
+             NavigationService.Navigate(EditArticle == null ? new ArticleEditPage() : new ArticleEditPage(EditArticle));
     }
 }

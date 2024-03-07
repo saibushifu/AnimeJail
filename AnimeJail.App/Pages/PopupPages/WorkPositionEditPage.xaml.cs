@@ -22,14 +22,14 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class WorkPositionEditPage : Page
     {
+        private WorkPostion? EditWorkPosition = null;
         public WorkPositionEditPage()
         {
             InitializeComponent();
         }
-
-
         public WorkPositionEditPage(WorkPostion editWorkPosition) : this()
         { 
+            EditWorkPosition = editWorkPosition;
         }
         private void AddWorkPositionButtonClick(object sender, RoutedEventArgs e)
         {
@@ -43,5 +43,8 @@ namespace AnimeJail.App.Pages.PopupPages
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+
+        private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>
+            NavigationService.Navigate(EditWorkPosition == null ? new WorkPositionEditPage() : new WorkPositionEditPage(EditWorkPosition));
     }
 }

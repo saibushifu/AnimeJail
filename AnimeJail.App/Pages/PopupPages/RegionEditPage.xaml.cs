@@ -23,6 +23,7 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class RegionEditPage : Page
     {
+        private Region? EditRegion = null;
         public RegionEditPage()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace AnimeJail.App.Pages.PopupPages
         }
         public RegionEditPage(Region editRegion) : this()
         {
+            EditRegion = editRegion;
         }
 
         private void AddRegionButtonClick(object sender, RoutedEventArgs e)
@@ -52,5 +54,8 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddCountryButtonClick(object sender, RoutedEventArgs e) =>
     new PopupWindow(new CountryEditPage()).Show();
+
+        private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>
+            NavigationService.Navigate(EditRegion == null ? new RegionEditPage() : new RegionEditPage(EditRegion));
     }
 }

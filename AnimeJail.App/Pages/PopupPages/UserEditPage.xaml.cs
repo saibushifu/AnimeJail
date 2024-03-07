@@ -23,14 +23,15 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class UserEditPage : Page
     {
+        private User? EditUser = null;
         public UserEditPage()
         {
             InitializeComponent();
             cbEmployee.ItemsSource = DataFromDb.EmployeeCollection;
         }
-
         public UserEditPage(User editUser) : this()
         {
+            EditUser = editUser;
         }
         private void AddUserButtonClick(object sender, RoutedEventArgs e)
         {
@@ -53,5 +54,8 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddEmployeeButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new EmployeeEditPage()).Show();
+
+        private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>
+            NavigationService.Navigate(EditUser == null ? new UserEditPage() : new UserEditPage(EditUser));
     }
 }

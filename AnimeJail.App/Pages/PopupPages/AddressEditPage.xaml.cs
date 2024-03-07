@@ -27,6 +27,7 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class AddressEditPage : Page
     {
+        private Address? EditAddress = null;
         public AddressEditPage()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace AnimeJail.App.Pages.PopupPages
 
         public AddressEditPage(Address editAddress) : this()
         {
-
+            EditAddress = editAddress;
         }
 
         private void OpenPage(Page page)
@@ -75,6 +76,10 @@ namespace AnimeJail.App.Pages.PopupPages
         }
 
         private void CbSelectionChanged(object sender, SelectionChangedEventArgs e) => UpdateContext();
+
+        private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>
+            NavigationService.Navigate(EditAddress == null ? new AddressEditPage() : new AddressEditPage(EditAddress));
+        
     }
     
 }

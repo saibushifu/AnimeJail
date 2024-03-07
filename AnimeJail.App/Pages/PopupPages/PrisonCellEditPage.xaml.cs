@@ -23,6 +23,7 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class PrisonCellEditPage : Page
     {
+        private Jail? EditJail = null;
         public PrisonCellEditPage()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace AnimeJail.App.Pages.PopupPages
         }
         public PrisonCellEditPage(Jail editJail) : this()
         {
+            EditJail = editJail;
         }
 
         private void AddJailButtonClick(object sender, RoutedEventArgs e)
@@ -52,5 +54,7 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddJailTypeButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new JailTypeEditPage()).Show();
+        private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>
+            NavigationService.Navigate(EditJail == null ? new PrisonCellEditPage() : new PrisonCellEditPage(EditJail));
     }
 }

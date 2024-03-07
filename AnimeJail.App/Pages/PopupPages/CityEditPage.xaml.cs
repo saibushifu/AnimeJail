@@ -23,6 +23,7 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class CityEditPage : Page
     {
+        private City? EditCity = null;
         public CityEditPage()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace AnimeJail.App.Pages.PopupPages
 
         public CityEditPage(City editCity) : this()
         {
-
+            EditCity = editCity;
         }
 
         private void UpdateContext()
@@ -69,5 +70,8 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             UpdateContext();
         }
+
+        private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>
+            NavigationService.Navigate(EditCity == null ? new CityEditPage() : new CityEditPage(EditCity));
     }
 }

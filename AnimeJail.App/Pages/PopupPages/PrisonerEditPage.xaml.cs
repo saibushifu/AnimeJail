@@ -27,7 +27,7 @@ namespace AnimeJail.App.Pages.PopupPages
     public partial class PrisonerEditPage : Page
     {
         private byte[] _imageBytes = null;
-        Prisoner prisoner = null;
+        private Prisoner? EditPrisoner = null;
         Jail? selectedJail = null;
         public PrisonerEditPage()
         {
@@ -40,6 +40,7 @@ namespace AnimeJail.App.Pages.PopupPages
         }
         public PrisonerEditPage(Prisoner editPrisoner) : this()
         {
+            EditPrisoner = editPrisoner;
         }
         private void UpdateContext()
         {
@@ -88,8 +89,8 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddPrisonerButtonClick(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 if (iPrisonerPhoto.Source != null) { ConvertImage(); }
                 var newPrisoner = new Prisoner
                 {
@@ -116,15 +117,15 @@ namespace AnimeJail.App.Pages.PopupPages
                 DataFromDb.JailPrisonerCollection.Add(newJailPrisoner);
                 foreach (var item in articlesPrisoner) DataFromDb.ArticlePrisonerCollection.Add(item);
                 MessageBox.Show("Операция выполнена успешно");
-            //}
-            //catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void AddPassportButtonClick(object sender, RoutedEventArgs e) =>
-            new PopupWindow(new PassportEditPage()).Show();
+            CommonPageFunc.OpenPage(new PassportEditPage());
 
         private void AddAddressButtonClick(object sender, RoutedEventArgs e) =>
-            new PopupWindow(new AddressEditPage()).Show();
+            CommonPageFunc.OpenPage(new AddressEditPage());
 
         private void bSelectImage_Click(object sender, RoutedEventArgs e)
         {
@@ -132,11 +133,13 @@ namespace AnimeJail.App.Pages.PopupPages
         }
 
         private void AddJailButtonClick(object sender, RoutedEventArgs e) =>
-            new PopupWindow(new PrisonCellEditPage()).Show();
+            CommonPageFunc.OpenPage(new PrisonCellEditPage());
 
         private void cbJail_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateContext();
         }
+        private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>
+            NavigationService.Navigate(EditPrisoner == null ? new PrisonerEditPage() : new PrisonerEditPage(EditPrisoner));
     }
 }

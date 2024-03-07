@@ -41,7 +41,7 @@
             <controls:CuteTextBox x:Name="tbBuilding" Title="Строение"/>
             <controls:CuteTextBox x:Name="tbApartment" Title="Квартира"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
-                <Button Content="Очистить" Width="95" Margin="0 0 5 0"/>
+                <Button Content="Очистить" Width="95" Margin="0 0 5 0" Click="ClearPageButtonClick"/>
                 <Button Content="Добавить" Style="{StaticResource AuthButtonAlterStyle}" Width="95" Click="AddAddressButtonClick"/>
             </StackPanel>
         </StackPanel>
