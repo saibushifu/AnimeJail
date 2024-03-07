@@ -15,17 +15,17 @@
             <controls:CuteTextBox x:Name="tbCapacity" Title="Вместительность"/>
 
 
-            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
-                <StackPanel Width="170">
+            <StackPanel Style="{StaticResource ComboBoxPanel}">
+                <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Тип камеры"/>
                     <ComboBox x:Name="cbJailType" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
                 </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddJailTypeButtonClick"/>
+                <Button Style="{StaticResource ComboBoxAddButton}"  Click="AddJailTypeButtonClick"/>
             </StackPanel>
- 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
-                <Button Content="Очистить" Width="95" Margin="0 0 5 0" Style="{StaticResource AuthButton}"  Click="ClearPageButtonClick"/>
-                <Button Content="Добавить" Style="{StaticResource AuthButtonAlterStyle}" Width="95" Click="AddJailButtonClick"/>
+
+            <StackPanel Style="{StaticResource EditPageButtonPabel}">
+                <Button Style="{StaticResource ClearButtonEditPage}" Click="ClearPageButtonClick"/>
+                <Button Style="{StaticResource AddButtonEditPage}" Click="AddJailButtonClick"/>
             </StackPanel>
         </StackPanel>
     </Grid>

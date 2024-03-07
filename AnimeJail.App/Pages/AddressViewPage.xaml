@@ -14,20 +14,20 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Style="{StaticResource StackPanelForTools}">
-            <StackPanel Width="150" Margin="5 0 0 0" Style="{StaticResource MainEditStackPanel}">
+            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
                 <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
             </StackPanel>
-            <StackPanel Width="150" Margin="5 0 0 0" Style="{StaticResource MainEditStackPanel}">
+            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Регион" />
                 <ComboBox x:Name="cbRegion" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
             </StackPanel>
-            <StackPanel Width="150" Margin="5 0 0 0" Style="{StaticResource MainEditStackPanel}">
+            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Город"/>
                 <ComboBox x:Name="cbCity" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
             </StackPanel>
             <controls:SearchBox Width="150" Margin="5 8 0 8"/>
-            <Button Style="{StaticResource AuthButton}" Content="Добавить" Width="100" Margin="5 0 5 0" Click="AddressAddButtonClick"/>
+            <Button Style="{StaticResource AddButtonViewPage}" Click="AddressAddButtonClick"/>
         </StackPanel>
         <DataGrid x:Name="dgAdress" Style="{StaticResource DataGridAllView}">
             <DataGrid.Columns>

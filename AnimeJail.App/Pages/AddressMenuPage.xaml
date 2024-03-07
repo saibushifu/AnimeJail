@@ -11,7 +11,7 @@
         <Style TargetType="Button" BasedOn="{StaticResource AuthButton}"/>
     </Page.Resources>
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">
+        <StackPanel Style="{StaticResource MenuPanel}">
             <Button Content="Адреса" Click="AddressButtonClick"/>
             <Button Content="Страны" Click="CountryButtonClick"/>
             <Button Content="Регионы" Click="RegionButtonClick"/>

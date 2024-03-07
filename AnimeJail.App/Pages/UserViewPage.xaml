@@ -14,12 +14,12 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Style="{StaticResource StackPanelForTools}">
-            <StackPanel Width="150" Margin="5 0 0 0" Style="{StaticResource MainEditStackPanel}">
+            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Роль"/>
                 <ComboBox x:Name="cbUserType" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
             </StackPanel>
             <controls:SearchBox Width="170" Margin="5 8 0 8"/>
-            <Button Style="{StaticResource AuthButton}" Content="Добавить" Width="100" Margin="5 0 5 0" Click="UserAddButtonClick"/>
+            <Button Style="{StaticResource AddButtonViewPage}" Click="UserAddButtonClick"/>
         </StackPanel>
         <DataGrid x:Name="dgUsers" Style="{StaticResource DataGridAllView}">
             <DataGrid.Columns>

@@ -13,9 +13,9 @@
             <Label Style="{StaticResource PageMainLabel}" Content="Должность"/>
             <controls:CuteTextBox x:Name="tbId" Title="Идентификатор"/>
             <controls:CuteTextBox x:Name="tbName" Title="Название"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
-                <Button Content="Очистить" Width="95" Margin="0 0 5 0" Style="{StaticResource AuthButton}"  Click="ClearPageButtonClick"/>
-                <Button Content="Добавить" Style="{StaticResource AuthButtonAlterStyle}" Width="95" Click="AddWorkPositionButtonClick"/>
+            <StackPanel Style="{StaticResource EditPageButtonPabel}">
+                <Button Style="{StaticResource ClearButtonEditPage}" Click="ClearPageButtonClick"/>
+                <Button Style="{StaticResource AddButtonEditPage}" Click="AddWorkPositionButtonClick"/>
             </StackPanel>
         </StackPanel>
     </Grid>

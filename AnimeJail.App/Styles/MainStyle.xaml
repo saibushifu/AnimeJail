@@ -359,13 +359,22 @@
     <!-- End: Small button -->
 
     
-    <!-- Start: MainEditStackPanel -->
-    <Style x:Key="MainEditStackPanel" TargetType="{x:Type StackPanel}">
+    <!-- Start: CbStackPanel -->
+    <Style x:Key="MainStackPanel" TargetType="{x:Type StackPanel}">
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    
+    <Style x:Key="MainEditStackPanel" TargetType="{x:Type StackPanel}" BasedOn="{StaticResource MainStackPanel}">
         <Setter Property="Width" Value="200"/>
     </Style>
-    <!-- End: MainEditStackPanel -->
+
+    <Style x:Key="ViewComboBoxStackPanel" TargetType="{x:Type StackPanel}" BasedOn="{StaticResource MainStackPanel}">
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Margin" Value="5 0 0 0"/>
+    </Style>
+    <!-- End: CbStackPanel -->
+
     
     <Style x:Key="SmallEditButton" TargetType="{x:Type Button}" BasedOn="{StaticResource AuthButton}">
         <Setter Property="Background" Value="Transparent"/>
@@ -420,6 +429,9 @@
 
     <!-- Start: ComboBoxAddButton -->
     <Style TargetType="Button" x:Key="ComboBoxAddButton" BasedOn="{StaticResource AuthButton}">
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="55"/>
+        <Setter Property="Content" Value="+"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -503,4 +515,47 @@
     </Style>
 
     <!-- End: FuncButtons -->
+
+    <!-- Start: EditPage Buttons -->
+    <Style TargetType="StackPanel" x:Key="EditPageButtonPabel">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0 5 0 0"/>
+    </Style>
+    
+    
+    <Style TargetType="Button" x:Key="ClearButtonEditPage" BasedOn="{StaticResource AuthButton}">
+        <Setter Property="Content" Value="Очистить"/>
+        <Setter Property="Margin" Value="0 0 5 0"/>
+        <Setter Property="Width" Value="95"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="AddButtonEditPage" BasedOn="{StaticResource AuthButtonAlterStyle}">
+        <Setter Property="Content" Value="Добавить"/>
+        <Setter Property="Width" Value="95"/>
+    </Style>
+    <!-- End: EditPage Buttons -->
+
+
+    <Style TargetType="Button" x:Key="AddButtonViewPage" BasedOn="{StaticResource AuthButton}">
+        <Setter Property="Content" Value="Добавить"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Margin" Value="5 0 5 0"/>
+    </Style>
+    
+    <Style TargetType="StackPanel" x:Key="ComboBoxPanel">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Margin" Value="0 0 0 1"/>
+    </Style>
+
+    <Style TargetType="StackPanel" x:Key="MenuPanel">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Width" Value="200"/>
+    </Style>
+    
+    <Style TargetType="StackPanel" x:Key="ComboBoxSubPanel">
+        <Setter Property="Width" Value="170"/>
+    </Style>
+
 </ResourceDictionary>

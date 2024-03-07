@@ -15,25 +15,25 @@
             <controls:CuteTextBox x:Name="tbNumber" Title="Номер"/>
             <DatePicker x:Name="dpIssueDate"/>
 
-            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
-                <StackPanel Width="170">
+            <StackPanel Style="{StaticResource ComboBoxPanel}">
+                <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Адрес"/>
                     <ComboBox x:Name="cbAdress" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="DisplayName"/>
                 </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+" Click="AddAddressButtonClick"/>
+                <Button Style="{StaticResource ComboBoxAddButton}"  Click="AddAddressButtonClick"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0 0 0 1">
-                <StackPanel Width="170">
+            <StackPanel Style="{StaticResource ComboBoxPanel}">
+                <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна выдачи"/>
                     <ComboBox x:Name="cbIssuingCountry" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
                 </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}" Width="30" Height="55" Content="+"/>
+                <Button Style="{StaticResource ComboBoxAddButton}"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
-                <Button Content="Очистить" Width="95" Margin="0 0 5 0" Style="{StaticResource AuthButton}"  Click="ClearPageButtonClick"/>
-                <Button Content="Добавить" Style="{StaticResource AuthButtonAlterStyle}" Width="95" Click="AddPassportButtonClick"/>
+            <StackPanel Style="{StaticResource EditPageButtonPabel}">
+                <Button Style="{StaticResource ClearButtonEditPage}" Click="ClearPageButtonClick"/>
+                <Button Style="{StaticResource AddButtonEditPage}" Click="AddPassportButtonClick"/>
             </StackPanel>
         </StackPanel>
     </Grid>
