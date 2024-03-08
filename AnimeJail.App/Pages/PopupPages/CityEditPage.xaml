@@ -10,9 +10,8 @@
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Style="{StaticResource PageMainLabel}" Content="Город"/>
-            <controls:CuteTextBox x:Name="tbId" Title="Идентификатор"/>
-            <controls:CuteTextBox x:Name="tbName" Title="Название"/>
-
+            <controls:CuteTextBox x:Name="tbId" Title="Идентификатор" cText="{Binding ElementName=eCityPage, Path=EditCity.Id}"/>
+            <controls:CuteTextBox x:Name="tbName" Title="Название" cText="{Binding ElementName=eCityPage, Path=EditCity.Name}"/>
             <StackPanel Style="{StaticResource ComboBoxPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
@@ -21,7 +20,6 @@
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Click="AddCountryButtonClick"/>
             </StackPanel>
-
             <StackPanel Orientation="Horizontal">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Регион"/>
@@ -29,7 +27,6 @@
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}"  Click="AddRegionButtonClick"/>
             </StackPanel>
-
             <StackPanel Style="{StaticResource EditPageButtonPabel}">
                 <Button Style="{StaticResource ClearButtonEditPage}" Click="ClearPageButtonClick"/>
                 <Button Style="{StaticResource AddButtonEditPage}" Click="AddCityButtonClick"/>

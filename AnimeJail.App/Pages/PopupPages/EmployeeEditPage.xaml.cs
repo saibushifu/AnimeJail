@@ -42,6 +42,12 @@ namespace AnimeJail.App.Pages.PopupPages
             InitializeComponent();
             cbWorkPosition.ItemsSource = DataFromDb.WorkPositionCollection;
             cbPassport.ItemsSource = DataFromDb.PassportCollection;
+
+            if(EditEmployee != null )
+            {
+                cbWorkPosition.SelectedValue = EditEmployee.WorkPositionId;
+                cbPassport.SelectedValue = EditEmployee.PassportId;
+            }
         }
 
         private void AddEmployeeButtonClick(object sender, RoutedEventArgs e)
@@ -85,7 +91,6 @@ namespace AnimeJail.App.Pages.PopupPages
 
             CommonDataFunc<Employee>.AddObjToDb(isEmployeeNull, App.Context.Employees, currentEmployee, DataFromDb.EmployeeCollection,
                 isEmployeeNull ? null : DataFromDb.EmployeeCollection.First(x => x.Id == EditEmployee.Id));
-
         }
 
         private void AddWorkPositionButtonClick(object sender, RoutedEventArgs e) =>

@@ -41,6 +41,8 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             InitializeComponent();
             cbJailType.ItemsSource = DataFromDb.JailTypeCollection;
+
+            if (EditJail != null) cbJailType.SelectedValue = EditJail.TypeId;
         }
 
         private void AddJailButtonClick(object sender, RoutedEventArgs e)

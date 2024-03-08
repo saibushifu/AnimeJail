@@ -39,6 +39,8 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             InitializeComponent();
             cbCountry.ItemsSource = DataFromDb.CountryCollection;
+
+            if (EditRegion != null) cbCountry.SelectedValue = EditRegion.CountryId;
         }
 
         private void AddRegionButtonClick(object sender, RoutedEventArgs e)

@@ -42,6 +42,13 @@ namespace AnimeJail.App.Pages.PopupPages
             InitializeComponent();
             cbAdress.ItemsSource = DataFromDb.AddressCollection;
             cbIssuingCountry.ItemsSource = DataFromDb.CountryCollection;
+
+            if(EditPassport != null)
+            {
+                cbAdress.SelectedValue = EditPassport.DomiclleRegistrationAdressId;
+                cbIssuingCountry.SelectedValue = EditPassport.IssuingCountryId;
+                dpIssueDate.SelectedDate = EditPassport.IssueDate.ToDateTime(new TimeOnly(0));
+            }
         }
 
         private void AddPassportButtonClick(object sender, RoutedEventArgs e)

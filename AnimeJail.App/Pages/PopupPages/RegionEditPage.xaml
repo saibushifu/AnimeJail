@@ -10,8 +10,8 @@
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Style="{StaticResource PageMainLabel}" Content="Регион"/>
-            <controls:CuteTextBox x:Name="tbId" Title="Идентификатор"/>
-            <controls:CuteTextBox x:Name="tbName" Title="Наименование"/>
+            <controls:CuteTextBox x:Name="tbId" Title="Идентификатор" cText="{Binding ElementName=eRegionPage, Path=EditRegion.Id}"/>
+            <controls:CuteTextBox x:Name="tbName" Title="Наименование" cText="{Binding ElementName=eRegionPage, Path=EditRegion.Name}"/>
             <StackPanel Style="{StaticResource ComboBoxPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>

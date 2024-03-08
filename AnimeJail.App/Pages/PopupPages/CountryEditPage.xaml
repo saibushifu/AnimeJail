@@ -11,8 +11,8 @@
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Style="{StaticResource PageMainLabel}" Content="Страна"/>
-            <controls:CuteTextBox x:Name="tbId" Title="Идентификатор"/>
-            <controls:CuteTextBox x:Name="tbName" Title="Название"/>
+            <controls:CuteTextBox x:Name="tbId" Title="Идентификатор" cText="{Binding ElementName=eCountryPage, Path=EditCountry.Id}"/>
+            <controls:CuteTextBox x:Name="tbName" Title="Название" cText="{Binding ElementName=eCountryPage, Path=EditCountry.Name}"/>
             <StackPanel Style="{StaticResource EditPageButtonPabel}">
                 <Button Style="{StaticResource ClearButtonEditPage}" Click="ClearPageButtonClick"/>
                 <Button Style="{StaticResource AddButtonEditPage}" Click="AddCountryButtonClick"/>

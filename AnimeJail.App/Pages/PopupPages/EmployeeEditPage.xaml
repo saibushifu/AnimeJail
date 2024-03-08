@@ -18,9 +18,9 @@
         </Grid.ColumnDefinitions>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Content="Сотрудник" Style="{StaticResource PageMainLabel}"/>
-            <controls:CuteTextBox x:Name="tbSecondName" Title="Фамилия"/>
-            <controls:CuteTextBox x:Name="tbFirstName" Title="Имя"/>
-            <controls:CuteTextBox x:Name="tbMiddleName" Title="Отчество"/>
+            <controls:CuteTextBox x:Name="tbSecondName" Title="Фамилия" cText="{Binding ElementName=eEmployeePage, Path=EditEmployee.SecondName}"/>
+            <controls:CuteTextBox x:Name="tbFirstName" Title="Имя" cText="{Binding ElementName=eEmployeePage, Path=EditEmployee.FirstName}"/>
+            <controls:CuteTextBox x:Name="tbMiddleName" Title="Отчество" cText="{Binding ElementName=eEmployeePage, Path=EditEmployee.MiddleName}"/>
             <StackPanel Orientation="Horizontal">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Должность"/>
@@ -31,8 +31,8 @@
             <DatePicker x:Name="dpBirthdate"/>
         </StackPanel>
         <StackPanel Style="{StaticResource MainEditStackPanel}" Grid.Column="1">
-            <controls:CuteTextBox x:Name="tbPhoneNumber" Title="Номер телефона"/>
-            <controls:CuteTextBox x:Name="tbEmail" Title="Эл. почта"/>
+            <controls:CuteTextBox x:Name="tbPhoneNumber" Title="Номер телефона" cText="{Binding ElementName=eEmployeePage, Path=EditEmployee.PhoneNumber}"/>
+            <controls:CuteTextBox x:Name="tbEmail" Title="Эл. почта" cText="{Binding ElementName=eEmployeePage, Path=EditEmployee.Email}"/>
             <DatePicker x:Name="dpHiredate"/>
             <DatePicker x:Name="dpDismdate"/>
             <StackPanel Orientation="Horizontal">

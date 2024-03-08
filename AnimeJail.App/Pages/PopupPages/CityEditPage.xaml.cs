@@ -45,6 +45,11 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void UpdateContext()
         {
+            if (EditCity != null)
+            {
+                cbCountry.SelectedValue = EditCity.CountryId;
+                cbRegion.SelectedValue = EditCity.RegionId;
+            }
             cbRegion.ItemsSource = DataFromDb.RegionsCollection.Where(x => x.CountryId == Convert.ToInt32(cbCountry.SelectedValue)).ToList();
         }
 

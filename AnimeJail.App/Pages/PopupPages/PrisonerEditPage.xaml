@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:AnimeJail.App.Pages.PopupPages" xmlns:controls="clr-namespace:AnimeJail.App.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PrisonerEditPage">
+      Title="PrisonerEditPage" x:Name="ePrisonerPage">
     <Page.Resources>
         <Style TargetType="Button" BasedOn="{StaticResource AuthButton}"></Style>
     </Page.Resources>
@@ -17,9 +17,9 @@
         </Grid.ColumnDefinitions>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Content="Заключённый" Style="{StaticResource PageMainLabel}"/>
-            <controls:CuteTextBox x:Name="tbSecondName" Title="Фамилия"/>
-            <controls:CuteTextBox x:Name="tbFirstName" Title="Имя"/>
-            <controls:CuteTextBox x:Name="tbMiddleName" Title="Отчество"/>
+            <controls:CuteTextBox x:Name="tbSecondName" Title="Фамилия" cText="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.SecondName}"/>
+            <controls:CuteTextBox x:Name="tbFirstName" Title="Имя" cText="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.FirstName}"/>
+            <controls:CuteTextBox x:Name="tbMiddleName" Title="Отчество" cText="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.MiddleName}"/>
             <DatePicker x:Name="dpBirthdate"/>
             <DatePicker x:Name="dpIndate"/>
             <DatePicker x:Name="dpFreedate"/>

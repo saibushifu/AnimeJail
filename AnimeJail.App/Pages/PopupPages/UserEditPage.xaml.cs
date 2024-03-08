@@ -40,6 +40,8 @@ namespace AnimeJail.App.Pages.PopupPages
         {
             InitializeComponent();
             cbEmployee.ItemsSource = DataFromDb.EmployeeCollection;
+
+            if (EditUser != null) cbEmployee.SelectedValue = EditUser.EmployeeId;
         }
 
         private void AddUserButtonClick(object sender, RoutedEventArgs e)

@@ -11,8 +11,8 @@
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Content="Паспорт" Style="{StaticResource PageMainLabel}"/>
-            <controls:CuteTextBox x:Name="tbSerial" Title="Серия"/>
-            <controls:CuteTextBox x:Name="tbNumber" Title="Номер"/>
+            <controls:CuteTextBox x:Name="tbSerial" Title="Серия" cText="{Binding ElementName=ePassportPage, Path=EditPassport.Serial}"/>
+            <controls:CuteTextBox x:Name="tbNumber" Title="Номер" cText="{Binding ElementName=ePassportPage, Path=EditPassport.Number}"/>
             <DatePicker x:Name="dpIssueDate"/>
 
             <StackPanel Style="{StaticResource ComboBoxPanel}">
