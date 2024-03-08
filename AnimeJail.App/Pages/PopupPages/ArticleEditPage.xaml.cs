@@ -22,32 +22,29 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class ArticleEditPage : Page
     {
-        private Article? EditArticle = null;
+        public Article? EditArticle { get; set; } = null;
         public ArticleEditPage()
         {
             InitializeComponent();
         }
-        public ArticleEditPage(Article editArticle) : this()
+        public ArticleEditPage(Article editArticle)
         {
             EditArticle = editArticle;
+            DataContext = this;
+            InitializeComponent();
         }
 
         private void AddArticleButtonClick(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                var newArticle = new Article
-                {
-                    Id = Convert.ToInt32(tbId.cText),
-                    Description = tbDescription.cText,
-                    Name = tbName.cText
-                };
-                App.Context.Add(newArticle);
-                App.Context.SaveChanges();
-                DataFromDb.ArticleCollection.Add(newArticle);
-                MessageBox.Show("Операция выполнена успешно");
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            var isArticleNull = EditArticle == null;
+
+            Article currentArticle = isArticleNull ? new Article { } : App.Context.Articles.First(x => x.Id == EditArticle.Id);
+            currentArticle.Id = Convert.ToInt32(tbId.cText);
+            currentArticle.Description = tbDescription.cText;
+            currentArticle.Name = tbName.cText;
+
+            CommonDataFunc<Article>.AddObjToDb(isArticleNull, App.Context.Articles, currentArticle, DataFromDb.ArticleCollection, 
+                isArticleNull ? null : DataFromDb.ArticleCollection.First(x => x.Id == EditArticle.Id));
         }
 
         private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>

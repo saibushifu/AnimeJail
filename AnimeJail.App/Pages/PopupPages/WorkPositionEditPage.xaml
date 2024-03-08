@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:AnimeJail.App.Pages.PopupPages" xmlns:controls="clr-namespace:AnimeJail.App.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="WorkPositionEditPage">
+      Title="WorkPositionEditPage" x:Name="eWorkPositionPage">
 
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">

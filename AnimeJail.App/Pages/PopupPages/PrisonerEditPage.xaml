@@ -21,14 +21,8 @@
             <controls:CuteTextBox x:Name="tbFirstName" Title="Имя"/>
             <controls:CuteTextBox x:Name="tbMiddleName" Title="Отчество"/>
             <DatePicker x:Name="dpBirthdate"/>
-
-
-            
             <DatePicker x:Name="dpIndate"/>
             <DatePicker x:Name="dpFreedate"/>
-
-           
-
             <StackPanel Style="{StaticResource ComboBoxPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Паспорт"/>
@@ -46,8 +40,6 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Style="{StaticResource MainEditStackPanel}" Grid.Column="1">
-
-
             <StackPanel Style="{StaticResource ComboBoxPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Камера"/>
@@ -62,7 +54,6 @@
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}"/>
             </StackPanel>
-
             <ListBox x:Name="lst" Height="40">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -70,13 +61,10 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-
-
             <StackPanel Orientation="Horizontal">
             <Image x:Name="iPrisonerPhoto" Height="100" Width="100"/>
                 <Button x:Name="bSelectImage" Height="40" Width="50" Content="..." Click="bSelectImage_Click"/>
             </StackPanel>
-
             <StackPanel Style="{StaticResource EditPageButtonPabel}">
                 <Button Style="{StaticResource ClearButtonEditPage}" Click="ClearPageButtonClick"/>
                 <Button Style="{StaticResource AddButtonEditPage}" Click="AddPrisonerButtonClick"/>

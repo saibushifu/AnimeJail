@@ -21,12 +21,22 @@ namespace AnimeJail.App.Controls
     public partial class CuteTextBox : UserControl
     {
         public string Title { get; set; }
-        public string cText { get; set; }
+        //public string cText { get; set; }
         public CuteTextBox()
         {
             InitializeComponent();
             DataContext = this;
         }
+
+        public static readonly DependencyProperty cTextProperty =
+        DependencyProperty.Register("cText", typeof(string), typeof(CuteTextBox), new UIPropertyMetadata(String.Empty));
+
+        public string cText
+        {
+            get { return (string)GetValue(cTextProperty); }
+            set { SetValue(cTextProperty, value); }
+        }
+
         private void Nametxtbox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             if (TxtBox.Text == "")

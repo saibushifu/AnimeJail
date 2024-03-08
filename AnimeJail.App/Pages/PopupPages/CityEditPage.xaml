@@ -6,11 +6,7 @@
       xmlns:local="clr-namespace:AnimeJail.App.Pages.PopupPages" xmlns:controls="clr-namespace:AnimeJail.App.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CityEditPage">
-    <!--ToDo-->
-    <!--Сделать ободок над Combobox с текстом, сверху закругление, а снизу 90 градусов-->
-    <!--Изменить размер картинок в базе-->
-
+      Title="CityEditPage" x:Name="eCityPage">
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Style="{StaticResource PageMainLabel}" Content="Город"/>

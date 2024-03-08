@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,17 +28,24 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class AddressEditPage : Page
     {
-        private Address? EditAddress = null;
+        public Address? EditAddress { get; set; } = null;
         public AddressEditPage()
+        {
+            BaseCtorConfig();
+        }
+
+        public AddressEditPage(Address editAddress)
+        {
+            EditAddress = editAddress;
+            DataContext = this;
+            BaseCtorConfig();
+        }
+
+        private void BaseCtorConfig()
         {
             InitializeComponent();
             UpdateContext();
             cbCountry.ItemsSource = DataFromDb.CountryCollection;
-        }
-
-        public AddressEditPage(Address editAddress) : this()
-        {
-            EditAddress = editAddress;
         }
 
         private void OpenPage(Page page)
@@ -48,6 +56,12 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void UpdateContext()
         {
+            if (EditAddress != null)
+            {
+                cbCountry.SelectedValue = EditAddress.City.CountryId;
+                cbRegion.SelectedValue = EditAddress.City.RegionId;
+                cbCity.SelectedValue = EditAddress.City.Id;
+            }
             cbRegion.ItemsSource = DataFromDb.RegionsCollection.Where(x => x.CountryId == Convert.ToInt32(cbCountry.SelectedValue)).ToList();
             cbCity.ItemsSource = cbRegion.SelectedValue != null ? DataFromDb.CitiesCollection.Where(x => x.RegionId == Convert.ToInt32(cbRegion.SelectedValue)).ToList() : null;
         }
@@ -58,28 +72,23 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddAddressButtonClick(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                var newCountry = new Address
-                {
-                    CityId = Convert.ToInt32(cbCity.SelectedValue),
-                    StreetName = tbStreet.cText,
-                    ApartmentNumber = tbApartment.cText,
-                    BuildingNumber = tbBuilding.cText
-                };
-                App.Context.Addresses.Add(newCountry);
-                App.Context.SaveChanges();
-                DataFromDb.AddressCollection.Add(newCountry);
-                MessageBox.Show("Операция выполнена успешно");
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            var isAddressNull = EditAddress == null;
+
+            Address currentCountry = isAddressNull ? new Address { } : App.Context.Addresses.First(x => x.Id == EditAddress.Id);
+            currentCountry.CityId = Convert.ToInt32(cbCountry.SelectedValue);
+            currentCountry.StreetName = tbStreet.cText;
+            currentCountry.ApartmentNumber = tbApartment.cText;
+            currentCountry.BuildingNumber = tbBuilding.cText;
+
+            CommonDataFunc<Address>.AddObjToDb(isAddressNull, App.Context.Addresses, currentCountry, 
+                DataFromDb.AddressCollection, isAddressNull ? null : DataFromDb.AddressCollection.First(x => x.Id == EditAddress.Id));
         }
 
         private void CbSelectionChanged(object sender, SelectionChangedEventArgs e) => UpdateContext();
 
         private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>
             NavigationService.Navigate(EditAddress == null ? new AddressEditPage() : new AddressEditPage(EditAddress));
-        
+
     }
-    
+
 }

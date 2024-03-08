@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:AnimeJail.App.Pages.PopupPages" xmlns:controls="clr-namespace:AnimeJail.App.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddressEditPage">
+      Title="AddressEditPage" x:Name="eAddressPage">
     <Page.Resources>
         <Style TargetType="Button" BasedOn="{StaticResource AuthButton}">
             <Setter Property="Width" Value="50"/>
@@ -19,7 +19,8 @@
             <StackPanel Style="{StaticResource ComboBoxPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
-                    <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}"  SelectedIndex="0" SelectedValuePath="Id" DisplayMemberPath="Name" SelectionChanged="CbSelectionChanged"/>
+                    <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" SelectedIndex="0" 
+                              SelectedValuePath="Id" DisplayMemberPath="Name" SelectionChanged="CbSelectionChanged"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}"  Click="AddCountryButtonClick"/>
             </StackPanel>
@@ -37,9 +38,9 @@
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}"/>
             </StackPanel>
-            <controls:CuteTextBox x:Name="tbStreet" Title="Улица"/>
-            <controls:CuteTextBox x:Name="tbBuilding" Title="Строение"/>
-            <controls:CuteTextBox x:Name="tbApartment" Title="Квартира"/>
+            <controls:CuteTextBox x:Name="tbStreet" Title="Улица" cText="{Binding ElementName=eAddressPage, Path=EditAddress.StreetName}"/>
+            <controls:CuteTextBox x:Name="tbBuilding" Title="Строение" cText="{Binding ElementName=eAddressPage, Path=EditAddress.BuildingNumber}"/>
+            <controls:CuteTextBox x:Name="tbApartment" Title="Квартира" cText="{Binding ElementName=eAddressPage, Path=EditAddress.ApartmentNumber}"/>
             <StackPanel Style="{StaticResource EditPageButtonPabel}">
                 <Button Style="{StaticResource ClearButtonEditPage}" Click="ClearPageButtonClick"/>
                 <Button Style="{StaticResource AddButtonEditPage}" Click="AddAddressButtonClick"/>

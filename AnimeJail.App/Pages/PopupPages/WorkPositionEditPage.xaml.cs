@@ -22,26 +22,40 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class WorkPositionEditPage : Page
     {
-        private WorkPostion? EditWorkPosition = null;
+        public WorkPostion? EditWorkPosition { get; set; } = null;
         public WorkPositionEditPage()
         {
             InitializeComponent();
         }
-        public WorkPositionEditPage(WorkPostion editWorkPosition) : this()
+        public WorkPositionEditPage(WorkPostion editWorkPosition)
         { 
             EditWorkPosition = editWorkPosition;
+            DataContext = this;
+            InitializeComponent();
         }
         private void AddWorkPositionButtonClick(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                var newWorkPosition = new WorkPostion { Id = Convert.ToInt32(tbId.cText), Name = tbName.cText };
-                App.Context.WorkPostions.Add(newWorkPosition);
-                App.Context.SaveChanges();
-                DataFromDb.WorkPositionCollection.Add(newWorkPosition);
-                MessageBox.Show("Сохранение произведено успешно!");
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            //try
+            //{
+            //    var newWorkPosition = new WorkPostion { 
+            //        Id = Convert.ToInt32(tbId.cText), 
+            //        Name = tbName.cText };
+            //    App.Context.WorkPostions.Add(newWorkPosition);
+            //    App.Context.SaveChanges();
+            //    DataFromDb.WorkPositionCollection.Add(newWorkPosition);
+            //    MessageBox.Show("Сохранение произведено успешно!");
+            //}
+            //catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+
+            var isWorkPositionNull = EditWorkPosition == null;
+
+            WorkPostion currentWorkPosition = isWorkPositionNull ? new WorkPostion { } : App.Context.WorkPostions.First(x => x.Id == EditWorkPosition.Id);
+            currentWorkPosition.Id = Convert.ToInt32(tbId.cText);
+            currentWorkPosition.Name = tbName.cText;
+
+            CommonDataFunc<WorkPostion>.AddObjToDb(isWorkPositionNull, App.Context.WorkPostions, currentWorkPosition, DataFromDb.WorkPositionCollection,
+                isWorkPositionNull ? null : DataFromDb.WorkPositionCollection.First(x => x.Id == EditWorkPosition.Id));
         }
 
         private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>

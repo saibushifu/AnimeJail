@@ -29,6 +29,34 @@ public class CommonDataFunc<T> where T : class
     }
 
     public static T TypeFromSender(object sender) => (T)((Button)sender).DataContext;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="editItem"></param>
+    /// <param name="dbSet">Коллекция в App</param>
+    /// <param name="currentItem">Добавляемый/изменямый объект</param>
+    /// <param name="itemsCollection">Коллекция Observable</param>
+    /// <param name="itemCollection">Элемент из коллеции Observable, который надо заменить</param>
+    public static void AddObjToDb(bool isNull, Microsoft.EntityFrameworkCore.DbSet<T> dbSet, T currentItem, ObservableCollection<T> itemsCollection, T? itemCollection)
+    {
+        try
+        {
+            if (isNull)
+            {
+                dbSet.Add(currentItem);
+                itemsCollection.Add(currentItem);
+            }
+            else
+            {
+                itemsCollection.Remove(itemCollection);
+                itemsCollection.Add(currentItem);
+            }
+            App.Context.SaveChanges();
+            MessageBox.Show("Операция выполнена успешно");
+        }
+        catch (Exception ex) { MessageBox.Show(ex.Message); }
+    }
 }
 
 public class CommonPageFunc

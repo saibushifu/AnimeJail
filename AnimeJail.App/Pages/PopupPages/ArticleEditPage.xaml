@@ -6,14 +6,14 @@
       xmlns:local="clr-namespace:AnimeJail.App.Pages.PopupPages" xmlns:controls="clr-namespace:AnimeJail.App.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ArticleEditPage">
+      Title="ArticleEditPage" x:Name="eArticlePage">
 
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Content="Статья" Style="{StaticResource PageMainLabel}"/>
-            <controls:CuteTextBox x:Name="tbId" Title="Номер"/>
-            <controls:CuteTextBox x:Name="tbName" Title="Название"/>
-            <controls:CuteTextBox x:Name="tbDescription" Title="Описание"/>
+            <controls:CuteTextBox x:Name="tbId" Title="Номер" cText="{Binding ElementName=eArticlePage, Path=EditArticle.Id}"/>
+            <controls:CuteTextBox x:Name="tbName" Title="Название" cText="{Binding ElementName=eArticlePage, Path=EditArticle.Name}"/>
+            <controls:CuteTextBox x:Name="tbDescription" Title="Описание" cText="{Binding ElementName=eArticlePage, Path=EditArticle.Description}"/>
             <StackPanel Style="{StaticResource EditPageButtonPabel}">
                 <Button Style="{StaticResource ClearButtonEditPage}" Click="ClearPageButtonClick"/>
                 <Button Style="{StaticResource AddButtonEditPage}" Click="AddArticleButtonClick"/>

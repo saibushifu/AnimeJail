@@ -27,9 +27,20 @@ namespace AnimeJail.App.Pages.PopupPages
     public partial class PrisonerEditPage : Page
     {
         private byte[] _imageBytes = null;
-        private Prisoner? EditPrisoner = null;
+        public Prisoner? EditPrisoner { get; set; } = null;
         Jail? selectedJail = null;
         public PrisonerEditPage()
+        {
+            BaseCtorConfig();
+        }
+        public PrisonerEditPage(Prisoner editPrisoner)
+        {
+            EditPrisoner = editPrisoner;
+            DataContext = this;
+            BaseCtorConfig();
+        }
+
+        private void BaseCtorConfig()
         {
             InitializeComponent();
             cbAdress.ItemsSource = DataFromDb.AddressCollection;
@@ -38,10 +49,8 @@ namespace AnimeJail.App.Pages.PopupPages
             cbJail.ItemsSource = DataFromDb.JailCollection.Where(x => x.Capacity > DataFromDb.JailPrisonerCollection.Count(y => y.JailId == x.Id));
             UpdateContext();
         }
-        public PrisonerEditPage(Prisoner editPrisoner) : this()
-        {
-            EditPrisoner = editPrisoner;
-        }
+
+
         private void UpdateContext()
         {
             selectedJail = cbJail.SelectedValue as Jail;
@@ -119,6 +128,11 @@ namespace AnimeJail.App.Pages.PopupPages
                 MessageBox.Show("Операция выполнена успешно");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+
+
+
+
         }
 
         private void AddPassportButtonClick(object sender, RoutedEventArgs e) =>

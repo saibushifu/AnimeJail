@@ -23,17 +23,24 @@ namespace AnimeJail.App.Pages.PopupPages
     /// </summary>
     public partial class CityEditPage : Page
     {
-        private City? EditCity = null;
+        public City? EditCity { get; set; } = null;
         public CityEditPage()
         {
-            InitializeComponent();
-            cbCountry.ItemsSource = DataFromDb.CountryCollection;
-            UpdateContext();
+            BaseCtorConfig();
         }
 
-        public CityEditPage(City editCity) : this()
+        public CityEditPage(City editCity)
         {
             EditCity = editCity;
+            DataContext = this;
+            BaseCtorConfig();
+        }
+
+        private void BaseCtorConfig()
+        {
+            InitializeComponent();
+            UpdateContext();
+            cbCountry.ItemsSource = DataFromDb.CountryCollection;
         }
 
         private void UpdateContext()
@@ -43,21 +50,33 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddCityButtonClick(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                var newCity = new City
-                {
-                    Id = Convert.ToInt32(tbId.cText),
-                    Name = tbName.cText,
-                    CountryId = Convert.ToInt32(cbCountry.SelectedValue),
-                    Region = cbRegion.SelectedValue as Region
-                };
-                App.Context.Add(newCity);
-                App.Context.SaveChanges();
-                DataFromDb.CitiesCollection.Add(newCity);
-                MessageBox.Show("Операция выполнена успешно");
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            //try
+            //{
+            //    var newCity = new City
+            //    {
+            //        Id = Convert.ToInt32(tbId.cText),
+            //        Name = tbName.cText,
+            //        CountryId = Convert.ToInt32(cbCountry.SelectedValue),
+            //        Region = cbRegion.SelectedValue as Region
+            //    };
+            //    App.Context.Add(newCity);
+            //    App.Context.SaveChanges();
+            //    DataFromDb.CitiesCollection.Add(newCity);
+            //    MessageBox.Show("Операция выполнена успешно");
+            //}
+            //catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+
+            var isCityNull = EditCity == null;
+
+            City currentCity = isCityNull ? new City { } : App.Context.Cities.First(x => x.Id == EditCity.Id);
+            currentCity.Id = Convert.ToInt32(tbId.cText);
+            currentCity.Name = tbName.cText;
+            currentCity.CountryId = Convert.ToInt32(cbCountry.SelectedValue);
+            currentCity.Region = cbRegion.SelectedValue as Region;
+
+            CommonDataFunc<City>.AddObjToDb(isCityNull, App.Context.Cities, currentCity, DataFromDb.CitiesCollection,
+                isCityNull ? null : DataFromDb.CitiesCollection.First(x => x.Id == EditCity.Id));
         }
 
         private void AddCountryButtonClick(object sender, RoutedEventArgs e) =>
