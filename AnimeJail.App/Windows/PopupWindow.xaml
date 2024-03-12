@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimeJail.App.Windows"
         mc:Ignorable="d"
-        Title="Фунциональное окно" Height="450" Width="800" Icon="/Assets/Pictures/jail.png">
+        Title="Фунциональное окно" Height="450" Width="800" MinHeight="450" MinWidth="450" Icon="/Assets/Pictures/jail.png">
     <Grid>
-        <Frame x:Name="PopupPagesNavigation" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="PopupPagesNavigation" MaxWidth="550" MinWidth="400" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

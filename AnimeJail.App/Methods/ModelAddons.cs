@@ -34,12 +34,6 @@ public partial class Employee
 public partial class Prisoner
 {
     [NotMapped]
-    public JailPrisoner? DisplayBerth => DataFromDb.JailPrisonerCollection.FirstOrDefault(x => x.PrisonerId == this.Id);
-
-    [NotMapped]
-    public JailPrisoner? DisplayJail => DataFromDb.JailPrisonerCollection.FirstOrDefault(x => x.PrisonerId == this.Id);
-
-    [NotMapped]
     public string? AllArticles => string.Concat(DataFromDb.ArticlePrisonerCollection.Where(x => x.PrisonerId == this.Id).Select(x => x.ArticleId.ToString() + " "));
 }
 

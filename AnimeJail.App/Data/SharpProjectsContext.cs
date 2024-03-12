@@ -24,6 +24,8 @@ public partial class SharpProjectsContext : DbContext
 
     public virtual DbSet<ArticleStatus> ArticleStatuses { get; set; }
 
+    public virtual DbSet<Berth> Berths { get; set; }
+
     public virtual DbSet<City> Cities { get; set; }
 
     public virtual DbSet<Country> Countries { get; set; }
@@ -31,8 +33,6 @@ public partial class SharpProjectsContext : DbContext
     public virtual DbSet<Employee> Employees { get; set; }
 
     public virtual DbSet<Jail> Jails { get; set; }
-
-    public virtual DbSet<JailPrisoner> JailPrisoners { get; set; }
 
     public virtual DbSet<JailType> JailTypes { get; set; }
 
@@ -118,6 +118,20 @@ public partial class SharpProjectsContext : DbContext
                 .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.Name).HasColumnName("name");
+        });
+
+        modelBuilder.Entity<Berth>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("Berth_pkey");
+
+            entity.ToTable("Berth", "AnimeJailDb");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.JailId).HasColumnName("jailId");
+
+            entity.HasOne(d => d.Jail).WithMany(p => p.Berths)
+                .HasForeignKey(d => d.JailId)
+                .HasConstraintName("Berth_jailId_fkey");
         });
 
         modelBuilder.Entity<City>(entity =>
@@ -208,22 +222,6 @@ public partial class SharpProjectsContext : DbContext
                 .HasConstraintName("Jail_typeId_fkey");
         });
 
-        modelBuilder.Entity<JailPrisoner>(entity =>
-        {
-            entity.HasKey(e => new { e.PrisonerId, e.JailId }).HasName("Jail_Prisoner_pkey");
-
-            entity.ToTable("Jail_Prisoner", "AnimeJailDb");
-
-            entity.Property(e => e.PrisonerId).HasColumnName("prisonerId");
-            entity.Property(e => e.JailId).HasColumnName("jailId");
-            entity.Property(e => e.BerthId).HasColumnName("berthId");
-
-            entity.HasOne(d => d.Prisoner).WithMany(p => p.JailPrisoners)
-                .HasForeignKey(d => d.PrisonerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Jail_Prisoner_prisonerId_fkey");
-        });
-
         modelBuilder.Entity<JailType>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("JailType_pkey");
@@ -273,6 +271,7 @@ public partial class SharpProjectsContext : DbContext
                 .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
             entity.Property(e => e.AddressId).HasColumnName("addressId");
+            entity.Property(e => e.BerthId).HasColumnName("berthId");
             entity.Property(e => e.BirthDate).HasColumnName("birthDate");
             entity.Property(e => e.FirstName).HasColumnName("firstName");
             entity.Property(e => e.FreedomDate).HasColumnName("freedomDate");
@@ -286,6 +285,10 @@ public partial class SharpProjectsContext : DbContext
                 .HasForeignKey(d => d.AddressId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Prisoner_addressId_fkey");
+
+            entity.HasOne(d => d.Berth).WithMany(p => p.Prisoners)
+                .HasForeignKey(d => d.BerthId)
+                .HasConstraintName("Prisoner_berthId_fkey");
 
             entity.HasOne(d => d.Passport).WithMany(p => p.Prisoners)
                 .HasForeignKey(d => d.PassportId)

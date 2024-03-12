@@ -31,7 +31,7 @@ public class CommonDataFunc<T> where T : class
     public static T TypeFromSender(object sender) => (T)((Button)sender).DataContext;
 
     /// <summary>
-    /// 
+    /// F
     /// </summary>
     /// <param name="editItem"></param>
     /// <param name="dbSet">Коллекция в App</param>

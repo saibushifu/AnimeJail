@@ -58,6 +58,7 @@
         <Setter Property="Height" Value="35"/>
         <Setter Property="FontFamily" Value="{StaticResource CustomTextFont}"/>
         <Setter Property="Foreground" Value="{StaticResource LabelForeground}"/>
+        <Setter Property="IsReadOnly" Value="True"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
@@ -408,7 +409,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+    
     <!-- Start: ComboBoxHeaderLabel -->
     <Style TargetType="Label" x:Key="ComboBoxHeaderLabel">
         <Setter Property="Foreground" Value="{StaticResource LabelForeground}"/>
@@ -430,7 +431,7 @@
     <!-- Start: ComboBoxAddButton -->
     <Style TargetType="Button" x:Key="ComboBoxAddButton" BasedOn="{StaticResource AuthButton}">
         <Setter Property="Width" Value="30"/>
-        <Setter Property="Height" Value="55"/>
+        <Setter Property="Height" Value="56"/>
         <Setter Property="Content" Value="+"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -444,6 +445,10 @@
     </Style>
     <!-- End: ComboBoxAddButton -->
 
+    <Style TargetType="StackPanel" x:Key="BigEditCbStackPanel">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Margin" Value="0 0 0 2"/>
+    </Style>
     
     <!-- Start: DataGridForView -->
     <Style TargetType="DataGrid" x:Key="DataGridAllView">
@@ -558,4 +563,34 @@
         <Setter Property="Width" Value="170"/>
     </Style>
 
+    <!-- Start: EditDate -->
+    <Style TargetType="DatePicker" x:Key="EditDatePicker">
+        <Setter Property="Width" Value="30"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="EditDateLabel">
+        <Setter Property="Foreground" Value="{StaticResource LabelForeground}"/>
+        <Setter Property="FontFamily" Value="{StaticResource CustomTextFont}"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Width" Value="170"/>
+        <Setter Property="Template">
+        <Setter.Value>
+            <ControlTemplate TargetType="{x:Type Label}">
+                <Border Name="bd" CornerRadius="5 0 0 5" BorderThickness="0 0 0 0">
+                    <Border.Background>
+                        <SolidColorBrush Color="LightGray" Opacity="0.5"/>
+                    </Border.Background>
+                    <ContentPresenter HorizontalAlignment="Left" Margin="10 0 0 0" VerticalAlignment="Center" x:Name="contentPresenter"/>
+                </Border>
+            </ControlTemplate>
+        </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="StackPanel" x:Key="EditDateStackPanel">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Margin" Value="0 0 0 1"/>
+    </Style>
+    <!-- End: EditDate -->
+    
 </ResourceDictionary>

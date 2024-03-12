@@ -47,21 +47,6 @@ namespace AnimeJail.App.Pages.PopupPages
 
         private void AddJailButtonClick(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    var newJail = new Jail
-            //    {
-            //        Id = Convert.ToInt32(tbJailNumber.cText),
-            //        Capacity = Convert.ToInt32(tbCapacity.cText),
-            //        TypeId = Convert.ToInt32(cbJailType.SelectedValue)
-            //    };
-            //    App.Context.Add(newJail);
-            //    App.Context.SaveChanges();
-            //    DataFromDb.JailCollection.Add(newJail);
-            //    MessageBox.Show("Операция выполнена успешно");
-            //}
-            //catch (Exception ex) { MessageBox.Show(ex.Message); }
-
             var isJailNull = EditJail == null;
 
             Jail currentArticle = isJailNull ? new Jail { } : App.Context.Jails.First(x => x.Id == EditJail.Id);
@@ -71,6 +56,7 @@ namespace AnimeJail.App.Pages.PopupPages
 
             CommonDataFunc<Jail>.AddObjToDb(isJailNull, App.Context.Jails, currentArticle, DataFromDb.JailCollection,
                 isJailNull ? null : DataFromDb.JailCollection.First(x => x.Id == EditJail.Id));
+
         }
 
         private void AddJailTypeButtonClick(object sender, RoutedEventArgs e) =>

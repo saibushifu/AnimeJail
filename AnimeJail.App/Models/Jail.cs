@@ -11,5 +11,7 @@ public partial class Jail
 
     public int TypeId { get; set; }
 
+    public virtual ICollection<Berth> Berths { get; set; } = new List<Berth>();
+
     public virtual JailType Type { get; set; } = null!;
 }

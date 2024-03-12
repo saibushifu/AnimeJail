@@ -21,6 +21,7 @@ namespace AnimeJail.App.Controls
     public partial class CuteTextBox : UserControl
     {
         public string Title { get; set; }
+
         //public string cText { get; set; }
         public CuteTextBox()
         {

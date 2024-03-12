@@ -1,0 +1,28 @@
+﻿<Page x:Class="AnimeJail.App.Pages.PopupPages.BerthEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AnimeJail.App.Pages.PopupPages" xmlns:controls="clr-namespace:AnimeJail.App.Controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BerthEditPage" x:Name="eBerthPage">
+
+    <Grid>
+        <StackPanel Style="{StaticResource MainEditStackPanel}">
+            <Label Style="{StaticResource PageMainLabel}" Content="Койка"/>
+            <controls:CuteTextBox x:Name="tbId" Title="Номер" cText="{Binding ElementName=eBerthPage, Path=EditBerth.Id}"/>
+            <StackPanel Style="{StaticResource ComboBoxPanel}">
+                <StackPanel Style="{StaticResource ComboBoxSubPanel}">
+                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Камера"/>
+                    <ComboBox x:Name="cbJail" Style="{StaticResource ComboboxStyle}" SelectedValue="{Binding ElementName=eBerthPage, Path=EditBerth.JailId}" DisplayMemberPath="Id" SelectedValuePath="Id"/>
+                </StackPanel>
+                <Button Style="{StaticResource ComboBoxAddButton}"  Click="AddJailButtonClick"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource EditPageButtonPabel}">
+                <Button Style="{StaticResource ClearButtonEditPage}" Click="ClearPageButtonClick"/>
+                <Button Style="{StaticResource AddButtonEditPage}" Click="AddBerthButtonClick"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

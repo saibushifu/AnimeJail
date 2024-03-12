@@ -3,6 +3,7 @@ using AnimeJail.App.Models;
 using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,11 @@ namespace AnimeJail.App.Pages
 
         private void DeletePrisonerButtonClick(object sender, RoutedEventArgs e)
         {
+            var prisonerId = ((Prisoner)((Button)sender).DataContext).Id;
+            var articlePrisoner = App.Context.ArticlePrisoners.Where(x => x.PrisonerId == prisonerId);
+            if (articlePrisoner != null) App.Context.ArticlePrisoners.RemoveRange(articlePrisoner);
+            //var jailPrisoner = App.Context.JailPrisoners.FirstOrDefault(x => x.PrisonerId == prisonerId);
+            //if (jailPrisoner != null) App.Context.JailPrisoners.Remove(jailPrisoner);
             CommonDataFunc<Prisoner>.DeleteObjFromDb(sender, DataFromDb.PrisonerCollection);
         }
 

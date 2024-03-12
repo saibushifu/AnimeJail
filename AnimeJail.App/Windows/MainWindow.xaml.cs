@@ -43,28 +43,13 @@ namespace AnimeJail.App.Windows
             //}
         }
 
-        private void PrisonCellButtonClick(object sender, RoutedEventArgs e) =>
-            PagesNavigation.Navigate(new PrisonCellViewPage());
-        
-        private void PrisonerButtonClick(object sender, RoutedEventArgs e) =>
-            PagesNavigation.Navigate(new PrisonerViewPage());
-
-        private void EmployeeButtonClick(object sender, RoutedEventArgs e) =>
-            PagesNavigation.Navigate(new EmployeeMenuPage());
-
-        private void ArticleButtonClick(object sender, RoutedEventArgs e) =>
-            PagesNavigation.Navigate(new ArticleViewPage());
-
-        private void AddressButtonClick(object sender, RoutedEventArgs e) =>
-            PagesNavigation.Navigate(new AddressMenuPage());
-
-        private void PassportButtonClick(object sender, RoutedEventArgs e) =>
-            PagesNavigation.Navigate(new PassportViewPage());
-
-        private void UserButtonClick(object sender, RoutedEventArgs e) =>
-            PagesNavigation.Navigate(new UserViewPage());
-
-        private void Window_Closed(object sender, EventArgs e) => 
-            Application.Current.Shutdown();
+        private void PrisonCellButtonClick(object sender, RoutedEventArgs e) => PagesNavigation.Navigate(new JailMenuPage());
+        private void PrisonerButtonClick(object sender, RoutedEventArgs e) => PagesNavigation.Navigate(new PrisonerViewPage());
+        private void EmployeeButtonClick(object sender, RoutedEventArgs e) => PagesNavigation.Navigate(new EmployeeMenuPage());
+        private void ArticleButtonClick(object sender, RoutedEventArgs e) => PagesNavigation.Navigate(new ArticleViewPage());
+        private void AddressButtonClick(object sender, RoutedEventArgs e) =>PagesNavigation.Navigate(new AddressMenuPage());
+        private void PassportButtonClick(object sender, RoutedEventArgs e) => PagesNavigation.Navigate(new PassportViewPage());
+        private void UserButtonClick(object sender, RoutedEventArgs e) => PagesNavigation.Navigate(new UserViewPage());
+        private void Window_Closed(object sender, EventArgs e) => Application.Current.Shutdown();
     }
 }

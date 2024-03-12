@@ -25,11 +25,13 @@ public partial class Prisoner
 
     public byte[]? Image { get; set; }
 
+    public string? BerthId { get; set; }
+
     public virtual Address Address { get; set; } = null!;
 
     public virtual ICollection<ArticlePrisoner> ArticlePrisoners { get; set; } = new List<ArticlePrisoner>();
 
-    public virtual ICollection<JailPrisoner> JailPrisoners { get; set; } = new List<JailPrisoner>();
+    public virtual Berth? Berth { get; set; }
 
     public virtual PassportDatum Passport { get; set; } = null!;
 }

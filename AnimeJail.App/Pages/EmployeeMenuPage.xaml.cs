@@ -10,7 +10,6 @@ namespace AnimeJail.App.Pages;
 public partial class EmployeeMenuPage : Page
 {
     public EmployeeMenuPage() => InitializeComponent();
-
     private void EmployeeButtonClick(object sender, RoutedEventArgs e) => NavigationService.Navigate(new EmployeeViewPage());
     private void WorkPositionButtonClick(object sender, RoutedEventArgs e) => NavigationService.Navigate(new WorkPositionViewPage());
 }

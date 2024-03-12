@@ -21,27 +21,40 @@
             <controls:CuteTextBox x:Name="tbSecondName" Title="Фамилия" cText="{Binding ElementName=eEmployeePage, Path=EditEmployee.SecondName}"/>
             <controls:CuteTextBox x:Name="tbFirstName" Title="Имя" cText="{Binding ElementName=eEmployeePage, Path=EditEmployee.FirstName}"/>
             <controls:CuteTextBox x:Name="tbMiddleName" Title="Отчество" cText="{Binding ElementName=eEmployeePage, Path=EditEmployee.MiddleName}"/>
-            <StackPanel Orientation="Horizontal">
+            <controls:CuteTextBox x:Name="tbPhoneNumber" Title="Номер телефона" cText="{Binding ElementName=eEmployeePage, Path=EditEmployee.PhoneNumber}"/>
+            <controls:CuteTextBox x:Name="tbEmail" Title="Эл. почта" cText="{Binding ElementName=eEmployeePage, Path=EditEmployee.Email}"/>
+        </StackPanel>
+        <StackPanel Style="{StaticResource MainEditStackPanel}" Grid.Column="1" >
+            <StackPanel Style="{StaticResource BigEditCbStackPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Должность"/>
                     <ComboBox x:Name="cbWorkPosition" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Click="AddWorkPositionButtonClick"/>
             </StackPanel>
-            <DatePicker x:Name="dpBirthdate"/>
-        </StackPanel>
-        <StackPanel Style="{StaticResource MainEditStackPanel}" Grid.Column="1">
-            <controls:CuteTextBox x:Name="tbPhoneNumber" Title="Номер телефона" cText="{Binding ElementName=eEmployeePage, Path=EditEmployee.PhoneNumber}"/>
-            <controls:CuteTextBox x:Name="tbEmail" Title="Эл. почта" cText="{Binding ElementName=eEmployeePage, Path=EditEmployee.Email}"/>
-            <DatePicker x:Name="dpHiredate"/>
-            <DatePicker x:Name="dpDismdate"/>
-            <StackPanel Orientation="Horizontal">
+
+            <StackPanel Style="{StaticResource EditDateStackPanel}">
+                <Label Style="{StaticResource EditDateLabel}" Content="Дата рождения: "/>
+                <DatePicker Style="{StaticResource EditDatePicker}" x:Name="dpBirthdate"/>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource EditDateStackPanel}">
+                <Label  Style="{StaticResource EditDateLabel}" Content="Дата устройства: "/>
+                <DatePicker Style="{StaticResource EditDatePicker}" x:Name="dpHiredate"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource EditDateStackPanel}">
+                <Label  Style="{StaticResource EditDateLabel}" Content="Дата увольнения: "/>
+                <DatePicker Style="{StaticResource EditDatePicker}" x:Name="dpDismdate" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" >
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Паспорт"/>
                     <ComboBox x:Name="cbPassport" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="DisplayName"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Click="AddPassportButtonClick"/>
             </StackPanel>
+
             <StackPanel Style="{StaticResource EditPageButtonPabel}">
                 <Button Style="{StaticResource ClearButtonEditPage}"  Click="ClearPageButtonClick"/>
                 <Button Style="{StaticResource AddButtonEditPage}" Click="AddEmployeeButtonClick"/>

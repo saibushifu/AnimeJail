@@ -3,12 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:AnimeJail.App.Pages.PopupPages" xmlns:controls="clr-namespace:AnimeJail.App.Controls"
+      xmlns:local="clr-namespace:AnimeJail.App.Pages.PopupPages" xmlns:controls="clr-namespace:AnimeJail.App.Controls" xmlns:methods="clr-namespace:AnimeJail.App.Methods"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PrisonerEditPage" x:Name="ePrisonerPage">
     <Page.Resources>
         <Style TargetType="Button" BasedOn="{StaticResource AuthButton}"></Style>
+        <methods:BytesToImageConverter x:Key="BytesToImageConverter"/>
+        <methods:DateOnlyToNullableDateTimeConverter x:Key="DateOnlyToNullableDateTimeConverter"/>
     </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -20,13 +22,26 @@
             <controls:CuteTextBox x:Name="tbSecondName" Title="Фамилия" cText="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.SecondName}"/>
             <controls:CuteTextBox x:Name="tbFirstName" Title="Имя" cText="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.FirstName}"/>
             <controls:CuteTextBox x:Name="tbMiddleName" Title="Отчество" cText="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.MiddleName}"/>
-            <DatePicker x:Name="dpBirthdate"/>
-            <DatePicker x:Name="dpIndate"/>
-            <DatePicker x:Name="dpFreedate"/>
+
+            <StackPanel Style="{StaticResource EditDateStackPanel}">
+                <Label Style="{StaticResource EditDateLabel}" Content="Дата рождения: "/>
+                <DatePicker Style="{StaticResource EditDatePicker}" x:Name="dpBirthdate" SelectedDate="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.BirthDate, Converter={StaticResource DateOnlyToNullableDateTimeConverter}}"/>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource EditDateStackPanel}">
+                <Label Style="{StaticResource EditDateLabel}" Content="Дата посадки: "/>
+                <DatePicker Style="{StaticResource EditDatePicker}" x:Name="dpIndate" SelectedDate="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.ImprisonmentDate, Converter={StaticResource DateOnlyToNullableDateTimeConverter}}"/>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource EditDateStackPanel}">
+                <Label Style="{StaticResource EditDateLabel}" Content="Дата освобоения: "/>
+                <DatePicker Style="{StaticResource EditDatePicker}" x:Name="dpFreedate" SelectedDate="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.FreedomDate, Converter={StaticResource DateOnlyToNullableDateTimeConverter}}"/>
+            </StackPanel>
+            
             <StackPanel Style="{StaticResource ComboBoxPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Паспорт"/>
-                    <ComboBox x:Name="cbPassport" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="DisplayName"/>
+                    <ComboBox x:Name="cbPassport" Style="{StaticResource ComboboxStyle}" SelectedValue="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.PassportId}" SelectedValuePath="Id" DisplayMemberPath="DisplayName"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}"  Click="AddPassportButtonClick"/>
             </StackPanel>
@@ -34,7 +49,7 @@
             <StackPanel Style="{StaticResource ComboBoxPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Адрес"/>
-                    <ComboBox x:Name="cbAdress" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="DisplayName"/>
+                    <ComboBox x:Name="cbAdress" Style="{StaticResource ComboboxStyle}" SelectedValue="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.AddressId}" SelectedValuePath="Id" DisplayMemberPath="DisplayName"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}"  Click="AddAddressButtonClick"/>
             </StackPanel>
@@ -42,27 +57,20 @@
         <StackPanel Style="{StaticResource MainEditStackPanel}" Grid.Column="1">
             <StackPanel Style="{StaticResource ComboBoxPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
-                    <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Камера"/>
-                    <ComboBox x:Name="cbJail" Style="{StaticResource ComboboxStyle}"  DisplayMemberPath="Id" SelectedIndex="0" SelectionChanged="cbJail_SelectionChanged"/>
-                </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}"  Click="AddJailButtonClick"/>
-            </StackPanel>
-            <StackPanel Style="{StaticResource ComboBoxPanel}">
-                <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Койка"/>
-                    <ComboBox x:Name="cbBerth" Style="{StaticResource ComboboxStyle}"/>
+                    <ComboBox x:Name="cbBerth" Style="{StaticResource ComboboxStyle}" SelectedValue="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.BerthId}" DisplayMemberPath="Id" SelectedValuePath="Id"/>
                 </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}"/>
+                <Button Style="{StaticResource ComboBoxAddButton}" Click="AddBerthButtonClick"/>
             </StackPanel>
-            <ListBox x:Name="lst" Height="40">
+            <ListBox x:Name="lst" Height="80">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <CheckBox Content="{Binding DisplayName}" IsChecked="{Binding IsChecked}" />
+                        <CheckBox Content="{Binding DisplayName}" IsChecked="{Binding IsChecked, Mode=TwoWay}" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
             <StackPanel Orientation="Horizontal">
-            <Image x:Name="iPrisonerPhoto" Height="100" Width="100"/>
+                <Image x:Name="iPrisonerPhoto" Height="100" Width="100" Source="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.Image, Converter={StaticResource BytesToImageConverter}}"/>
                 <Button x:Name="bSelectImage" Height="40" Width="50" Content="..." Click="bSelectImage_Click"/>
             </StackPanel>
             <StackPanel Style="{StaticResource EditPageButtonPabel}">
