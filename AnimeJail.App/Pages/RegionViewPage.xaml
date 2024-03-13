@@ -14,11 +14,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Style="{StaticResource StackPanelForTools}">
-            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}">
+            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}" Visibility="Collapsed">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
                 <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
             </StackPanel>
-            <controls:SearchBox Width="170" Margin="5 8 0 8"/>
+            <controls:SearchBox Width="170" Margin="5 8 0 8" Visibility="Collapsed"/>
             <Button Style="{StaticResource AddButtonViewPage}" Click="RegionAddButtonClick"/>
         </StackPanel>
         <DataGrid x:Name="dgRegion" Style="{StaticResource DataGridAllView}">

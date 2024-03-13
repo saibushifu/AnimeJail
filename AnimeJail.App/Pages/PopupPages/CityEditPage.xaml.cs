@@ -39,37 +39,24 @@ namespace AnimeJail.App.Pages.PopupPages
         private void BaseCtorConfig()
         {
             InitializeComponent();
+            if (EditCity != null)
+            {
+                cbCountry.SelectedValue = EditCity.CountryId;
+                cbRegion.SelectedValue = EditCity.RegionId;
+            }
             UpdateContext();
             cbCountry.ItemsSource = DataFromDb.CountryCollection;
         }
 
         private void UpdateContext()
         {
-            if (EditCity != null)
-            {
-                cbCountry.SelectedValue = EditCity.CountryId;
-                cbRegion.SelectedValue = EditCity.RegionId;
-            }
+           
             cbRegion.ItemsSource = DataFromDb.RegionsCollection.Where(x => x.CountryId == Convert.ToInt32(cbCountry.SelectedValue)).ToList();
         }
 
         private void AddCityButtonClick(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    var newCity = new City
-            //    {
-            //        Id = Convert.ToInt32(tbId.cText),
-            //        Name = tbName.cText,
-            //        CountryId = Convert.ToInt32(cbCountry.SelectedValue),
-            //        Region = cbRegion.SelectedValue as Region
-            //    };
-            //    App.Context.Add(newCity);
-            //    App.Context.SaveChanges();
-            //    DataFromDb.CitiesCollection.Add(newCity);
-            //    MessageBox.Show("Операция выполнена успешно");
-            //}
-            //catch (Exception ex) { MessageBox.Show(ex.Message); }
+          
 
 
             var isCityNull = EditCity == null;
@@ -78,7 +65,7 @@ namespace AnimeJail.App.Pages.PopupPages
             currentCity.Id = Convert.ToInt32(tbId.cText);
             currentCity.Name = tbName.cText;
             currentCity.CountryId = Convert.ToInt32(cbCountry.SelectedValue);
-            currentCity.Region = cbRegion.SelectedValue as Region;
+            currentCity.RegionId = Convert.ToInt32(cbRegion.SelectedValue);
 
             CommonDataFunc<City>.AddObjToDb(isCityNull, App.Context.Cities, currentCity, DataFromDb.CitiesCollection,
                 isCityNull ? null : DataFromDb.CitiesCollection.First(x => x.Id == EditCity.Id));

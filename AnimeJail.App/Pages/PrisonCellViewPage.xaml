@@ -14,11 +14,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Style="{StaticResource StackPanelForTools}">
-            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}">
+            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}" Visibility="Collapsed">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Тип камеры"/>
                 <ComboBox x:Name="cbJailType" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
             </StackPanel>
-            <controls:SearchBox Width="170" Margin="5 8 0 8"/>
+            <controls:SearchBox Width="170" Margin="5 8 0 8" Visibility="Collapsed"/>
             <Button Style="{StaticResource AddButtonViewPage}" Click="PrisonCellAddButtonClick"/>
         </StackPanel>
         <DataGrid x:Name="dgPrisonCell" Style="{StaticResource DataGridAllView}">

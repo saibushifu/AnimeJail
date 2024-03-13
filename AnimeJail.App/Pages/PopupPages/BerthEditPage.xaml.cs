@@ -35,8 +35,6 @@ public partial class BerthEditPage : Page
     {
         InitializeComponent();
         cbJail.ItemsSource = DataFromDb.JailCollection;
-
-        //if (EditRegion != null) cbCountry.SelectedValue = EditRegion.CountryId;
     }
     private void AddJailButtonClick(object sender, RoutedEventArgs e) => CommonPageFunc.OpenPage(new PrisonCellEditPage());
     private void ClearPageButtonClick(object sender, RoutedEventArgs e) =>

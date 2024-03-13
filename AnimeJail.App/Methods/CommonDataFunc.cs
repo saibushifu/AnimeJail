@@ -30,14 +30,6 @@ public class CommonDataFunc<T> where T : class
 
     public static T TypeFromSender(object sender) => (T)((Button)sender).DataContext;
 
-    /// <summary>
-    /// F
-    /// </summary>
-    /// <param name="editItem"></param>
-    /// <param name="dbSet">Коллекция в App</param>
-    /// <param name="currentItem">Добавляемый/изменямый объект</param>
-    /// <param name="itemsCollection">Коллекция Observable</param>
-    /// <param name="itemCollection">Элемент из коллеции Observable, который надо заменить</param>
     public static void AddObjToDb(bool isNull, Microsoft.EntityFrameworkCore.DbSet<T> dbSet, T currentItem, ObservableCollection<T> itemsCollection, T? itemCollection)
     {
         try

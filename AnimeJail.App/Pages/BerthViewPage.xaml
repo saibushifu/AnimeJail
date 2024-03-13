@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Style="{StaticResource StackPanelForTools}">
-            <controls:SearchBox Width="170" Margin="0 8 0 8"/>
+            <controls:SearchBox Width="170" Margin="0 8 0 8" Visibility="Collapsed"/>
             <Button Style="{StaticResource AddButtonViewPage}" Click="AddBerthButtonClick"/>
         </StackPanel>
         <DataGrid x:Name="dgBerth" Style="{StaticResource DataGridAllView}">

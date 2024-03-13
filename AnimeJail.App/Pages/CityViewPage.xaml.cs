@@ -15,13 +15,13 @@ public partial class CityViewPage : Page
     {
         InitializeComponent();
         dgCities.ItemsSource = DataFromDb.CitiesCollection;
-        cbCountry.ItemsSource = DataFromDb.CountryCollection;
+        //cbCountry.ItemsSource = DataFromDb.CountryCollection;
         UpdateContext();
     }
 
     private void UpdateContext()
     {
-        cbRegion.ItemsSource = DataFromDb.RegionsCollection.Where(x => x.CountryId == Convert.ToInt32(cbCountry.SelectedValue)).ToList();
+        //cbRegion.ItemsSource = DataFromDb.RegionsCollection.Where(x => x.CountryId == Convert.ToInt32(cbCountry.SelectedValue)).ToList();
     }
     private void CityAddButtonClick(object sender, RoutedEventArgs e) => CommonPageFunc.OpenPage(new CityEditPage(new City { }));
     private void ListUpdate()

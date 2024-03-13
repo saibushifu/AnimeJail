@@ -22,21 +22,21 @@
                     <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" SelectedIndex="0" 
                               SelectedValuePath="Id" DisplayMemberPath="Name" SelectionChanged="CbSelectionChanged"/>
                 </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}"  Click="AddCountryButtonClick"/>
+                <Button Style="{StaticResource ComboBoxAddButton}" Click="AddCountryButtonClick"/>
             </StackPanel>
             <StackPanel Style="{StaticResource ComboBoxPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Регион"/>
                     <ComboBox x:Name="cbRegion" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectionChanged="CbSelectionChanged"/>
                 </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}"/>
+                <Button Style="{StaticResource ComboBoxAddButton}" Click="AddRegionButtonClick"/>
             </StackPanel>
             <StackPanel Style="{StaticResource ComboBoxPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Город"/>
                     <ComboBox x:Name="cbCity" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
                 </StackPanel>
-                <Button Style="{StaticResource ComboBoxAddButton}"/>
+                <Button Style="{StaticResource ComboBoxAddButton}" Click="AddCityButtonClick"/>
             </StackPanel>
             <controls:CuteTextBox x:Name="tbStreet" Title="Улица" cText="{Binding ElementName=eAddressPage, Path=EditAddress.StreetName}"/>
             <controls:CuteTextBox x:Name="tbBuilding" Title="Строение" cText="{Binding ElementName=eAddressPage, Path=EditAddress.BuildingNumber}"/>

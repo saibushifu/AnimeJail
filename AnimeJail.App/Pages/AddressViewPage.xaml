@@ -14,19 +14,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Style="{StaticResource StackPanelForTools}">
-            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}">
+            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}" Visibility="Collapsed">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
-                <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
+                <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
             </StackPanel>
-            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}">
+            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}" Visibility="Collapsed">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Регион" />
-                <ComboBox x:Name="cbRegion" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
+                <ComboBox x:Name="cbRegion" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
             </StackPanel>
-            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}">
+            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}" Visibility="Collapsed">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Город"/>
-                <ComboBox x:Name="cbCity" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
+                <ComboBox x:Name="cbCity" Style="{StaticResource ComboboxStyle}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
             </StackPanel>
-            <controls:SearchBox Width="150" Margin="5 8 0 8"/>
+            <controls:SearchBox x:Name="searchBox" Width="150" Margin="5 8 0 8" Visibility="Collapsed"/>
             <Button Style="{StaticResource AddButtonViewPage}" Click="AddressAddButtonClick"/>
         </StackPanel>
         <DataGrid x:Name="dgAdress" Style="{StaticResource DataGridAllView}">

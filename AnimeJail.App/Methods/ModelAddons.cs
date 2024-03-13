@@ -35,6 +35,7 @@ public partial class Prisoner
 {
     [NotMapped]
     public string? AllArticles => string.Concat(DataFromDb.ArticlePrisonerCollection.Where(x => x.PrisonerId == this.Id).Select(x => x.ArticleId.ToString() + " "));
+
 }
 
 public partial class Article

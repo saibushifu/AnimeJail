@@ -164,8 +164,13 @@ public partial class PrisonerEditPage : Page
         OpenDialog();
     }
 
-    private void AddBerthButtonClick(object sender, RoutedEventArgs e) =>
-        CommonPageFunc.OpenPage(new BerthEditPage());
+    private void AddBerthButtonClick(object sender, RoutedEventArgs e)
+    {
+        //CommonPageFunc.OpenPage(new BerthEditPage());
+        new PopupWindow(new BerthEditPage()).ShowDialog();
+        UpdateContext();
+
+    }
 
     private void cbJail_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {

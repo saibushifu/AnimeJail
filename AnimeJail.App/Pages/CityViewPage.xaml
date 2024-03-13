@@ -14,15 +14,15 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Style="{StaticResource StackPanelForTools}">
-            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}">
+            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}" Visibility="Collapsed">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Страна"/>
                 <ComboBox x:Name="cbCountry" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
             </StackPanel>
-            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}">
+            <StackPanel Style="{StaticResource ViewComboBoxStackPanel}" Visibility="Collapsed">
                 <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Регион"/>
                 <ComboBox x:Name="cbRegion" Style="{StaticResource ComboboxStyle}" DisplayMemberPath="Name"/>
             </StackPanel>
-            <controls:SearchBox Width="170" Margin="5 8 0 8"/>
+            <controls:SearchBox Width="170" Margin="5 8 0 8" Visibility="Collapsed"/>
             <Button Style="{StaticResource AddButtonViewPage}" Click="CityAddButtonClick"/>
         </StackPanel>
         <DataGrid x:Name="dgCities" Style="{StaticResource DataGridAllView}">

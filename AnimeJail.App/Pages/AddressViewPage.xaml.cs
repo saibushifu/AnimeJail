@@ -35,15 +35,14 @@ namespace AnimeJail.App.Pages
         {
             cbRegion.ItemsSource = DataFromDb.RegionsCollection.Where(x => x.CountryId == Convert.ToInt32(cbCountry.SelectedValue)).ToList();
             cbCity.ItemsSource = cbRegion.SelectedValue != null ? DataFromDb.CitiesCollection.Where(x => x.RegionId == Convert.ToInt32(cbRegion.SelectedValue)).ToList() : null;
+
+
+            //var dgContext = DataFromDb.AddressCollection;
+            //if(cbCountry != null) { dgContext = dgContext.Where(x => x.City.CountryId == Convert.ToInt32cbCountry.SelectedValue) }
         }
 
         private void AddressAddButtonClick(object sender, RoutedEventArgs e) =>
             new PopupWindow(new AddressEditPage()).Show();
-
-        private void ListUpdate()
-        {
-
-        }
 
         private void DeleteAddressButtonClick(object sender, RoutedEventArgs e)
         {

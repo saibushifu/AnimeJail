@@ -325,7 +325,7 @@ public partial class SharpProjectsContext : DbContext
             entity.HasIndex(e => e.Login, "User_login_key").IsUnique();
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
             entity.Property(e => e.EmployeeId).HasColumnName("employeeId");
             entity.Property(e => e.Login).HasColumnName("login");
