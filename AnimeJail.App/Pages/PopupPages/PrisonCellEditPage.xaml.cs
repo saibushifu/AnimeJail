@@ -50,7 +50,7 @@ namespace AnimeJail.App.Pages.PopupPages
             var isJailNull = EditJail == null;
 
             Jail currentArticle = isJailNull ? new Jail { } : App.Context.Jails.First(x => x.Id == EditJail.Id);
-            currentArticle.Id = Convert.ToInt32(tbJailNumber.cText);
+            currentArticle.Name = tbJailNumber.cText;
             currentArticle.Capacity = Convert.ToInt32(tbCapacity.cText);
             currentArticle.TypeId = Convert.ToInt32(cbJailType.SelectedValue);
 

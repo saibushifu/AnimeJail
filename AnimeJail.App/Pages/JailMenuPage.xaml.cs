@@ -12,4 +12,6 @@ public partial class JailMenuPage : Page
     public JailMenuPage() => InitializeComponent();
     private void BerthButtonClick(object sender, RoutedEventArgs e) => NavigationService.Navigate(new BerthViewPage());
     private void JailButtonClick(object sender, RoutedEventArgs e) => NavigationService.Navigate(new PrisonCellViewPage());
+
+    private void JailTypeButtonClick(object sender, RoutedEventArgs e) => NavigationService.Navigate(new JailTypeViewPage());
 }

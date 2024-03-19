@@ -3,13 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:AnimeJail.App.Pages.PopupPages" xmlns:controls="clr-namespace:AnimeJail.App.Controls"
+      xmlns:local="clr-namespace:AnimeJail.App.Pages.PopupPages" xmlns:controls="clr-namespace:AnimeJail.App.Controls" xmlns:methods="clr-namespace:AnimeJail.App.Methods"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EmployeeEditPage" x:Name="eEmployeePage">
     <Page.Resources>
         <Style TargetType="Button" BasedOn="{StaticResource AuthButton}">
         </Style>
+        <methods:DateOnlyToNullableDateTimeConverter x:Key="DateOnlyToNullableDateTimeConverter"/>
     </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -35,16 +36,16 @@
 
             <StackPanel Style="{StaticResource EditDateStackPanel}">
                 <Label Style="{StaticResource EditDateLabel}" Content="Дата рождения: "/>
-                <DatePicker Style="{StaticResource EditDatePicker}" x:Name="dpBirthdate"/>
+                <DatePicker Style="{StaticResource EditDatePicker}" x:Name="dpBirthdate" SelectedDate="{Binding ElementName=eEmployeePage, Path=EditEmployee.Birthdate, Converter={StaticResource DateOnlyToNullableDateTimeConverter}}"/>
             </StackPanel>
 
             <StackPanel Style="{StaticResource EditDateStackPanel}">
                 <Label  Style="{StaticResource EditDateLabel}" Content="Дата устройства: "/>
-                <DatePicker Style="{StaticResource EditDatePicker}" x:Name="dpHiredate"/>
+                <DatePicker Style="{StaticResource EditDatePicker}" x:Name="dpHiredate" SelectedDate="{Binding ElementName=eEmployeePage, Path=EditEmployee.Hiredate, Converter={StaticResource DateOnlyToNullableDateTimeConverter}}"/>
             </StackPanel>
             <StackPanel Style="{StaticResource EditDateStackPanel}">
                 <Label  Style="{StaticResource EditDateLabel}" Content="Дата увольнения: "/>
-                <DatePicker Style="{StaticResource EditDatePicker}" x:Name="dpDismdate" />
+                <DatePicker Style="{StaticResource EditDatePicker}" x:Name="dpDismdate" SelectedDate="{Binding ElementName=eEmployeePage, Path=EditEmployee.Dismdate, Converter={StaticResource DateOnlyToNullableDateTimeConverter}}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" >

@@ -23,7 +23,7 @@
         </StackPanel>
         <DataGrid x:Name="dgPrisonCell" Style="{StaticResource DataGridAllView}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Тип" Binding="{Binding Type.Name}"/>
                 <DataGridTextColumn Header="Вместительность" Binding="{Binding Capacity}"/>
                 <DataGridTemplateColumn Header="Функции">

@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Style="{StaticResource StackPanelForTools}">
-            <controls:SearchBox Width="170" Margin="0 8 0 8" Visibility="Collapsed"/>
+            <controls:SearchBox Width="170" Margin="0 8 0 8"/>
             <Button Style="{StaticResource AddButtonViewPage}" Click="PrisonerAddButtonClick"/>
         </StackPanel>
         <DataGrid x:Name="dgPrisoner" Style="{StaticResource DataGridAllView}">
@@ -27,7 +27,7 @@
                 <DataGridTextColumn Header="Дата прибытия" Binding="{Binding ImprisonmentDate}"/>
                 <DataGridTextColumn Header="Дата осовобождения" Binding="{Binding FreedomDate}"/>
                 <DataGridTextColumn Header="Камера" Binding="{Binding Berth.JailId}"/>
-                <DataGridTextColumn Header="Койка" Binding="{Binding BerthId}"/>
+                <DataGridTextColumn Header="Койка" Binding="{Binding Berth.Name}"/>
                 <DataGridTextColumn Header="Статьи" Binding="{Binding AllArticles}"/>
                 <DataGridTextColumn Header="Адрес" Binding="{Binding Address.DisplayName}"/>
                 <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport.DisplayName}"/>

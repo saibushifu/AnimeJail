@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Content="Камера" Style="{StaticResource PageMainLabel}"/>
-            <controls:CuteTextBox x:Name="tbJailNumber" Title="Номер" cText="{Binding ElementName=eJailPage, Path=EditJail.Id}"/>
+            <controls:CuteTextBox x:Name="tbJailNumber" Title="Номер" cText="{Binding ElementName=eJailPage, Path=EditJail.Name}"/>
             <controls:CuteTextBox x:Name="tbCapacity" Title="Вместительность" cText="{Binding ElementName=eJailPage, Path=EditJail.Capacity}"/>
             <StackPanel Style="{StaticResource ComboBoxPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">

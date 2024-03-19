@@ -45,7 +45,7 @@ public partial class BerthEditPage : Page
         var isBerthNull = EditBerth == null;
 
         Berth currentBerth = isBerthNull ? new Berth { } : App.Context.Berths.First(x => x.Id == EditBerth.Id);
-        currentBerth.Id = tbId.cText;
+        currentBerth.Name = tbId.cText;
         currentBerth.JailId = Convert.ToInt32(cbJail.SelectedValue);
 
         CommonDataFunc<Berth>.AddObjToDb(isBerthNull, App.Context.Berths, currentBerth, DataFromDb.BerthCollection,

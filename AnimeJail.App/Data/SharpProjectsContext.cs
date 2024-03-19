@@ -126,8 +126,11 @@ public partial class SharpProjectsContext : DbContext
 
             entity.ToTable("Berth", "AnimeJailDb");
 
-            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Id)
+                .UseIdentityAlwaysColumn()
+                .HasColumnName("id");
             entity.Property(e => e.JailId).HasColumnName("jailId");
+            entity.Property(e => e.Name).HasColumnName("name");
 
             entity.HasOne(d => d.Jail).WithMany(p => p.Berths)
                 .HasForeignKey(d => d.JailId)
@@ -211,14 +214,14 @@ public partial class SharpProjectsContext : DbContext
             entity.ToTable("Jail", "AnimeJailDb");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
             entity.Property(e => e.Capacity).HasColumnName("capacity");
+            entity.Property(e => e.Name).HasColumnName("name");
             entity.Property(e => e.TypeId).HasColumnName("typeId");
 
             entity.HasOne(d => d.Type).WithMany(p => p.Jails)
                 .HasForeignKey(d => d.TypeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Jail_typeId_fkey");
         });
 
@@ -229,7 +232,7 @@ public partial class SharpProjectsContext : DbContext
             entity.ToTable("JailType", "AnimeJailDb");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
             entity.Property(e => e.Name).HasColumnName("name");
         });
@@ -333,7 +336,6 @@ public partial class SharpProjectsContext : DbContext
 
             entity.HasOne(d => d.Employee).WithMany(p => p.Users)
                 .HasForeignKey(d => d.EmployeeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("User_employeeId_fkey");
         });
 

@@ -14,6 +14,7 @@
     <Grid>
         <StackPanel Style="{StaticResource MenuPanel}">
             <Button Content="Камеры" Click="JailButtonClick"/>
+            <Button Content="Тип камеры" Click="JailTypeButtonClick"/>
             <Button Content="Койки" Click="BerthButtonClick"/>
         </StackPanel>
     </Grid>

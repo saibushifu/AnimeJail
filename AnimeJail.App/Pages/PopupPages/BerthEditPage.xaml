@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Style="{StaticResource PageMainLabel}" Content="Койка"/>
-            <controls:CuteTextBox x:Name="tbId" Title="Номер" cText="{Binding ElementName=eBerthPage, Path=EditBerth.Id}"/>
+            <controls:CuteTextBox x:Name="tbId" Title="Номер" cText="{Binding ElementName=eBerthPage, Path=EditBerth.Name}"/>
             <StackPanel Style="{StaticResource ComboBoxPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Камера"/>

@@ -58,7 +58,7 @@
             <StackPanel Style="{StaticResource ComboBoxPanel}">
                 <StackPanel Style="{StaticResource ComboBoxSubPanel}">
                     <Label Style="{StaticResource ComboBoxHeaderLabel}" Content="Койка"/>
-                    <ComboBox x:Name="cbBerth" Style="{StaticResource ComboboxStyle}" SelectedValue="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.BerthId}" DisplayMemberPath="Id" SelectedValuePath="Id"/>
+                    <ComboBox x:Name="cbBerth" Style="{StaticResource ComboboxStyle}" SelectedValue="{Binding ElementName=ePrisonerPage, Path=EditPrisoner.BerthId}" DisplayMemberPath="Name" SelectedValuePath="Id"/>
                 </StackPanel>
                 <Button Style="{StaticResource ComboBoxAddButton}" Click="AddBerthButtonClick"/>
             </StackPanel>

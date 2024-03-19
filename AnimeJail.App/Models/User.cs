@@ -9,9 +9,9 @@ public partial class User
 
     public string Password { get; set; } = null!;
 
-    public int EmployeeId { get; set; }
+    public int? EmployeeId { get; set; }
 
     public int Id { get; set; }
 
-    public virtual Employee Employee { get; set; } = null!;
+    public virtual Employee? Employee { get; set; }
 }

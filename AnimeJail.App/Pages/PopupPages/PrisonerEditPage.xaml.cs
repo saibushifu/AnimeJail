@@ -127,7 +127,7 @@ public partial class PrisonerEditPage : Page
             currentPrisoner.ImprisonmentDate = DateOnly.FromDateTime(dpIndate.SelectedDate.Value);
             currentPrisoner.PassportId = Convert.ToInt32(cbPassport.SelectedValue);
             currentPrisoner.Image = _imageBytes;
-            currentPrisoner.BerthId = cbBerth.SelectedValue.ToString();
+            currentPrisoner.BerthId = Convert.ToInt32(cbBerth.SelectedValue);
 
             CommonDataFunc<Prisoner>.AddObjToDb(isPrisonerNull, App.Context.Prisoners, currentPrisoner,
                 DataFromDb.PrisonerCollection, isPrisonerNull ? null : DataFromDb.PrisonerCollection.First(x => x.Id == EditPrisoner.Id));

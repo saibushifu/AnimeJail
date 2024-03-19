@@ -25,7 +25,7 @@ public partial class Prisoner
 
     public byte[]? Image { get; set; }
 
-    public string? BerthId { get; set; }
+    public int? BerthId { get; set; }
 
     public virtual Address Address { get; set; } = null!;
 

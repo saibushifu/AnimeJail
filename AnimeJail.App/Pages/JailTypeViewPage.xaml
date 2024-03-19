@@ -1,4 +1,4 @@
-﻿<Page x:Class="AnimeJail.App.Pages.BerthViewPage"
+﻿<Page x:Class="AnimeJail.App.Pages.JailTypeViewPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:AnimeJail.App.Pages" xmlns:controls="clr-namespace:AnimeJail.App.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="BerthViewPage">
+      Title="JailTypeViewPage">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -15,19 +15,18 @@
         </Grid.RowDefinitions>
         <StackPanel Style="{StaticResource StackPanelForTools}">
             <controls:SearchBox Width="170" Margin="0 8 0 8" Visibility="Collapsed"/>
-            <Button Style="{StaticResource AddButtonViewPage}" Click="AddBerthButtonClick"/>
+            <Button Style="{StaticResource AddButtonViewPage}" Click="JailTypeButtonClick"/>
         </StackPanel>
-        <DataGrid x:Name="dgBerth" Style="{StaticResource DataGridAllView}">
+        <DataGrid x:Name="dgJailType" Style="{StaticResource DataGridAllView}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Идентификатор" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Номер" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Камера" Binding="{Binding Jail.Id}"/>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
                 <DataGridTemplateColumn Header="Функции">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Style="{DynamicResource TrueIconButtonDelete}" Click="DeleteBerthButtonClick"/>
-                                <Button Style="{DynamicResource TrueIconButtonEdit}" Click="EditBerthButtonClick"/>
+                                <Button Style="{DynamicResource TrueIconButtonDelete}" Click="DeleteJailTypeButtonClick"/>
+                                <Button Style="{DynamicResource TrueIconButtonEdit}" Click="EditJailTypeButtonClick"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

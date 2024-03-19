@@ -5,9 +5,11 @@ namespace AnimeJail.App.Models;
 
 public partial class Berth
 {
-    public string Id { get; set; } = null!;
-
     public int? JailId { get; set; }
+
+    public int Id { get; set; }
+
+    public string Name { get; set; } = null!;
 
     public virtual Jail? Jail { get; set; }
 

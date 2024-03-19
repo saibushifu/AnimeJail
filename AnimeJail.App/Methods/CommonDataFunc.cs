@@ -1,16 +1,7 @@
-﻿using AnimeJail.App.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows;
 using System.Collections.ObjectModel;
-using AnimeJail.App.Controls;
-using AnimeJail.App.Pages.PopupPages;
 using AnimeJail.App.Windows;
-using System.Reflection;
 
 namespace AnimeJail.App.Methods;
 

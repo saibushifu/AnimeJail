@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel Style="{StaticResource MainEditStackPanel}">
             <Label Style="{StaticResource PageMainLabel}" Content="Тип камеры"/>
-            <controls:CuteTextBox x:Name="tbId" Title="Идентификатор" cText="{Binding ElementName=eJailTypePage, Path=EditJailType.Id}"/>
+            <!--<controls:CuteTextBox x:Name="tbId" Title="Идентификатор" cText="{Binding ElementName=eJailTypePage, Path=EditJailType.Id}"/>-->
             <controls:CuteTextBox x:Name="tbName" Title="Наименование" cText="{Binding ElementName=eJailTypePage, Path=EditJailType.Name}"/>
             <StackPanel Style="{StaticResource EditPageButtonPabel}">
                 <Button Style="{StaticResource ClearButtonEditPage}" Click="ClearPageButtonClick"/>
